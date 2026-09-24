@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trắc Nghiệm HP1 Bài 2 - GDQP&AN</title>
+  <title>Ôn Tập Tổng Hợp Trắc Nghiệm GDQP&AN - Học Phần 1</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -16,76 +16,87 @@
 <body class="min-h-screen text-slate-800 flex flex-col justify-between">
 
   <!-- Header -->
-  <header class="bg-red-800 text-white shadow-md sticky top-0 z-50">
-    <div class="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
+  <header class="bg-red-900 text-white shadow-md sticky top-0 z-50">
+    <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
       <div class="flex items-center space-x-3">
         <i class="fa-solid fa-shield-halved text-2xl text-yellow-400"></i>
         <div>
-          <h1 class="text-lg md:text-xl font-bold uppercase tracking-wide">Trắc Nghiệm HP1 - Bài 2</h1>
-          <p class="text-xs text-red-200">Quan điểm Mác - Lênin & Tư tưởng Hồ Chí Minh về chiến tranh, quân đội và BVTQ</p>
+          <h1 class="text-base md:text-lg font-bold uppercase tracking-wide">GDQP&AN HP1 - Ôn Tập Tổng Hợp</h1>
+          <p class="text-xs text-red-200">Ngân hàng câu hỏi Bài 2, Bài 3 và Bài 4</p>
         </div>
       </div>
-      <div class="flex items-center space-x-2">
-        <button id="restart-top-btn" onclick="initQuiz()" class="bg-red-700 hover:bg-red-600 active:scale-95 text-xs md:text-sm font-semibold px-3 py-2 rounded-lg transition duration-200 flex items-center gap-1.5 shadow">
-          <i class="fa-solid fa-arrows-rotate"></i> <span class="hidden sm:inline">Trộn & Làm lại</span>
-        </button>
-      </div>
+      <button onclick="initQuiz()" class="bg-red-800 hover:bg-red-700 active:scale-95 text-xs md:text-sm font-semibold px-3 py-2 rounded-lg transition duration-200 flex items-center gap-1.5 shadow">
+        <i class="fa-solid fa-arrows-rotate"></i> <span class="hidden sm:inline">Trộn & Làm lại</span>
+      </button>
     </div>
   </header>
 
   <!-- Main Container -->
   <main class="max-w-4xl mx-auto px-4 py-6 flex-grow w-full">
-    <!-- Progress Bar & Status -->
-    <div class="bg-white rounded-xl shadow-sm p-4 mb-6 border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-      <div class="flex items-center gap-2">
-        <span class="font-semibold text-slate-700">Tiến độ hoàn thành:</span>
-        <span id="answered-counter" class="text-red-700 font-bold">0/40</span>
+    
+    <!-- Control & Filter Bar -->
+    <div class="bg-white rounded-xl shadow-sm p-4 mb-6 border border-slate-200 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div class="flex flex-col sm:flex-row sm:items-center gap-3 w-full md:w-auto">
+        <label for="mode-select" class="text-xs md:text-sm font-bold text-slate-700 whitespace-nowrap flex items-center gap-1.5">
+          <i class="fa-solid fa-filter text-red-800"></i> Chế độ làm bài:
+        </label>
+        <select id="mode-select" onchange="initQuiz()" class="bg-slate-50 border border-slate-300 text-slate-800 text-xs md:text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block p-2 font-medium outline-none">
+          <option value="all">Tất cả bài (114 câu ngẫu nhiên)</option>
+          <option value="random40">Thi thử ngẫu nhiên (40 câu)</option>
+          <option value="bai2">Chỉ Bài 2 (Quan điểm Mác-Lênin & HCM - 40 câu)</option>
+          <option value="bai3">Chỉ Bài 3 (Nền QPTD & ANND - 34 câu)</option>
+          <option value="bai4">Chỉ Bài 4 (Chiến tranh nhân dân BVTQ - 40 câu)</option>
+        </select>
       </div>
-      <div class="w-full sm:w-1/2 bg-slate-100 rounded-full h-3 overflow-hidden">
-        <div id="progress-bar" class="bg-red-700 h-3 rounded-full transition-all duration-300" style="width: 0%"></div>
+
+      <div class="flex items-center gap-3 w-full md:w-1/2 justify-end">
+        <div class="flex items-center gap-1.5 text-xs md:text-sm font-semibold text-slate-700">
+          <span>Tiến độ:</span>
+          <span id="answered-counter" class="text-red-700 font-bold">0/0</span>
+        </div>
+        <div class="w-1/2 bg-slate-100 rounded-full h-2.5 overflow-hidden">
+          <div id="progress-bar" class="bg-red-700 h-2.5 rounded-full transition-all duration-300" style="width: 0%"></div>
+        </div>
       </div>
     </div>
 
     <!-- Questions Container -->
-    <div id="quiz-container" class="space-y-6">
-      <!-- Dynamic Question Cards Inserted via JS -->
-    </div>
+    <div id="quiz-container" class="space-y-6"></div>
 
-    <!-- Submit Section -->
-    <div id="actions-section" class="mt-8 mb-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
-      <button id="submit-btn" onclick="gradeQuiz()" class="w-full sm:w-auto px-8 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transform active:scale-95 transition duration-200 flex items-center justify-center gap-2 text-base">
+    <!-- Actions Section -->
+    <div class="mt-8 mb-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <button id="submit-btn" onclick="gradeQuiz()" class="w-full sm:w-auto px-8 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-md hover:shadow-lg active:scale-95 transition duration-200 flex items-center justify-center gap-2 text-base">
         <i class="fa-solid fa-check-circle"></i> Nộp bài & Chấm điểm
       </button>
-      <button id="reset-btn" onclick="initQuiz()" class="w-full sm:w-auto px-8 py-3.5 bg-slate-700 hover:bg-slate-800 text-white font-semibold rounded-xl shadow hover:shadow-md transform active:scale-95 transition duration-200 flex items-center justify-center gap-2 text-base">
-        <i class="fa-solid fa-shuffle"></i> Trộn mới câu hỏi & Làm lại
+      <button onclick="initQuiz()" class="w-full sm:w-auto px-8 py-3.5 bg-slate-700 hover:bg-slate-800 text-white font-semibold rounded-xl shadow hover:shadow-md active:scale-95 transition duration-200 flex items-center justify-center gap-2 text-base">
+        <i class="fa-solid fa-shuffle"></i> Trộn đề mới & Làm lại
       </button>
     </div>
 
-    <!-- Score Modal / Card -->
-    <div id="result-card" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 text-center animate-bounce-short">
-        <div id="result-badge" class="w-20 h-20 mx-auto mb-4 rounded-full flex items-center justify-center text-3xl font-bold shadow-inner">
-        </div>
+    <!-- Result Modal -->
+    <div id="result-modal" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+      <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 text-center">
+        <div id="result-badge" class="w-20 h-20 mx-auto mb-4 rounded-full flex items-center justify-center text-3xl font-bold"></div>
         <h2 id="result-title" class="text-2xl font-bold mb-1">Kết Quả Bài Thi</h2>
         <p id="result-feedback" class="text-slate-600 text-sm mb-4"></p>
         
         <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 mb-6 grid grid-cols-2 gap-3 text-left">
           <div>
             <span class="text-xs text-slate-500 block">Số câu đúng:</span>
-            <span id="correct-count" class="text-xl font-bold text-emerald-600">0/40</span>
+            <span id="correct-count" class="text-xl font-bold text-emerald-600">0/0</span>
           </div>
           <div>
             <span class="text-xs text-slate-500 block">Điểm hệ 10:</span>
-            <span id="score-10" class="text-xl font-bold text-red-600">0.0</span>
+            <span id="score-10" class="text-xl font-bold text-red-700">0.0</span>
           </div>
         </div>
 
         <div class="flex gap-3">
-          <button onclick="closeResultModal()" class="flex-1 py-2.5 bg-slate-200 hover:bg-slate-300 font-semibold rounded-lg transition duration-150">
+          <button onclick="closeResultModal()" class="flex-1 py-2.5 bg-slate-200 hover:bg-slate-300 font-semibold rounded-lg text-sm transition">
             Xem lại bài
           </button>
-          <button onclick="initQuiz(); closeResultModal();" class="flex-1 py-2.5 bg-red-700 hover:bg-red-800 text-white font-semibold rounded-lg transition duration-150 flex items-center justify-center gap-1.5">
-            <i class="fa-solid fa-rotate-right"></i> Đề mới
+          <button onclick="initQuiz(); closeResultModal();" class="flex-1 py-2.5 bg-red-800 hover:bg-red-700 text-white font-semibold rounded-lg text-sm transition flex items-center justify-center gap-1.5">
+            <i class="fa-solid fa-rotate-right"></i> Làm lại đề mới
           </button>
         </div>
       </div>
@@ -94,13 +105,15 @@
 
   <!-- Footer -->
   <footer class="bg-slate-800 text-slate-400 text-center py-4 text-xs">
-    Ngân hàng trắc nghiệm GDQP&AN Học phần 1 - Hỗ trợ xáo trộn câu hỏi và đáp án ngẫu nhiên.
+    Ngân hàng trắc nghiệm GDQP&AN Học phần 1 (Bài 2, 3, 4) - Tự động trộn câu hỏi và đáp án ngẫu nhiên.
   </footer>
 
   <script>
-    // Dữ liệu gốc 40 câu hỏi từ file docx
+    // Dữ liệu hợp nhất 114 câu hỏi từ cả 3 bài
     const rawQuestionsData = [
+      // ==================== BÀI 2 (40 câu) ====================
       {
+        lesson: "Bài 2",
         q: "Chiến tranh là một hiện tượng:",
         options: [
           { text: "Hiện tượng cạnh tranh sinh tồn", correct: false },
@@ -110,6 +123,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "Theo quan điểm chủ nghĩa Mác-Lênin, chiến tranh bắt nguồn từ:",
         options: [
           { text: "Bản năng sinh tồn của động vật.", correct: false },
@@ -119,6 +133,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "Theo quan điểm của Lênin, trong thời đại ngày nay, muốn xóa bỏ chiến tranh phải:",
         options: [
           { text: "Giải tán QĐ tư sản.", correct: false },
@@ -128,6 +143,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "Chủ nghĩa Mác Lênin khẳng định: Bản chất của chiến tranh là sự tiếp tục của chính trị bằng:",
         options: [
           { text: "Bạo lực.", correct: true },
@@ -137,6 +153,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "Theo quan điểm của chủ nghĩa Mác-Lênin mối quan hệ giữa chính trị với chiến tranh là?",
         options: [
           { text: "Là mối quan hệ biện chứng tác động qua lại, trong đó chính trị là quan trọng quyết định chiến tranh.", correct: true },
@@ -146,6 +163,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "Chiến tranh là một hiện tượng chính trị - xã hội có “tính lịch sử” nghĩa là gì?",
         options: [
           { text: "Chiến tranh xuất hiện, tồn tại và mất đi trong tiến trình lịch sử của nhân loại", correct: true },
@@ -155,6 +173,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "Đặc trưng nào của chiến tranh để phân biệt với các hiện tượng chính trị - xã hội khác?",
         options: [
           { text: "Đấu tranh vũ trang có tổ chức", correct: true },
@@ -164,6 +183,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "Mục đích suy đến cùng của chiến tranh là gì?",
         options: [
           { text: "Lợi ích kinh tế", correct: true },
@@ -173,6 +193,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "Trường hợp nào sau đây không được gọi là hiện tượng chiến tranh?",
         options: [
           { text: "Xung đột vũ trang giữa các bộ tộc, bộ lạc trong thời kỳ Cộng sản nguyên thủy", correct: true },
@@ -182,6 +203,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "Hình thái kinh tế - xã hội nào không còn hiện tượng chiến tranh?",
         options: [
           { text: "Hình thái kinh tế - xã hội cộng sản chủ nghĩa", correct: true },
@@ -191,6 +213,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "V.I.Lênin nói: “Chiến tranh chẳng qua chỉ là chính trị từ đầu đến cuối” nghĩa là gì?",
         options: [
           { text: "Bản chất của chiến tranh là sự kế tục của chính trị", correct: true },
@@ -200,6 +223,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "Câu nói: “Chiến tranh là bạn đường của chủ nghĩa đế quốc” là của ai?",
         options: [
           { text: "V.I.Lênin", correct: true },
@@ -209,6 +233,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "Hồ Chí Minh khẳng định mục đích cuộc chiến tranh của nhân dân ta chống thực dân Pháp:",
         options: [
           { text: "Bảo vệ nhân dân, bảo vệ chế độ, BVTQ Việt Nam xã hội chủ nghĩa.", correct: false },
@@ -218,6 +243,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "Lời kêu gọi toàn quốc kháng chiến chống thực dân Pháp của Chủ tịch Hồ Chí Minh vào ngày:",
         options: [
           { text: "Ngày 22 tháng 12 năm 1944.", correct: false },
@@ -227,6 +253,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "Tư tưởng chỉ đạo trong Lời kêu gọi toàn quốc kháng chiến của Chủ tịch Hồ Chí Minh là:",
         options: [
           { text: "Kháng chiến toàn dân, toàn diện", correct: true },
@@ -236,6 +263,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "Chủ tịch Hồ Chí Minh sử dụng khái niệm nào dưới đây để chỉ cuộc chiến tranh mà ta phải đánh địch trên đủ mọi mặt quân sự, kinh tế, chính trị, tư tưởng?",
         options: [
           { text: "Toàn diện chiến tranh.", correct: true },
@@ -245,6 +273,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "Tư tưởng Hồ Chí Minh xác định phương châm tiến hành chiến tranh của nhân dân ta bao gồm những nội dung cốt lõi nào?",
         options: [
           { text: "Đánh lâu dài, dựa vào sức mình là chính, vừa kháng chiến vừa kiến quốc.", correct: true },
@@ -254,6 +283,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "Trong việc chăm lo xây dựng hậu phương chiến tranh, Hồ Chí Minh quan niệm trước hết phải xây dựng hậu phương vững mạnh về mặt nào?",
         options: [
           { text: "Chính trị tư tưởng.", correct: true },
@@ -263,6 +293,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "Nguồn gốc trực tiếp dẫn đến ra đời và tồn tại QĐ là:",
         options: [
           { text: "Đối kháng giai cấp trong xã hội.", correct: true },
@@ -272,6 +303,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "Bản chất giai cấp của QĐ phụ thuộc vào:",
         options: [
           { text: "Bản chất của giai cấp, nhà nước đã tổ chức ra QĐ đó.", correct: true },
@@ -281,6 +313,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "Yếu tố giữ vai trò quyết định đến sức mạnh chiến đấu của QĐ là:",
         options: [
           { text: "Quân số, tổ chức, cơ cấu biên chế.", correct: false },
@@ -290,6 +323,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "Câu nói: “Trong mọi cuộc chiến tranh, rốt cuộc thắng lợi đều phụ thuộc vào tinh thần của quần chúng đang đổ máu trên chiến trường..” là của:",
         options: [
           { text: "V.I. Lênin.", correct: true },
@@ -299,6 +333,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "Theo quan điểm của CNMLN, QĐ là:",
         options: [
           { text: "Công cụ bạo lực vũ trang của một giai cấp, nhà nước nhất định", correct: true },
@@ -308,6 +343,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "Tư tưởng Hồ Chí Minh khẳng định sự ra đời của QĐ nhân dân Việt Nam:",
         options: [
           { text: "Là một tất yếu có tính quy luật trong đấu tranh giai cấp, đấu tranh dân tộc ở Việt Nam.", correct: true },
@@ -317,6 +353,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "Theo tư tưởng HCM, QĐ NDVN mang bản chất:",
         options: [
           { text: "Mang bản chất của giai cấp nông dân.", correct: false },
@@ -326,6 +363,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "QĐNDVN mang bản chất của giai cấp công nhân đồng thời có:",
         options: [
           { text: "Tính quần chúng và cách mạng sâu sắc.", correct: false },
@@ -335,6 +373,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "Chủ tịch Hồ Chí Minh khẳng định QĐNDVN có nhiệm vụ:",
         options: [
           { text: "Xây dựng QĐ ngày càng hùng mạnh và sẵn sàng chiến đấu.", correct: true },
@@ -344,6 +383,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "Yếu tố nào đóng vai trò quyết định tạo nên sức mạnh chiến đấu của QĐ ta?",
         options: [
           { text: "Vũ khí trang bị.", correct: false },
@@ -353,6 +393,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "Chủ tịch HCM, một trong hai nhiệm vụ chính của QĐ ta là:",
         options: [
           { text: "Tiến hành phổ biến chính sách của Đảng, Nhà nước cho nhân dân.", correct: false },
@@ -362,6 +403,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "3 chức năng cơ bản của QĐ nhân dân Việt Nam gồm:",
         options: [
           { text: "Chiến đấu, sẵn sàng chiến đấu và làm nhiệm vụ quốc tế.", correct: false },
@@ -371,6 +413,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "Ai là người ra Chỉ thị thành lập “Đội Việt Nam tuyên truyền giải phóng quân”?",
         options: [
           { text: "Chủ tịch Hồ Chí Minh", correct: true },
@@ -380,6 +423,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "Hồ Chí Minh thêm cụm từ “tuyên truyền” vào tên gọi “Đội Việt Nam tuyên truyền giải phóng quân” nghĩa là gì?",
         options: [
           { text: "Nghĩa là “chính trị trọng hơn quân sự; quân sự phải phục tùng chính trị”", correct: true },
@@ -389,6 +433,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "Tại sao QĐNDVN mang bản chất của giai cấp công nhân?",
         options: [
           { text: "QĐ ta do ĐCSVN tổ chức, lãnh đạo và rèn luyện", correct: true },
@@ -398,6 +443,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "Ai được gọi là người “Anh Cả” của QĐNDVN?",
         options: [
           { text: "Đại tướng Võ Nguyên Giáp", correct: true },
@@ -407,6 +453,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "QĐNDVN được gọi bằng danh xưng trìu mến nào?",
         options: [
           { text: "“Bộ đội Cụ Hồ”", correct: true },
@@ -416,6 +463,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "Một trong những truyền thống vẻ vang của QĐ ta?",
         options: [
           { text: "Trung thành vô hạn với sự nghiệp cách mạng của Đảng", correct: true },
@@ -425,6 +473,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "Một trong những quan điểm của CN MLN về BVTQXHCN:",
         options: [
           { text: "BVTQ xã hội chủ nghĩa là nhiệm vụ thường xuyên, liên tục.", correct: false },
@@ -434,6 +483,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "Một trong những quan điểm CN Mác Lênin về BVTQXHCN:",
         options: [
           { text: "Tăng cường quân thường trực gắn với phát triển kinh tế xã hội", correct: false },
@@ -443,6 +493,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "Bác Hồ nói với Đại đoàn Quân tiên phong trong lần về thăm Đền Hùng năm 1954:",
         options: [
           { text: "Các vua Hùng đã có công dựng nước, Bác cháu ta phải cùng nhau giữ lấy nước.", correct: true },
@@ -452,6 +503,7 @@
         ]
       },
       {
+        lesson: "Bài 2",
         q: "Tư tưởng Hồ Chí Minh về sức mạnh BVTQ:",
         options: [
           { text: "Là sức mạnh của từng dân tộc, kết hợp với sức mạnh của nền QPTD.", correct: false },
@@ -459,15 +511,758 @@
           { text: "Là sức mạnh của toàn dân, lấy lực lượng vũ trang làm nòng cốt.", correct: false },
           { text: "Là sức mạnh của lực lượng vũ trang nhân dân, sức mạnh QPTD.", correct: false }
         ]
+      },
+
+      // ==================== BÀI 3 (34 câu) ====================
+      {
+        lesson: "Bài 3",
+        q: "Theo Luật Quốc phòng năm 2018, quốc phòng được hiểu là gì?",
+        options: [
+          { text: "Công cuộc giữ nước bằng sức mạnh tổng hợp của toàn dân tộc, trong đó sức mạnh quân sự là đặc trưng, lực lượng vũ trang nhân dân làm nòng cốt.", correct: true },
+          { text: "Hoạt động quân sự riêng của QĐ nhân dân.", correct: false },
+          { text: "Việc bảo vệ an ninh chính trị trong nội địa.", correct: false },
+          { text: "Hoạt động đối ngoại nhằm giữ môi trường hòa bình.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 3",
+        q: "Theo Luật Quốc phòng năm 2018, QPTD là gì?",
+        options: [
+          { text: "Công cuộc giữ nước mang tính chất nhân dân, phát triển theo hướng toàn dân, toàn diện, độc lập tự chủ, tự cường và ngày càng hiện đại.", correct: true },
+          { text: "Công cuộc giữ nước mang tính toàn dân, tập trung vào sức mạnh quân sự và lực lượng vũ trang hiện đại.", correct: false },
+          { text: "Công cuộc giữ nước do Nhà nước tổ chức, dựa chủ yếu vào lực lượng chuyên trách và tiềm lực kinh tế.", correct: false },
+          { text: "Công cuộc giữ nước mang tính nhân dân, ưu tiên hợp tác quốc tế và sự hỗ trợ từ bên ngoài.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 3",
+        q: "Theo Luật An ninh quốc gia năm 2004, nền ANND là gì?",
+        options: [
+          { text: "Sức mạnh tinh thần, vật chất, sự đoàn kết và truyền thống dựng nước, giữ nước của toàn dân tộc được huy động vào sự nghiệp bảo vệ an ninh quốc gia, trong đó lực lượng chuyên trách bảo vệ an ninh quốc gia làm nòng cốt.", correct: true },
+          { text: "Sức mạnh riêng của lực lượng chuyên trách bảo vệ an ninh quốc gia.", correct: false },
+          { text: "Hệ thống cơ sở vật chất phục vụ nhiệm vụ quản lý nhà nước.", correct: false },
+          { text: "Hoạt động bảo đảm trật tự, an toàn xã hội ở địa phương.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 3",
+        q: "Xây dựng nền QPTD, ANND có vị trí gì trong nhiệm vụ BVTQ?",
+        options: [
+          { text: "Có vị trí chiến lược trong nhiệm vụ BVTQ.", correct: true },
+          { text: "Có vị trí nền tảng trong xây dựng lực lượng vũ trang, chủ yếu bảo đảm sức mạnh quân sự.", correct: false },
+          { text: "Có vị trí thường xuyên trong bảo đảm an ninh, tập trung vào phòng, chống tội phạm và giữ gìn trật tự.", correct: false },
+          { text: "Có vị trí hỗ trợ trong phát triển kinh tế - xã hội, chủ yếu tạo nguồn lực vật chất cho quốc phòng, an ninh.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 3",
+        q: "Mục đích duy nhất của nền QPTD, ANND là gì?",
+        options: [
+          { text: "Tự vệ chính đáng.", correct: true },
+          { text: "Mở rộng ảnh hưởng quân sự.", correct: false },
+          { text: "Tăng cường cạnh tranh chiến lược.", correct: false },
+          { text: "Thể hiện ưu thế vũ khí hiện đại.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 3",
+        q: "Đặc trưng nào thể hiện tính nhân dân của nền QPTD, ANND?",
+        options: [
+          { text: "Vì dân, của dân và do toàn thể nhân dân tiến hành.", correct: true },
+          { text: "Do lực lượng vũ trang nhân dân làm nòng cốt và trực tiếp tiến hành trên phạm vi cả nước.", correct: false },
+          { text: "Do hệ thống chính trị tổ chức, điều hành và các lực lượng chuyên trách thực hiện.", correct: false },
+          { text: "Do Nhà nước đầu tư, xây dựng và quản lý thống nhất, nhân dân tham gia theo từng nhiệm vụ cụ thể.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 3",
+        q: "Sức mạnh tổng hợp của nền QPTD, ANND do những yếu tố nào tạo thành?",
+        options: [
+          { text: "Chính trị, kinh tế, văn hóa, tư tưởng, khoa học, quân sự, an ninh và các yếu tố khác; trong đó yếu tố bên trong của dân tộc giữ vai trò quyết định.", correct: true },
+          { text: "Chính trị, quân sự, an ninh và đối ngoại; trong đó sức mạnh quân sự giữ vai trò quyết định.", correct: false },
+          { text: "Kinh tế, khoa học, công nghệ và tài chính; trong đó tiềm lực kinh tế giữ vai trò quyết định.", correct: false },
+          { text: "VH, XH, tư tưởng và truyền thông; trong đó yếu tố tinh thần giữ vai trò quyết định.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 3",
+        q: "Yêu cầu xây dựng nền QPTD, ANND toàn diện và hiện đại là gì?",
+        options: [
+          { text: "Huy động sức mạnh của toàn dân về mọi mặt, đồng thời xây dựng quốc phòng, an ninh hiện đại là tất yếu khách quan", correct: true },
+          { text: "Ưu tiên hiện đại hóa lực lượng vũ trang trước, sau đó từng bước mở rộng sang các lĩnh vực khác.", correct: false },
+          { text: "Xây dựng toàn diện các tiềm lực, còn hiện đại hóa tập trung chủ yếu vào vũ khí và trang bị kỹ thuật.", correct: false },
+          { text: "Lấy phát triển kinh tế - xã hội làm trọng tâm, QP - AN hiện đại hóa theo khả năng ngân sách từng thời kỳ.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 3",
+        q: "Mối quan hệ giữa nền QPTD và nền ANND được xác định như thế nào?",
+        options: [
+          { text: "Nền QPTD gắn chặt với nền ANND.", correct: true },
+          { text: "Hai nền tảng tách biệt, không liên quan đến nhau.", correct: false },
+          { text: "Nền ANND thay thế nền QPTD.", correct: false },
+          { text: "Nền QPTD thiên về gắn với đối ngoại.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 3",
+        q: "Một mục đích xây dựng nền QPTD, ANND vững mạnh hiện nay là gì?",
+        options: [
+          { text: "Tạo sức mạnh tổng hợp, tạo thế chủ động cho sự nghiệp xây dựng và BVTQ Việt Nam XHCN", correct: true },
+          { text: "Tạo tiềm lực quân sự đủ mạnh để giành ưu thế trong các tranh chấp và xung đột khu vực.", correct: false },
+          { text: "Tạo nguồn lực kinh tế phục vụ hiện đại hóa lực lượng vũ trang và công nghiệp quốc phòng.", correct: false },
+          { text: "Tạo hệ thống lực lượng chuyên trách đủ sức xử lý các nguy cơ quốc phòng, an ninh trong mọi tình huống.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 3",
+        q: "Nội dung xây dựng nền QPTD, ANND vững mạnh hiện nay gồm những nội dung nào?",
+        options: [
+          { text: "Xây dựng tiềm lực quốc phòng an ninh; lực lượng quốc phòng an ninh; thế trận QPTD, ANND.", correct: true },
+          { text: "Xây dựng kinh tế, văn hóa và hệ thống giáo dục quốc dân.", correct: false },
+          { text: "Xây dựng QĐ thường trực, công nghiệp quốc phòng và hậu cần.", correct: false },
+          { text: "Xây dựng đối ngoại, thương mại và hợp tác khu vực.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 3",
+        q: "Tiềm lực QP - AN là gì?",
+        options: [
+          { text: "Khả năng về nhân lực, vật lực, tài chính, tinh thần ở trong nước và ngoài nước có thể huy động để thực hiện nhiệm vụ quốc phòng, an ninh.", correct: true },
+          { text: "Khả năng về con người, vũ khí và trang bị có thể huy động trực tiếp cho nhiệm vụ quân sự.", correct: false },
+          { text: "Khả năng về kinh tế, khoa học và công nghệ có thể khai thác để phát triển đất nước.", correct: false },
+          { text: "Khả năng tổ chức, triển khai và bố trí lực lượng, tiềm lực trên toàn lãnh thổ theo ý định chiến lược.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 3",
+        q: "Tiềm lực chính trị trong xây dựng nền QPTD, ANND là gì?",
+        options: [
+          { text: "Khả năng tiềm tàng về chính trị có thể huy động tạo sức mạnh thực hiện nhiệm vụ quốc phòng, an ninh.", correct: true },
+          { text: "Khả năng tài chính có thể huy động phục vụ quốc phòng, an ninh.", correct: false },
+          { text: "Khả năng khoa học, công nghệ phục vụ nghiên cứu quốc phòng.", correct: false },
+          { text: "Khả năng tác chiến của lực lượng vũ trang nhân dân.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 3",
+        q: "Tiềm lực chính trị biểu hiện chủ yếu ở nội dung nào?",
+        options: [
+          { text: "Nhận thức, ý chí, niềm tin, tâm lý, tình cảm, trách nhiệm của nhân dân và lực lượng vũ trang đối với nhiệm vụ QP-AN", correct: true },
+          { text: "Quy mô dự trữ tài chính và năng lực cơ động của nền kinh tế.", correct: false },
+          { text: "Trình độ nghiên cứu, ứng dụng khoa học và công nghệ.", correct: false },
+          { text: "Số lượng vũ khí, trang bị và phương tiện kỹ thuật.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 3",
+        q: "Tiềm lực kinh tế của nền QPTD, ANND là gì?",
+        options: [
+          { text: "Khả năng kinh tế của đất nước có thể khai thác, huy động phục vụ quốc phòng, an ninh.", correct: true },
+          { text: "Khả năng tác chiến và sẵn sàng chiến đấu của lực lượng vũ trang.", correct: false },
+          { text: "Khả năng về tư tưởng, ý chí và trách nhiệm chính trị.", correct: false },
+          { text: "Khả năng giữ gìn bản sắc văn hóa dân tộc.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 3",
+        q: "Tiềm lực VH, XH được hiểu là gì?",
+        options: [
+          { text: "Các yếu tố tinh thần, tư tưởng, văn hóa, ý chí, tình cảm trong mỗi con người và toàn xã hội.", correct: true },
+          { text: "Khả năng sản xuất vật chất phục vụ phát triển kinh tế.", correct: false },
+          { text: "Khả năng tác chiến của lực lượng vũ trang nhân dân.", correct: false },
+          { text: "Khả năng nghiên cứu và ứng dụng công nghệ hiện đại.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 3",
+        q: "Việt Nam chủ trương xây dựng tiềm lực VH, XH theo hướng nào?",
+        options: [
+          { text: "Xây dựng nền văn hóa tiên tiến, đậm đà bản sắc dân tộc, con người phát triển toàn diện; giữ gìn thuần phong, mỹ tục và ngăn chặn sự xâm lăng văn hóa.", correct: true },
+          { text: "Xây dựng nền văn hóa hiện đại, thống nhất, giảm bớt khác biệt vùng miền và ưu tiên tiếp thu tinh hoa từ bên ngoài.", correct: false },
+          { text: "Xây dựng đời sống văn hóa gắn với phát triển kinh tế, lấy hệ thống truyền thông đại chúng làm lực lượng nòng cốt.", correct: false },
+          { text: "Xây dựng con người có trình độ chuyên môn cao, lấy khoa học - công nghệ làm nội dung trung tâm của tiềm lực VH, XH.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 3",
+        q: "Tiềm lực khoa học, công nghệ của nền QPTD, ANND là gì?",
+        options: [
+          { text: "Khả năng về khoa học và công nghệ của quốc gia có thể khai thác, huy động phục vụ quốc phòng, an ninh.", correct: true },
+          { text: "Khả năng tài chính để mua sắm vũ khí, trang bị kỹ thuật.", correct: false },
+          { text: "Khả năng tuyên truyền, giáo dục truyền thống yêu nước.", correct: false },
+          { text: "Khả năng tổ chức lực lượng toàn dân ở địa phương.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 3",
+        q: "Những yếu tố cơ bản của tiềm lực khoa học, công nghệ là gì?",
+        options: [
+          { text: "Nguồn nhân lực và cơ sở vật chất phục vụ nghiên cứu, phát triển, ứng dụng khoa học, công nghệ.", correct: true },
+          { text: "Nguồn tài chính, thương mại, thị trường và dịch vụ.", correct: false },
+          { text: "Lực lượng thường trực, lực lượng dự bị và dân quân tự vệ.", correct: false },
+          { text: "Phương tiện truyền thông, văn hóa và giáo dục phổ thông.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 3",
+        q: "Tiềm lực quân sự trong xây dựng nền QPTD chủ yếu phản ánh nội dung nào?",
+        options: [
+          { text: "Khả năng về sức mạnh chiến đấu của QĐ nhân dân và khả năng huy động nhân lực, vật lực phục vụ nhiệm vụ quân sự, quốc phòng.", correct: true },
+          { text: "Khả năng về tinh thần, ý chí, niềm tin và trách nhiệm chính trị của nhân dân, lực lượng vũ trang.", correct: false },
+          { text: "Khả năng về kinh tế của đất nước có thể khai thác, huy động làm cơ sở vật chất cho quốc phòng.", correct: false },
+          { text: "Khả năng về khoa học và công nghệ của quốc gia có thể huy động phục vụ quốc phòng, an ninh.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 3",
+        q: "Hai yếu tố cơ bản của tiềm lực quân sự là gì?",
+        options: [
+          { text: "Con người và vũ khí, trang bị; trong đó con người là nhân tố quyết định.", correct: true },
+          { text: "Tài chính và thị trường; trong đó thị trường là nhân tố quyết định.", correct: false },
+          { text: "Văn hóa và truyền thông; trong đó truyền thông là nhân tố quyết định.", correct: false },
+          { text: "Địa bàn và dân cư; trong đó địa bàn là nhân tố quyết định.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 3",
+        q: "Lực lượng QP - AN là gì?",
+        options: [
+          { text: "Những con người, tổ chức và cơ sở vật chất, tài chính bảo đảm cho các lực lượng hoạt động, đáp ứng yêu cầu quốc phòng, an ninh.", correct: true },
+          { text: "Những con người và tổ chức trực tiếp thực hiện nhiệm vụ quân sự, an ninh trong lực lượng vũ trang nhân dân.", correct: false },
+          { text: "Hệ thống cơ sở vật chất, tài chính và trang bị bảo đảm cho QĐ nhân dân, Công an nhân dân hoạt động.", correct: false },
+          { text: "Lực lượng toàn dân và lực lượng vũ trang nhân dân được tổ chức để thực hiện nhiệm vụ BVTQ.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 3",
+        q: "Lực lượng QP - AN của nền QPTD, ANND gồm những lực lượng nào?",
+        options: [
+          { text: "Lực lượng toàn dân và lực lượng vũ trang nhân dân.", correct: true },
+          { text: "Lực lượng toàn dân, lực lượng chuyên trách và lực lượng dự bị.", correct: false },
+          { text: "QĐ nhân dân, Công an nhân dân, Dân quân tự vệ và lực lượng DBĐV.", correct: false },
+          { text: "Hệ thống chính trị, các tổ chức quần chúng và lực lượng tham gia bảo vệ an ninh, trật tự ở cơ sở.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 3",
+        q: "Lực lượng toàn dân trong xây dựng nền QPTD, ANND gồm những thành phần nào?",
+        options: [
+          { text: "Các ngành, các cấp và quần chúng nhân dân.", correct: true },
+          { text: "Hệ thống chính trị, lực lượng vũ trang và các tổ chức kinh tế.", correct: false },
+          { text: "Cán bộ, công chức, viên chức và người lao động trong cơ quan, tổ chức.", correct: false },
+          { text: "Các tổ chức quần chúng, Dân quân tự vệ và lực lượng DBĐV.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 3",
+        q: "Thế trận QP - AN là gì?",
+        options: [
+          { text: "Tổ chức, triển khai, bố trí lực lượng và tiềm lực quốc phòng, an ninh trên toàn lãnh thổ theo ý định chiến lược thống nhất.", correct: true },
+          { text: "Tập hợp riêng các đơn vị QĐ thường trực ở khu vực trọng điểm.", correct: false },
+          { text: "Tổ chức riêng lực lượng công an để bảo đảm trật tự, an toàn xã hội.", correct: false },
+          { text: "Sắp xếp cơ sở kinh tế nhằm phục vụ phát triển sản xuất.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 3",
+        q: "Nội dung nào được xác định là nền tảng của nền QPTD và nền ANND?",
+        options: [
+          { text: "Xây dựng “thế trận lòng dân” vững chắc.", correct: true },
+          { text: "Xây dựng quân khu vững mạnh toàn diện, hợp thành hệ thống phòng thủ đất nước.", correct: false },
+          { text: "Xây dựng tỉnh, thành phố thành khu vực phòng thủ vững chắc.", correct: false },
+          { text: "Xây dựng thế trận QPTD gắn với thế trận ANND.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 3",
+        q: "Phòng thủ quân khu là bộ phận hợp thành của nội dung nào?",
+        options: [
+          { text: "Phòng thủ đất nước.", correct: true },
+          { text: "Hoạt động đối ngoại quốc phòng.", correct: false },
+          { text: "Phát triển kinh tế vùng đô thị.", correct: false },
+          { text: "Quản lý hành chính cấp cơ sở.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 3",
+        q: "Xây dựng tỉnh, thành phố thành khu vực phòng thủ vững chắc phải toàn diện trên những mặt nào?",
+        options: [
+          { text: "Chính trị, tư tưởng, kinh tế, VH, XH, quốc phòng, an ninh và đối ngoại.", correct: true },
+          { text: "Quân sự, hậu cần, kỹ thuật và tổ chức nghi lễ.", correct: false },
+          { text: "Kinh tế, thương mại, du lịch và dịch vụ đô thị.", correct: false },
+          { text: "Giáo dục, y tế, thể thao và truyền thông cộng đồng.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 3",
+        q: "Mục tiêu trọng yếu của xây dựng nền QP - AN hiện nay là gì?",
+        options: [
+          { text: "Bảo đảm, bảo vệ cao nhất lợi ích quốc gia - dân tộc; kiên quyết, kiên trì bảo vệ độc lập, chủ quyền, thống nhất, toàn vẹn lãnh thổ; bảo vệ Đảng, Nhà nước, Nhân dân và chế độ xã hội chủ nghĩa.", correct: true },
+          { text: "Tập trung bảo vệ an ninh quốc gia, an ninh con người và giữ ổn định chính trị trong nước.", correct: false },
+          { text: "Tăng cường tiềm lực quân sự, hiện đại hóa lực lượng vũ trang và nâng cao vị thế quốc tế của đất nước.", correct: false },
+          { text: "Bảo vệ thành quả đổi mới, phát triển kinh tế - xã hội và mở rộng quan hệ đối ngoại.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 3",
+        q: "Một quan điểm quan trọng trong xây dựng nền quốc phòng, an ninh hiện nay là gì?",
+        options: [
+          { text: "Kết hợp chặt chẽ, hiệu quả kinh tế, văn hóa, xã hội, đối ngoại với quốc phòng, an ninh và ngược lại.", correct: true },
+          { text: "Kết hợp quốc phòng, an ninh với kinh tế và đối ngoại, ưu tiên các vùng, địa bàn chiến lược.", correct: false },
+          { text: "Kết hợp kinh tế, VH, XH với quốc phòng, còn an ninh được tổ chức theo hệ thống chuyên trách.", correct: false },
+          { text: "Kết hợp quốc phòng với phát triển kinh tế - xã hội, lấy đối ngoại làm lĩnh vực hỗ trợ chủ yếu.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 3",
+        q: "Biện pháp hàng đầu trong xây dựng nền QPTD, ANND hiện nay là gì?",
+        options: [
+          { text: "Giữ vững, tăng cường sự lãnh đạo tuyệt đối, trực tiếp về mọi mặt của Đảng và sự quản lý tập trung, thống nhất của Nhà nước.", correct: true },
+          { text: "Xây dựng QĐ nhân dân, Công an nhân dân cách mạng, chính quy, tinh nhuệ, hiện đại.", correct: false },
+          { text: "Xây dựng, phát triển công nghiệp quốc phòng, công nghiệp an ninh hiện đại, lưỡng dụng.", correct: false },
+          { text: "Tiếp tục triển khai đồng bộ các chiến lược quốc phòng, an ninh và hoàn thiện pháp luật liên quan.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 3",
+        q: "Biện pháp xây dựng QĐ nhân dân, Công an nhân dân trong tình hình mới là gì?",
+        options: [
+          { text: "Xây dựng cách mạng, chính quy, tinh nhuệ, hiện đại; ưu tiên hiện đại hóa một số quân chủng, binh chủng, lực lượng.", correct: true },
+          { text: "Xây dựng tinh gọn, cơ động, ưu tiên tăng quy mô lực lượng thường trực trên các địa bàn trọng điểm.", correct: false },
+          { text: "Xây dựng QĐ nhân dân hiện đại toàn diện trước, Công an nhân dân từng bước hiện đại theo điều kiện.", correct: false },
+          { text: "Xây dựng lực lượng vũ trang rộng khắp, lấy Dân quân tự vệ và DBĐV làm lực lượng chủ yếu.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 3",
+        q: "Công nghiệp quốc phòng, công nghiệp an ninh cần được xây dựng theo hướng nào?",
+        options: [
+          { text: "Hiện đại, lưỡng dụng, vừa đáp ứng yêu cầu BVTQ, vừa góp phần phát triển kinh tế - xã hội.", correct: true },
+          { text: "Hiện đại, chuyên dụng, tập trung đáp ứng nhu cầu vũ khí, trang bị của lực lượng vũ trang.", correct: false },
+          { text: "Lưỡng dụng, tự chủ, ưu tiên sản xuất dân dụng và xuất khẩu công nghệ quốc phòng.", correct: false },
+          { text: "Hiện đại, đồng bộ, gắn chủ yếu với xây dựng các tuyến phòng thủ biên giới, biển, đảo.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 3",
+        q: "Để thực hiện mục tiêu xây dựng nền quốc phòng, an ninh hiện nay, cần phát huy sức mạnh nào?",
+        options: [
+          { text: "Sức mạnh tổng hợp của toàn dân tộc, của cả hệ thống chính trị kết hợp với sức mạnh thời đại.", correct: true },
+          { text: "Sức mạnh riêng của công nghiệp quốc phòng.", correct: false },
+          { text: "Sức mạnh riêng của lực lượng thường trực.", correct: false },
+          { text: "Sức mạnh riêng của hợp tác kinh tế quốc tế.", correct: false }
+        ]
+      },
+
+      // ==================== BÀI 4 (40 câu) ====================
+      {
+        lesson: "Bài 4",
+        q: "Mục đích của CTNDBVTQ Việt Nam XHCN là gì?",
+        options: [
+          { text: "Bảo đảm và bảo vệ cao nhất lợi ích quốc gia - dân tộc, kiên quyết, kiên trì bảo vệ vững chắc độc lập, chủ quyền, thống nhất, toàn vẹn lãnh thổ của Tổ quốc; bảo vệ Đảng, Nhà nước, Nhân dân, chế độ XHCN", correct: false },
+          { text: "Bảo vệ vững chắc an ninh quốc gia, an ninh con người, an ninh chế độ, an ninh văn hoá - tư tưởng, an ninh kinh tế - tài chính, an ninh mạng - dữ liệu, an ninh lương thực, an ninh năng lượng, an ninh nguồn nước", correct: false },
+          { text: "Bảo vệ thành quả cách mạng, sự nghiệp đổi mới, công nghiệp hoá, hiện đại hoá; giữ gìn, phát huy giá trị truyền thống văn hoá dân tộc, nâng cao vị thế quốc tế của đất nước", correct: false },
+          { text: "Tất cả đều đúng.", correct: true }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Tiêu chí nào để phân biệt chiến tranh tự vệ và chiến tranh xâm lược?",
+        options: [
+          { text: "Mục đích của cuộc chiến tranh", correct: true },
+          { text: "Trình độ hiện đại của vũ khí trang bị", correct: false },
+          { text: "Phương thức tiến hành chiến tranh", correct: false },
+          { text: "Lực lượng tiến hành chiến tranh", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Ưu thế vượt trội của địch khi tiến hành chiến tranh xâm lược nước ta là gì?",
+        options: [
+          { text: "Tiềm lực quân sự, kinh tế, khoa học công nghệ", correct: true },
+          { text: "Quân số đông, có sự phối hợp của các tổ chức phản động trong nước", correct: false },
+          { text: "Lôi kéo tập hợp được các nước đồng minh, lợi dụng Liên hiệp quốc để tiến hành chiến tranh xâm lược", correct: false },
+          { text: "Vũ khí hiện đại, thiết lập nhiều căn cứ quân sự bao vây đất nước ta", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Tính chất của CTNDBVTQ Việt Nam XHCN là gì?",
+        options: [
+          { text: "Là cuộc chiến tranh toàn dân, toàn diện, nòng cốt là sức mạnh chiến đấu của LLVT nhân dân", correct: true },
+          { text: "Là cuộc chiến tranh của giai cấp công nhân nhằm bảo vệ độc lập chủ quyền và lãnh thổ", correct: false },
+          { text: "Là cuộc chiến tranh cách mạng nhằm để bảo vệ biên giới quốc gia", correct: false },
+          { text: "Là cuộc chiến tranh tự vệ chống lại thực dân và đế quốc xâm lược", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Tính chất hiện đại của CTNDBVTQ Việt Nam XHCN được hiểu như thế nào?",
+        options: [
+          { text: "Kế thừa và phát huy nghệ thuật quân sự Việt Nam và tri thức khoa học quân sự tiên tiến; sử dụng các loại vũ khí, phương tiện hiện có và hiện đại.", correct: true },
+          { text: "Sử dụng QĐ nhân dân chính qui, tinh nhuệ, tác chiến hợp đồng quân binh chủng để tiến hành chiến tranh.", correct: false },
+          { text: "Sử dụng vũ khí trang bị hiện đại để đánh bại kẻ thù có vũ khí hiện đại hơn.", correct: false },
+          { text: "Tất cả đều đúng.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Nội dung nào sau đây phản ánh đặc điểm của cuộc CTND Việt Nam BVTQ Việt Nam XHCN?",
+        options: [
+          { text: "Là cuộc chiến tranh dựa vào sức mình là chính và luôn nhận được sự ủng hộ của nhân loại yêu chuộng hòa bình trên thế giới", correct: true },
+          { text: "Thiết lập liên minh quân sự với các nước để tiến hành chiến tranh", correct: false },
+          { text: "Có sự hỗ trợ vũ khí trang bị hiện đại của các cường quốc quân sự trên thế giới", correct: false },
+          { text: "Tất cả đều đúng", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Quan điểm cơ bản xuyên suốt nào là điều kiện để phát huy cao nhất sức mạnh tổng hợp trong CTNDBVTQ Việt Nam XHCN?",
+        options: [
+          { text: "Toàn dân đánh giặc, lấy lực lượng vũ trang nhân dân làm nòng cốt, kết hợp tác chiến của các binh đoàn chủ lực với tác chiến của lực lượng vũ trang địa phương", correct: true },
+          { text: "Chiến tranh toàn diện, kết hợp chặt chẽ giữa đấu tranh quân sự, chính trị, ngoại giao, kinh tế và tư tưởng, văn hoá; lấy đấu tranh quân sự là chủ yếu, lấy thắng lợi trên chiến trường là yếu tố quyết định để giành thắng lợi trong chiến tranh", correct: false },
+          { text: "Ra sức tạo thời cơ, nắm vững thời cơ, giành thắng lợi trong thời gian ngắn, đồng thời chuẩn bị sẵn sàng để có thể giành thắng lợi trong trường hợp chiến tranh kéo dài", correct: false },
+          { text: "Kết hợp tác chiến với xây dựng, vừa tác chiến vừa ra sức sản xuất, thực hành tiết kiệm, giữ gìn và bồi dưỡng lực lượng ta, càng đánh càng mạnh", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Biện pháp thực hiện quan điểm \"toàn dân đánh giặc\" trong CTNDBVTQ Việt Nam XHCN là gì?",
+        options: [
+          { text: "Tất cả đều đúng", correct: true },
+          { text: "Chăm lo, bồi dưỡng sức dân, xây dựng và phát huy mạnh mẽ thế trận lòng dân từ thời bình.", correct: false },
+          { text: "Giáo dục trách nhiệm xây dựng và BVTQ cho toàn dân, đặc biệt là thế hệ trẻ.", correct: false },
+          { text: "Thường xuyên xây dựng LLVT nhân dân vững mạnh toàn diện, đặc biệt là chất lượng chính trị.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Quan điểm thực hiện toàn dân đánh giặc có vị trí, ý nghĩa như thế nào trong CTNDBVTQ?",
+        options: [
+          { text: "Là điều kiện để phát huy cao nhất sức mạnh tổng hợp, sức mạnh của toàn dân tộc trong chiến tranh chống xâm lược", correct: true },
+          { text: "Là điều kiện để mỗi người dân được tham gia đánh giặc, giữ nước", correct: false },
+          { text: "Là điều kiện để phát huy cao nhất yếu tố con người trong chiến tranh", correct: false },
+          { text: "Là điều kiện để thực hiện đánh giặc rộng khắp.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Trong tiến hành chiến tranh toàn diện, mặt trận đấu tranh nào là chủ yếu:",
+        options: [
+          { text: "Mặt trận quân sự.", correct: true },
+          { text: "Mặt trận kinh tế.", correct: false },
+          { text: "Mặt trận ngoại giao.", correct: false },
+          { text: "Mặt trận chính trị.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Theo quan điểm chỉ đạo của Đảng, cần phải chuẩn bị như thế nào để có thể giành thắng lợi trong trường hợp chiến tranh kéo dài?",
+        options: [
+          { text: "Chuẩn bị mọi mặt trên cả nước và từng khu vực phòng thủ để đủ sức đánh địch lâu dài.", correct: true },
+          { text: "Chuẩn bị đầy đủ mọi mặt trên các vùng chiến lược của đất nước.", correct: false },
+          { text: "Chuẩn bị con người, vũ khí trang bị cho chiến tranh.", correct: false },
+          { text: "Chuẩn bị đầy đủ tiềm lực kinh tế, quân sự trên cả nước cũng như từng khu vực.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Kết hợp sức mạnh dân tộc với sức mạnh thời đại trong tiến hành CTND nhằm mục đích gì?",
+        options: [
+          { text: "Nhằm phát huy tính chính nghĩa của ta và khoét sâu tính phi nghĩa của địch trong chiến tranh", correct: true },
+          { text: "Nhằm nêu cao tinh thần đoàn kết quốc tế", correct: false },
+          { text: "Nhằm tạo ra phong trào phản đối chiến tranh trên toàn thế giới", correct: false },
+          { text: "Nhằm tranh thủ sự ủng hộ của các nước XHCN trên thế giới", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Một trong những biện pháp để thực hiện quan điểm toàn dân đánh giặc trong CTNDBVTQ Việt Nam XHCN là gì?",
+        options: [
+          { text: "Giáo dục trách nhiệm xây dựng và BVTQ cho toàn dân, đặc biệt là thế hệ trẻ.", correct: true },
+          { text: "Giáo dục và phát huy nghệ thuật quân sự Việt Nam phù hợp với tình hình mới", correct: false },
+          { text: "Đổi mới, nội dung, chương trình Giáo dục QP - AN cho học sinh, sinh viên", correct: false },
+          { text: "Tăng cường đấu tranh phản bác các quan điểm sai trái, thù địch trên không gian mạng", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Theo khái niệm CTNDBVTQ Việt Nam xã hội chủ nghĩa, yếu tố nào quyết định bản chất chính trị của cuộc chiến tranh?",
+        options: [
+          { text: "Là cuộc chiến tranh chính nghĩa dưới sự lãnh đạo của Đảng, sự quản lý thống nhất của Nhà nước.", correct: true },
+          { text: "Lấy lực lượng vũ trang nhân dân làm nòng cốt.", correct: false },
+          { text: "Kết hợp sức mạnh dân tộc với sức mạnh thời đại.", correct: false },
+          { text: "Tiến hành đấu tranh toàn dân, toàn diện.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Việc kẻ thù sử dụng các biện pháp tuyên truyền, ngoại giao, kinh tế trước khi tiến hành chiến tranh chủ yếu nhằm mục đích nào?",
+        options: [
+          { text: "Tạo ưu thế về dư luận, cô lập đối phương và chuẩn bị điều kiện thuận lợi cho can thiệp quân sự.", correct: true },
+          { text: "Thay thế hoàn toàn hoạt động quân sự.", correct: false },
+          { text: "Tạo sức ép buộc phải thay đổi chế độ chính trị - xã hội.", correct: false },
+          { text: "Làm cho lượng vũ trang nhân dân mất niềm tin không còn khả năng chiến đấu.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Trong các biện pháp dưới đây, biện pháp nào có ý nghĩa nền tảng và lâu dài nhất để thực hiện quan điểm \"toàn dân đánh giặc\"?",
+        options: [
+          { text: "Chăm lo bồi dưỡng sức dân, xây dựng \"thế trận lòng dân\" vững chắc ngay từ thời bình.", correct: true },
+          { text: "Xây dựng lực lượng dân quân tự vệ vững mạnh rộng khắp để tổ chức hướng dẫn toàn dân đánh giặc.", correct: false },
+          { text: "Xây dựng các tỉnh, thành phố thành khu vực phòng thủ vững chắc.", correct: false },
+          { text: "Xây dựng lực lượng DBĐV hùng hậu, sẵn sàng bổ sung cho lực lượng thường trực.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Theo quan điểm của Đảng, vì sao phải đồng thời ra sức tạo thời cơ, nắm vững thời cơ để kết thúc chiến tranh trong thời gian ngắn nhưng vẫn chuẩn bị sẵn sàng cho chiến tranh kéo dài?",
+        options: [
+          { text: "Vì hai yêu cầu này phản ánh sự kết hợp giữa mục tiêu kết thúc chiến tranh có lợi nhất với việc chủ động đối phó khi chiến tranh phát triển ngoài dự kiến.", correct: true },
+          { text: "Vì chiến tranh hiện đại luôn diễn ra trong thời gian dài nên phải chuẩn bị trước mọi tình huống.", correct: false },
+          { text: "Vì ưu thế vũ khí của đối phương khiến việc kết thúc chiến tranh nhanh là không thể.", correct: false },
+          { text: "Vì chỉ cần chuẩn bị chiến tranh kéo dài sẽ tự tạo ra thời cơ kết thúc chiến tranh.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Đâu là biểu hiện đúng nhất của việc vận dụng quan điểm \"Kết hợp sức mạnh dân tộc với sức mạnh thời đại...\" trong tiến hành CTNDBVTQ?",
+        options: [
+          { text: "Chủ động hội nhập và hợp tác quốc tế trên cơ sở giữ vững độc lập, tự chủ, đồng thời thực hiện chủ trương \"thêm bạn, bớt thù\".", correct: true },
+          { text: "Chủ động mở rộng quan hệ quốc tế nhằm tranh thủ nguồn lực bên ngoài, đồng thời ưu tiên lợi ích đối ngoại trong từng giai đoạn.", correct: false },
+          { text: "Đẩy mạnh hợp tác QP - AN để nâng cao năng lực BVTQ, đồng thời tăng cường khả năng răn đe chiến lược.", correct: false },
+          { text: "Mở rộng quan hệ hợp tác với các đối tác chiến lược nhằm nâng cao vị thế và tăng cường tiềm lực quốc phòng của đất nước.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Trong CTND, lực lượng vũ trang giữ vai trò gì?",
+        options: [
+          { text: "Làm nòng cốt cho quần chúng nhân dân đánh giặc.", correct: true },
+          { text: "Giữ vai trò chủ yếu, trực tiếp thay thế quần chúng nhân dân trong mọi hoạt động chiến đấu.", correct: false },
+          { text: "Là lực lượng phối hợp, chỉ tham gia khi quần chúng nhân dân không đủ khả năng tác chiến.", correct: false },
+          { text: "Chủ yếu bảo đảm hậu cần, kỹ thuật cho các lực lượng khác tiến hành chiến tranh.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Phương án nào phản ánh đầy đủ nhất nội dung cốt lõi của mục tiêu BVTQ trong tình hình mới?",
+        options: [
+          { text: "Bảo đảm và bảo vệ cao nhất lợi ích quốc gia - dân tộc; kiên quyết, kiên trì bảo vệ vững chắc độc lập, chủ quyền, thống nhất, toàn vẹn lãnh thổ; bảo vệ Đảng, Nhà nước, Nhân dân và chế độ xã hội chủ nghĩa.", correct: true },
+          { text: "Bảo vệ độc lập, chủ quyền, thống nhất, toàn vẹn lãnh thổ và giữ vững môi trường hòa bình để phát triển đất nước.", correct: false },
+          { text: "Bảo vệ Đảng, Nhà nước, Nhân dân và chế độ xã hội chủ nghĩa, trọng tâm là giữ vững ổn định chính trị và trật tự xã hội.", correct: false },
+          { text: "Bảo vệ an ninh quốc gia, an ninh con người và các lĩnh vực an ninh thiết yếu trong tình hình mới.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Hiện nay, các thế lực thù địch thường kết hợp chiến lược nào để chống phá cách mạng Việt Nam?",
+        options: [
+          { text: "“Diễn biến hòa bình” kết hợp với gây bạo loạn lật đổ.", correct: true },
+          { text: "Bạo loạn lật đổ kết hợp với can thiệp quân sự trực tiếp.", correct: false },
+          { text: "Phá hoại kinh tế kết hợp với gây sức ép ngoại giao và cô lập quốc tế.", correct: false },
+          { text: "Chiến tranh thông tin kết hợp với kích động chia rẽ nội bộ và gây rối an ninh.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Khi xâm lược nước ta, kẻ thù thường thực hiện phương châm chiến tranh nào?",
+        options: [
+          { text: "Đánh nhanh, thắng nhanh.", correct: true },
+          { text: "Đánh chắc, tiến chắc.", correct: false },
+          { text: "Đánh lâu dài, từng bước làm thay đổi tương quan lực lượng.", correct: false },
+          { text: "Bao vây, phong tỏa, kết hợp tiến công từng khu vực.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Phương án nào phản ánh đầy đủ nhất những điểm yếu cơ bản của kẻ thù khi tiến hành chiến tranh xâm lược nước ta?",
+        options: [
+          { text: "Chiến tranh phi nghĩa; chi phí lớn; sợ tổn thất nhân lực; phát sinh mâu thuẫn; phải phân tán lực lượng, khó thích nghi với địa hình, thời tiết Việt Nam và khó thực hiện đánh nhanh, thắng nhanh.", correct: true },
+          { text: "Khó duy trì bảo đảm hậu cần, kỹ thuật và hoạt động tác chiến dài ngày trên địa bàn xa.", correct: false },
+          { text: "Vũ khí công nghệ cao phụ thuộc hệ thống điện tử, thông tin và không gian mạng nên có thể bị chế áp.", correct: false },
+          { text: "Phải phân tán lực lượng trên nhiều địa bàn, khó tập trung ưu thế để kết thúc chiến tranh nhanh.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Phương án nào nêu đầy đủ nhất các vấn đề kẻ thù thường lợi dụng để tạo cớ gây hấn, phát động chiến tranh?",
+        options: [
+          { text: "“Dân tộc”, “dân chủ”, “nhân quyền”, “tôn giáo”, tranh chấp biên giới và biển, đảo.", correct: true },
+          { text: "Chủ quyền biển, đảo, tranh chấp tài nguyên và an ninh hàng hải.", correct: false },
+          { text: "Dân tộc, tôn giáo, bất bình đẳng xã hội và những hạn chế trong quản lý nhà nước.", correct: false },
+          { text: "Dân chủ, nhân quyền, phát triển kinh tế và hội nhập quốc tế.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Thế trận QPTD, ANND vững chắc có ý nghĩa gì?",
+        options: [
+          { text: "Tạo sức mạnh đánh bại mọi hình thái chiến tranh; là kế sách giữ nước từ sớm, từ xa, giúp ta không bị động, bất ngờ và có đủ tiềm lực sẵn sàng chiến đấu lâu dài.", correct: true },
+          { text: "Tạo điều kiện triển khai lực lượng vũ trang trên các địa bàn chiến lược và bảo vệ các trung tâm trọng yếu.", correct: false },
+          { text: "Bảo đảm khả năng huy động tiềm lực kinh tế, khoa học, công nghệ và nhân lực phục vụ chiến tranh.", correct: false },
+          { text: "Tăng khả năng phối hợp giữa lực lượng chủ lực và lực lượng địa phương trong tác chiến.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Xu thế lớn của thế giới hiện nay là gì?",
+        options: [
+          { text: "Hòa bình, độc lập dân tộc, dân chủ, hợp tác và phát triển.", correct: true },
+          { text: "Đối đầu quân sự toàn diện giữa tất cả các quốc gia.", correct: false },
+          { text: "Chiến tranh thế giới là xu thế chủ đạo, lâu dài.", correct: false },
+          { text: "Cô lập quốc tế và đóng cửa về kinh tế.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Tình hình thế giới hiện nay đặt ra thách thức nào đối với BVTQ?",
+        options: [
+          { text: "Chiến tranh cục bộ, xung đột, can thiệp lật đổ, tranh chấp chủ quyền diễn biến phức tạp.", correct: true },
+          { text: "Các nguy cơ chiến tranh, xung đột đã hoàn toàn bị loại bỏ.", correct: false },
+          { text: "Các nước lớn không còn điều chỉnh chiến lược theo lợi ích quốc gia.", correct: false },
+          { text: "An ninh truyền thống và phi truyền thống không còn ảnh hưởng đến quốc gia.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Toàn cầu hóa tác động đến các quốc gia theo hướng nào?",
+        options: [
+          { text: "Các nước phụ thuộc lẫn nhau, vừa hợp tác, vừa cạnh tranh gay gắt.", correct: true },
+          { text: "Các nước hoàn toàn độc lập, không chịu tác động của nhau.", correct: false },
+          { text: "Các nước nhỏ không còn chịu sức ép từ cạnh tranh quốc tế.", correct: false },
+          { text: "Mọi quan hệ quốc tế chỉ còn hợp tác, không còn cạnh tranh.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Khu vực châu Á - Thái Bình Dương, trong đó có Đông Nam Á, có vị trí như thế nào?",
+        options: [
+          { text: "Là trung tâm năng động, có vị trí địa chiến lược quan trọng.", correct: true },
+          { text: "Là khu vực biệt lập, ít tác động đến an ninh Việt Nam.", correct: false },
+          { text: "Là khu vực không có cạnh tranh chiến lược giữa các nước lớn.", correct: false },
+          { text: "Là khu vực chỉ có ý nghĩa kinh tế, không liên quan quốc phòng.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Xây dựng và BVTQ có mối quan hệ như thế nào?",
+        options: [
+          { text: "Là hai nhiệm vụ chiến lược có quan hệ chặt chẽ với nhau.", correct: true },
+          { text: "Là hai nhiệm vụ chiến lược được thực hiện nối tiếp, hoàn thành xây dựng trước rồi mới bảo vệ.", correct: false },
+          { text: "Xây dựng đất nước là nhiệm vụ quyết định, BVTQ chỉ tạo môi trường hỗ trợ.", correct: false },
+          { text: "BVTQ là nhiệm vụ quyết định, xây dựng đất nước chủ yếu tạo nguồn lực vật chất.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Sự phát triển khoa học công nghệ đặt ra yêu cầu gì đối với quốc phòng, an ninh?",
+        options: [
+          { text: "Xây dựng nền QPTD, ANND vững mạnh và hiện đại hóa QĐ.", correct: true },
+          { text: "Phát triển công nghiệp quốc phòng, giảm quy mô lực lượng thường trực và tăng cường hợp tác quốc tế.", correct: false },
+          { text: "Hiện đại hóa vũ khí, trang bị, ưu tiên QĐ chủ lực, chưa đặt trọng tâm vào nền QPTD, ANND.", correct: false },
+          { text: "Nâng cao năng lực tác chiến công nghệ cao, tập trung vào hạ tầng số và an ninh mạng.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Tư tưởng toàn dân đánh giặc được Chủ tịch Hồ Chí Minh khái quát trong lời kêu gọi nào?",
+        options: [
+          { text: "“Hễ là người Việt Nam thì phải đứng lên đánh thực dân Pháp để cứu Tổ quốc.”", correct: true },
+          { text: "“Không có gì quý hơn độc lập, tự do.”", correct: false },
+          { text: "“Các vua Hùng đã có công dựng nước.”", correct: false },
+          { text: "“Thi đua là yêu nước, yêu nước thì phải thi đua.”", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Trong toàn dân đánh giặc, mỗi làng, xã được ví như gì?",
+        options: [
+          { text: "Một pháo đài.", correct: true },
+          { text: "Một căn cứ kinh tế đối ngoại.", correct: false },
+          { text: "Một cơ sở ngoại giao quốc tế.", correct: false },
+          { text: "Một trung tâm viện trợ hậu cần từ bên ngoài.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Đấu tranh quân sự giữ vai trò gì trong chiến tranh toàn diện?",
+        options: [
+          { text: "Là hình thức đấu tranh cơ bản, trực tiếp tiêu diệt, tiêu hao lực lượng của địch.", correct: true },
+          { text: "Tiêu diệt các mục tiêu chiến lược, phá hủy tiềm lực chiến tranh và giành quyền chủ động.", correct: false },
+          { text: "Bảo vệ lực lượng, giữ vững địa bàn và tạo điều kiện cho các mặt trận khác phát huy tác dụng.", correct: false },
+          { text: "Kết hợp tiến công và phòng ngự để làm thay đổi tương quan lực lượng có lợi cho ta.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Phương án nào phản ánh đầy đủ nhất nhiệm vụ của đấu tranh tư tưởng, văn hóa trong chiến tranh?",
+        options: [
+          { text: "Bảo vệ chủ nghĩa Marx - Lenin, tư tưởng Hồ Chí Minh, nền văn hóa dân tộc, đường lối, quan điểm của Đảng, chính sách, pháp luật của Nhà nước; làm thất bại âm mưu, thủ đoạn phá hoại của địch trên mặt trận tư tưởng, văn hóa.", correct: true },
+          { text: "Bảo vệ nền tảng tư tưởng, duy trì hoạt động văn hóa và động viên tinh thần chiến đấu của nhân dân.", correct: false },
+          { text: "Tuyên truyền tính chính nghĩa, tranh thủ dư luận quốc tế và đấu tranh chống chiến tranh tâm lý.", correct: false },
+          { text: "Giữ gìn bản sắc văn hóa, chống thông tin sai lệch và củng cố đoàn kết nội bộ.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Phương án nào phản ánh đầy đủ nhất mục đích của đấu tranh kinh tế trong CTND?",
+        options: [
+          { text: "Bảo đảm nhu cầu vật chất cho chiến tranh, đồng thời kiềm chế và làm suy yếu tiềm lực kinh tế của địch.", correct: true },
+          { text: "Duy trì sản xuất, bảo vệ cơ sở kinh tế và bảo đảm hậu cần cho lực lượng vũ trang.", correct: false },
+          { text: "Huy động, phân phối nguồn lực trong nước, kết hợp sử dụng hiệu quả nguồn viện trợ quốc tế.", correct: false },
+          { text: "Phá hoại cơ sở kinh tế, cắt đứt nguồn tiếp tế và làm giảm khả năng duy trì chiến tranh của địch.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Muốn kết thúc chiến tranh có lợi cho ta, điều kiện quyết định là gì?",
+        options: [
+          { text: "Phải thắng địch trên chiến trường bằng sức mạnh quân sự.", correct: true },
+          { text: "Giành ưu thế chính trị, ngoại giao và buộc địch chấp nhận đàm phán.", correct: false },
+          { text: "Làm suy yếu tiềm lực kinh tế, hậu cần và khả năng tiếp tục chiến tranh của địch.", correct: false },
+          { text: "Tạo chuyển biến căn bản trong tương quan lực lượng và tranh thủ được sự ủng hộ quốc tế.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Vì sao phải chuẩn bị đánh địch lâu dài trong CTND?",
+        options: [
+          { text: "Vì lúc đầu địch có ưu thế về kinh tế, quân sự, vũ khí, trang bị; ta cần thời gian củng cố lực lượng, làm địch sa lầy, suy yếu và chuyển hóa tương quan có lợi cho ta.", correct: true },
+          { text: "Vì chiến tranh kéo dài luôn có lợi cho ta và không làm tăng tổn thất về người, vật chất.", correct: false },
+          { text: "Vì ta không có khả năng tạo thời cơ và giành thắng lợi trong thời gian ngắn.", correct: false },
+          { text: "Vì sự giúp đỡ quốc tế chỉ có thể phát huy khi chiến tranh diễn ra lâu dài.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Quan điểm chiến tranh toàn diện yêu cầu kết hợp những mặt trận đấu tranh nào?",
+        options: [
+          { text: "Quân sự, chính trị, ngoại giao, kinh tế, tư tưởng và văn hóa.", correct: true },
+          { text: "Quân sự, thể thao, du lịch, thương mại và dịch vụ.", correct: false },
+          { text: "Kinh tế, tài chính, giáo dục, y tế và thể thao.", correct: false },
+          { text: "Ngoại giao, văn nghệ, truyền thông và du lịch.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 4",
+        q: "Trong chiến tranh toàn diện, mặt trận nào là chủ yếu?",
+        options: [
+          { text: "Đấu tranh quân sự.", correct: true },
+          { text: "Đấu tranh kinh tế.", correct: false },
+          { text: "Đấu tranh ngoại giao.", correct: false },
+          { text: "Đấu tranh tư tưởng và văn hóa.", correct: false }
+        ]
       }
     ];
 
-    // Trạng thái hiện tại của bài kiểm tra
     let currentQuestions = [];
     let userAnswers = {};
     let isGraded = false;
 
-    // Hàm xáo trộn mảng thuật toán Fisher-Yates
+    // Thuật toán xáo trộn mảng Fisher-Yates
     function shuffleArray(array) {
       const arr = [...array];
       for (let i = arr.length - 1; i > 0; i--) {
@@ -479,13 +1274,32 @@
 
     // Khởi tạo bài kiểm tra
     function initQuiz() {
-      // 1. Xáo trộn thứ tự các câu hỏi
-      const shuffledQ = shuffleArray(rawQuestionsData);
-      
-      // 2. Với mỗi câu hỏi, xáo trộn thứ tự các đáp án
+      const mode = document.getElementById('mode-select').value;
+      let pool = [];
+
+      if (mode === 'bai2') {
+        pool = rawQuestionsData.filter(item => item.lesson === 'Bài 2');
+      } else if (mode === 'bai3') {
+        pool = rawQuestionsData.filter(item => item.lesson === 'Bài 3');
+      } else if (mode === 'bai4') {
+        pool = rawQuestionsData.filter(item => item.lesson === 'Bài 4');
+      } else if (mode === 'random40') {
+        // Lấy 40 câu ngẫu nhiên từ toàn bộ ngân hàng
+        const allShuffled = shuffleArray(rawQuestionsData);
+        pool = allShuffled.slice(0, 40);
+      } else {
+        // Mặc định: trộn tất cả 114 câu
+        pool = [...rawQuestionsData];
+      }
+
+      // Xáo trộn thứ tự các câu hỏi
+      const shuffledQ = shuffleArray(pool);
+
+      // Xáo trộn các đáp án trong từng câu
       currentQuestions = shuffledQ.map((qItem, index) => {
         return {
           id: index + 1,
+          lesson: qItem.lesson,
           question: qItem.q,
           options: shuffleArray(qItem.options)
         };
@@ -498,71 +1312,79 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Render danh sách câu hỏi ra giao diện
+    // Hiển thị danh sách câu hỏi
     function renderQuiz() {
       const container = document.getElementById('quiz-container');
       container.innerHTML = '';
 
+      const alphabet = ['A', 'B', 'C', 'D'];
+
       currentQuestions.forEach((item, qIdx) => {
-        const qCard = document.createElement('div');
-        qCard.className = `bg-white p-5 md:p-6 rounded-xl shadow-sm border border-slate-200 transition duration-200 question-card`;
-        qCard.id = `card-q-${qIdx}`;
+        const card = document.createElement('div');
+        card.className = 'bg-white p-5 md:p-6 rounded-xl shadow-sm border border-slate-200 transition duration-200';
+        card.id = `card-q-${qIdx}`;
 
-        const qTitle = document.createElement('h3');
-        qTitle.className = 'font-bold text-slate-800 text-base md:text-lg mb-4 flex items-start gap-2';
-        qTitle.innerHTML = `<span class="inline-block bg-red-100 text-red-800 text-xs px-2.5 py-1 rounded-md mt-0.5 whitespace-nowrap">Câu ${qIdx + 1}</span> <span>${item.question}</span>`;
-        qCard.appendChild(qTitle);
+        // Badge phân loại bài học
+        let lessonBadgeColor = 'bg-red-100 text-red-800';
+        if (item.lesson === 'Bài 3') lessonBadgeColor = 'bg-blue-100 text-blue-800';
+        if (item.lesson === 'Bài 4') lessonBadgeColor = 'bg-amber-100 text-amber-800';
 
-        const optionsList = document.createElement('div');
-        optionsList.className = 'grid grid-cols-1 gap-2.5';
+        const title = document.createElement('h3');
+        title.className = 'font-bold text-slate-800 text-base md:text-lg mb-4 flex items-start gap-2';
+        title.innerHTML = `
+          <div class="flex items-center gap-1.5 shrink-0 mt-0.5">
+            <span class="bg-slate-200 text-slate-700 text-xs font-semibold px-2 py-0.5 rounded">Câu ${qIdx + 1}</span>
+            <span class="${lessonBadgeColor} text-xs font-semibold px-2 py-0.5 rounded whitespace-nowrap">${item.lesson}</span>
+          </div>
+          <span>${item.question}</span>
+        `;
+        card.appendChild(title);
 
-        const alphabet = ['A', 'B', 'C', 'D'];
+        const optionsDiv = document.createElement('div');
+        optionsDiv.className = 'grid grid-cols-1 gap-2.5';
 
         item.options.forEach((opt, optIdx) => {
-          const optLabel = document.createElement('label');
-          optLabel.className = `option-item border border-slate-200 rounded-lg p-3 md:p-3.5 flex items-start gap-3 cursor-pointer hover:bg-slate-50 transition duration-150 relative text-sm md:text-base`;
-          optLabel.id = `opt-label-${qIdx}-${optIdx}`;
+          const label = document.createElement('label');
+          label.className = 'option-label border border-slate-200 rounded-lg p-3 md:p-3.5 flex items-start gap-3 cursor-pointer hover:bg-slate-50 transition duration-150 text-sm md:text-base';
+          label.id = `opt-label-${qIdx}-${optIdx}`;
 
           const radio = document.createElement('input');
           radio.type = 'radio';
           radio.name = `question-${qIdx}`;
           radio.value = optIdx;
-          radio.className = 'mt-1 text-red-600 focus:ring-red-500';
-          
+          radio.className = 'mt-1 text-red-700 focus:ring-red-600';
+
           radio.addEventListener('change', () => {
             if (!isGraded) {
               userAnswers[qIdx] = optIdx;
-              highlightSelected(qIdx);
+              highlightOption(qIdx);
               updateProgress();
             }
           });
 
-          const optText = document.createElement('div');
-          optText.className = 'flex-1 text-slate-700';
-          optText.innerHTML = `<strong class="text-slate-500 mr-1">${alphabet[optIdx]}.</strong> ${opt};`;
-          optText.textContent = `${alphabet[optIdx]}. ${opt.text}`;
+          const textSpan = document.createElement('div');
+          textSpan.className = 'flex-1 text-slate-700';
+          textSpan.textContent = `${alphabet[optIdx]}. ${opt.text}`;
 
-          optLabel.appendChild(radio);
-          optLabel.appendChild(optText);
-          optionsList.appendChild(optLabel);
+          label.appendChild(radio);
+          label.appendChild(textSpan);
+          optionsDiv.appendChild(label);
         });
 
-        qCard.appendChild(optionsList);
+        card.appendChild(optionsDiv);
 
-        // Feedback placeholder (sau khi nộp bài sẽ hiện)
-        const feedbackDiv = document.createElement('div');
-        feedbackDiv.id = `feedback-${qIdx}`;
-        feedbackDiv.className = 'mt-3 hidden text-xs md:text-sm font-medium p-2.5 rounded-lg';
-        qCard.appendChild(feedbackDiv);
+        const feedback = document.createElement('div');
+        feedback.id = `feedback-${qIdx}`;
+        feedback.className = 'mt-3 hidden text-xs md:text-sm font-medium p-2.5 rounded-lg';
+        card.appendChild(feedback);
 
-        container.appendChild(qCard);
+        container.appendChild(card);
       });
     }
 
-    // Làm nổi bật lựa chọn
-    function highlightSelected(qIdx) {
+    function highlightOption(qIdx) {
       const card = document.getElementById(`card-q-${qIdx}`);
-      const labels = card.querySelectorAll('.option-item');
+      const labels = card.querySelectorAll('.option-label');
       labels.forEach((lbl, idx) => {
         if (idx === userAnswers[qIdx]) {
           lbl.classList.add('bg-red-50', 'border-red-300', 'text-red-900');
@@ -572,20 +1394,18 @@
       });
     }
 
-    // Cập nhật thanh tiến độ
     function updateProgress() {
-      const answeredCount = Object.keys(userAnswers).length;
+      const answered = Object.keys(userAnswers).length;
       const total = currentQuestions.length;
-      const percentage = (answeredCount / total) * 100;
-      
-      document.getElementById('answered-counter').textContent = `${answeredCount}/${total}`;
-      document.getElementById('progress-bar').style.width = `${percentage}%`;
+      document.getElementById('answered-counter').textContent = `${answered}/${total}`;
+      const percent = total > 0 ? (answered / total) * 100 : 0;
+      document.getElementById('progress-bar').style.width = `${percent}%`;
     }
 
-    // Chấm điểm bài làm
+    // Chấm điểm bài kiểm tra
     function gradeQuiz() {
       if (isGraded) {
-        alert('Bạn đã nộp bài rồi! Hãy nhấn nút "Trộn mới câu hỏi & Làm lại" để bắt đầu lượt mới.');
+        alert('Bạn đã nộp bài rồi! Hãy bấm "Trộn đề mới & Làm lại" để bắt đầu lượt mới.');
         return;
       }
 
@@ -593,8 +1413,9 @@
       const answered = Object.keys(userAnswers).length;
 
       if (answered < total) {
-        const confirmSubmit = confirm(`Bạn mới trả lời ${answered}/${total} câu. Bạn có chắc chắn muốn nộp bài sớm không?`);
-        if (!confirmSubmit) return;
+        if (!confirm(`Bạn mới trả lời ${answered}/${total} câu. Bạn có chắc chắn muốn nộp bài sớm?`)) {
+          return;
+        }
       }
 
       isGraded = true;
@@ -611,7 +1432,7 @@
         const inputs = card.querySelectorAll('input[type="radio"]');
         inputs.forEach(input => input.disabled = true);
 
-        // Highlight đáp án đúng
+        // Đổi màu đáp án chính xác
         const correctLabel = document.getElementById(`opt-label-${qIdx}-${correctOptIdx}`);
         correctLabel.classList.remove('border-slate-200', 'bg-red-50', 'border-red-300');
         correctLabel.classList.add('bg-emerald-50', 'border-emerald-500', 'text-emerald-900', 'font-medium');
@@ -635,11 +1456,10 @@
         }
       });
 
-      // Hiển thị kết quả điểm số
-      displayResultModal(correctAnswersCount, total);
+      showResultModal(correctAnswersCount, total);
     }
 
-    function displayResultModal(correct, total) {
+    function showResultModal(correct, total) {
       const score10 = ((correct / total) * 10).toFixed(1);
       document.getElementById('correct-count').textContent = `${correct}/${total}`;
       document.getElementById('score-10').textContent = score10;
@@ -652,38 +1472,29 @@
         badge.className = 'w-20 h-20 mx-auto mb-4 rounded-full flex items-center justify-center text-3xl font-bold bg-emerald-100 text-emerald-600';
         badge.innerHTML = '<i class="fa-solid fa-trophy"></i>';
         title.textContent = "Xuất sắc!";
-        feedback.textContent = "Bạn đã nắm rất vững kiến thức Học phần 1 Bài 2!";
+        feedback.textContent = "Bạn đã nắm rất vững kiến thức các bài học!";
       } else if (score10 >= 6.5) {
-        badge.className = 'w-20 h-20 mx-auto mb-4 rounded-full flex items-center justify-center text-3xl font-bold bg-blue-100 text-blue-600';
+        badge.className = 'w-20 h-20 mx-auto mb-4 rounded-full flex items-center justify-center text-3xl font-bold bg-blue-100 text-blue-800';
         badge.innerHTML = '<i class="fa-solid fa-star"></i>';
         title.textContent = "Khá tốt!";
-        feedback.textContent = "Hãy ôn lại các câu chưa đúng để đạt điểm tối đa nhé.";
+        feedback.textContent = "Hãy ôn lại các câu trả lời chưa đúng để chuẩn bị thi thật tốt nhé.";
       } else {
         badge.className = 'w-20 h-20 mx-auto mb-4 rounded-full flex items-center justify-center text-3xl font-bold bg-rose-100 text-rose-600';
         badge.innerHTML = '<i class="fa-solid fa-book-open"></i>';
-        title.textContent = "Cần cố gắng hơn!";
-        feedback.textContent = "Hãy xem lại đáp án và bấm nút làm lại để ghi nhớ tốt hơn.";
+        title.textContent = "Cần cố gắng!";
+        feedback.textContent = "Hãy xem lại đáp án và luyện tập thêm một vài lượt nhé.";
       }
 
-      document.getElementById('result-card').classList.remove('hidden');
+      document.getElementById('result-modal').classList.remove('hidden');
     }
 
     function closeResultModal() {
-      document.getElementById('result-card').classList.add('hidden');
+      document.getElementById('result-modal').classList.add('hidden');
     }
 
-    // Tự động nạp đề lần đầu khi load trang
     window.addEventListener('DOMContentLoaded', () => {
       initQuiz();
     });
   </script>
 </body>
 </html>
-```eof
-
-### Tóm tắt các tính năng của ứng dụng:
-1. **Đầy đủ 40 câu hỏi**: Đã tổng hợp chính xác 100% nội dung và đáp án theo file câu hỏi của bạn.
-2. **Xáo trộn 2 lớp ngẫu nhiên**: Mỗi khi mở trang hoặc bấm **"Trộn mới câu hỏi & Làm lại"**, thứ tự 40 câu hỏi và thứ tự các đáp án (A, B, C, D) của từng câu sẽ được đảo ngẫu nhiên bằng thuật toán Fisher-Yates, giúp bạn không bị học vẹt vị trí đáp án.
-3. **Tự động chấm điểm & xem lại**: Hiển thị màu xanh cho đáp án đúng và màu đỏ gạch ngang cho đáp án sai kèm quy đổi điểm hệ 10 để bạn tự đánh giá năng lực.
-
-*Bạn chỉ cần tải file `quiz_hp1_bai2.html` về máy tính hoặc điện thoại rồi mở bằng bất kỳ trình duyệt web nào (Chrome, Safari, Edge, Cốc Cốc) là có thể luyện tập ngay lập tức! Chúc bạn ôn tập tốt và đạt điểm cao!*
