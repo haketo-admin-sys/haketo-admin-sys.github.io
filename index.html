@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ôn Tập Tổng Hợp Trắc Nghiệm GDQP&AN - Học Phần 1</title>
+  <title>Ôn Tập Trắc Nghiệm GDQP&AN - Học Phần 3: Quân Sự Chung</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -16,16 +16,16 @@
 <body class="min-h-screen text-slate-800 flex flex-col justify-between">
 
   <!-- Header -->
-  <header class="bg-red-900 text-white shadow-md sticky top-0 z-50">
+  <header class="bg-emerald-900 text-white shadow-md sticky top-0 z-50">
     <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
       <div class="flex items-center space-x-3">
-        <i class="fa-solid fa-shield-halved text-2xl text-yellow-400"></i>
+        <i class="fa-solid fa-person-rifle text-2xl text-yellow-400"></i>
         <div>
-          <h1 class="text-base md:text-lg font-bold uppercase tracking-wide">GDQP&AN HP1 - Ôn Tập Tổng Hợp</h1>
-          <p class="text-xs text-red-200">Ngân hàng câu hỏi Bài 1 đến Bài 6 (201 câu)</p>
+          <h1 class="text-base md:text-lg font-bold uppercase tracking-wide">GDQP&AN HP3 - Quân Sự Chung</h1>
+          <p class="text-xs text-emerald-200">Ngân hàng câu hỏi trắc nghiệm Qs1 đến Qs7</p>
         </div>
       </div>
-      <button onclick="initQuiz()" class="bg-red-800 hover:bg-red-700 active:scale-95 text-xs md:text-sm font-semibold px-3 py-2 rounded-lg transition duration-200 flex items-center gap-1.5 shadow">
+      <button onclick="initQuiz()" class="bg-emerald-800 hover:bg-emerald-700 active:scale-95 text-xs md:text-sm font-semibold px-3 py-2 rounded-lg transition duration-200 flex items-center gap-1.5 shadow">
         <i class="fa-solid fa-arrows-rotate"></i> <span class="hidden sm:inline">Trộn & Làm lại</span>
       </button>
     </div>
@@ -38,21 +38,21 @@
     <div class="bg-white rounded-xl shadow-sm p-4 mb-6 border border-slate-200 flex flex-col md:flex-row md:items-center justify-between gap-4">
       <div class="flex flex-col sm:flex-row sm:items-center gap-3 w-full md:w-auto">
         <label for="mode-select" class="text-xs md:text-sm font-bold text-slate-700 whitespace-nowrap flex items-center gap-1.5">
-          <i class="fa-solid fa-sliders text-red-800"></i> Chế độ làm bài:
+          <i class="fa-solid fa-sliders text-emerald-800"></i> Chế độ làm bài:
         </label>
-        <select id="mode-select" onchange="initQuiz()" class="bg-slate-50 border border-slate-300 text-slate-800 text-xs md:text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block p-2 font-medium outline-none">
+        <select id="mode-select" onchange="initQuiz()" class="bg-slate-50 border border-slate-300 text-slate-800 text-xs md:text-sm rounded-lg focus:ring-emerald-500 focus:border-emerald-500 block p-2 font-medium outline-none">
           <option value="random20">Thi thử ngẫu nhiên (20 câu)</option>
-          <option value="all">Tất cả bài (201 câu ngẫu nhiên)</option>
+          <option value="all">Toàn bộ câu hỏi (Tất cả chuyên đề Qs1 - Qs7)</option>
         </select>
       </div>
 
       <div class="flex items-center gap-3 w-full md:w-1/2 justify-end">
         <div class="flex items-center gap-1.5 text-xs md:text-sm font-semibold text-slate-700">
           <span>Tiến độ:</span>
-          <span id="answered-counter" class="text-red-700 font-bold">0/0</span>
+          <span id="answered-counter" class="text-emerald-700 font-bold">0/0</span>
         </div>
         <div class="w-1/2 bg-slate-100 rounded-full h-2.5 overflow-hidden">
-          <div id="progress-bar" class="bg-red-700 h-2.5 rounded-full transition-all duration-300" style="width: 0%"></div>
+          <div id="progress-bar" class="bg-emerald-700 h-2.5 rounded-full transition-all duration-300" style="width: 0%"></div>
         </div>
       </div>
     </div>
@@ -84,7 +84,7 @@
           </div>
           <div>
             <span class="text-xs text-slate-500 block">Điểm hệ 10:</span>
-            <span id="score-10" class="text-xl font-bold text-red-700">0.0</span>
+            <span id="score-10" class="text-xl font-bold text-emerald-700">0.0</span>
           </div>
         </div>
 
@@ -92,7 +92,7 @@
           <button onclick="closeResultModal()" class="flex-1 py-2.5 bg-slate-200 hover:bg-slate-300 font-semibold rounded-lg text-sm transition">
             Xem lại bài
           </button>
-          <button onclick="initQuiz(); closeResultModal();" class="flex-1 py-2.5 bg-red-800 hover:bg-red-700 text-white font-semibold rounded-lg text-sm transition flex items-center justify-center gap-1.5">
+          <button onclick="initQuiz(); closeResultModal();" class="flex-1 py-2.5 bg-emerald-800 hover:bg-emerald-700 text-white font-semibold rounded-lg text-sm transition flex items-center justify-center gap-1.5">
             <i class="fa-solid fa-rotate-right"></i> Làm lại đề mới
           </button>
         </div>
@@ -102,2031 +102,412 @@
 
   <!-- Footer -->
   <footer class="bg-slate-800 text-slate-400 text-center py-4 text-xs">
-    Ngân hàng trắc nghiệm GDQP&AN Học phần 1 (Bài 1 -> 6) - Tự động trộn câu hỏi và đáp án ngẫu nhiên.
+    Ngân hàng trắc nghiệm GDQP&AN Học phần 3 (Quân sự chung) - Đầy đủ 7 chuyên đề theo phân phối chương trình.
   </footer>
 
   <script>
-    // Dữ liệu hợp nhất 201 câu hỏi từ Bài 1 đến Bài 6
     const rawQuestionsData = [
-      // ==================== BÀI 1 (10 câu) ====================
+      // ==================== Qs1: CHẾ ĐỘ SINH HOẠT, HỌC TẬP, CÔNG TÁC TRONG NGÀY, TUẦN ====================
       {
-        lesson: "Bài 1",
-        q: "Đối tượng nghiên cứu môn học giáo dục quốc phòng và an ninh là gì?",
+        lesson: "Qs1: Chế độ ngày, tuần",
+        q: "Trong ngày làm việc bình thường, quân nhân trong Quân đội nhân dân Việt Nam thực hiện bao nhiêu chế độ trong ngày?",
         options: [
-          { text: "Nghiên cứu về đường lối quốc phòng và an ninh của Đảng Cộng sản Việt Nam; công tác quốc phòng và an ninh; kỹ năng quân sự", correct: true },
-          { text: "Nghiên cứu về chiến lược xây dựng và bảo vệ Tổ quốc của Đảng, Nhà nước trong tình hình mới.", correct: false },
-          { text: "Nghiên cứu về chiến lược kinh tế, quốc phòng của Đảng, Nhà nước trong sự nghiệp đổi mới.", correct: false },
-          { text: "Nghiên cứu về chiến lược kinh tế, quốc phòng, an ninh và đối ngoại của Đảng, Nhà nước.", correct: false }
+          { text: "11 chế độ trong ngày", correct: true },
+          { text: "10 chế độ trong ngày", correct: false },
+          { text: "12 chế độ trong ngày", correct: false },
+          { text: "9 chế độ trong ngày", correct: false }
         ]
       },
       {
-        lesson: "Bài 1",
-        q: "Một trong những nội dung nghiên cứu về đường lối quốc phòng và an ninh của Đảng Cộng sản Việt Nam?",
+        lesson: "Qs1: Chế độ ngày, tuần",
+        q: "Chế độ thứ nhất trong 11 chế độ làm việc trong ngày của quân nhân là chế độ nào?",
         options: [
-          { text: "Công tác quốc phòng và an ninh trong sự nghiệp xây dựng và bảo vệ Tổ quốc", correct: true },
-          { text: "Công tác đối ngoại và hội nhập quốc tế trong sự nghiệp bảo vệ Tổ quốc", correct: false },
-          { text: "Nghiên cứu khoa học – công nghệ phục vụ sự nghiệp quốc phòng và an ninh", correct: false },
-          { text: "Phòng chống chiến tranh xâm lược sử dụng vũ khí công nghệ cao.", correct: false }
+          { text: "Treo quốc kỳ", correct: true },
+          { text: "Báo thức", correct: false },
+          { text: "Thể dục sáng", correct: false },
+          { text: "Kiểm tra sáng", correct: false }
         ]
       },
       {
-        lesson: "Bài 1",
-        q: "Môn GDQP & AN nghiên cứu về lĩnh vực nào sau đây?",
+        lesson: "Qs1: Chế độ ngày, tuần",
+        q: "Thời gian tập thể dục sáng theo quy định chung trong ngày thường kéo dài khoảng bao lâu?",
         options: [
-          { text: "Kỹ năng quân sự", correct: true },
-          { text: "Chính sách văn hóa – giáo dục của Nhà nước", correct: false },
-          { text: "Kỹ năng nghiên cứu khoa học quân sự", correct: false },
-          { text: "Quản lý tài chính trong quân đội nhân dân", correct: false }
+          { text: "20 phút", correct: true },
+          { text: "10 phút", correct: false },
+          { text: "30 phút", correct: false },
+          { text: "45 phút", correct: false }
         ]
       },
       {
-        lesson: "Bài 1",
-        q: "Nhiệm vụ nghiên cứu môn GDQP&AN bao gồm những lĩnh vực nào?",
+        lesson: "Qs1: Chế độ ngày, tuần",
+        q: "Chế độ kiểm tra sáng ở cấp phân đội do ai trực tiếp chủ trì duy trì thực hiện?",
         options: [
-          { text: "Tất cả đều đúng", correct: true },
-          { text: "Trang bị kiến thức cơ bản về quốc phòng và an ninh", correct: false },
-          { text: "Rèn luyện kỹ năng quân sự cần thiết", correct: false },
-          { text: "Nâng cao ý thức trách nhiệm, tự giác thực hiện nhiệm vụ quốc phòng và an ninh, sẵn sàng tham gia bảo vệ Tổ quốc Việt Nam xã hội chủ nghĩa", correct: false }
+          { text: "Trung đội trưởng hoặc Tiểu đội trưởng", correct: true },
+          { text: "Đại đội trưởng", correct: false },
+          { text: "Chính trị viên tiểu đoàn", correct: false },
+          { text: "Trực ban nội vụ cơ quan", correct: false }
         ]
       },
       {
-        lesson: "Bài 1",
-        q: "Nghiên cứu môn GDQP&AN dựa trên phương pháp luận nào sau đây?",
+        lesson: "Qs1: Chế độ ngày, tuần",
+        q: "Chế độ đọc báo, nghe tin tức hàng ngày tại đơn vị thường được tổ chức vào khung giờ nào?",
         options: [
-          { text: "Chủ nghĩa Mác – Lênin, tư tưởng Hồ Chí Minh", correct: true },
-          { text: "Chủ nghĩa duy tâm khách quan lịch sử", correct: false },
-          { text: "Thuyết âm mưu và kinh nghiệm thực chứng", correct: false },
-          { text: "Phương pháp luận kinh tế thị trường hiện đại", correct: false }
+          { text: "Buổi tối trước giờ học tập/sinh hoạt tối", correct: true },
+          { text: "Ngay sau khi ngủ dậy buổi sáng", correct: false },
+          { text: "Ngay sau giờ ăn trưa", correct: false },
+          { text: "Trước giờ thể dục sáng", correct: false }
         ]
       },
       {
-        lesson: "Bài 1",
-        q: "Khi nghiên cứu môn GDQP&AN, cần vận dụng những quan điểm nào sau đây?",
+        lesson: "Qs1: Chế độ ngày, tuần",
+        q: "Quân nhân trong đơn vị quân đội thực hiện bao nhiêu chế độ nền nếp trong một tuần?",
         options: [
-          { text: "Tất cả các quan điểm trên", correct: true },
-          { text: "Quan điểm hệ thống", correct: false },
-          { text: "Quan điểm lịch sử, logic", correct: false },
-          { text: "Quan điểm thực tiễn", correct: false }
+          { text: "3 chế độ trong tuần", correct: true },
+          { text: "4 chế độ trong tuần", correct: false },
+          { text: "5 chế độ trong tuần", correct: false },
+          { text: "2 chế độ trong tuần", correct: false }
         ]
       },
       {
-        lesson: "Bài 1",
-        q: "Các phương pháp được sử dụng trong nghiên cứu môn GDQP&AN?",
+        lesson: "Qs1: Chế độ ngày, tuần",
+        q: "Chế độ sinh hoạt tuần ở cấp trung đội, đại đội thường được tiến hành vào ngày nào?",
         options: [
-          { text: "Cả A, B đều đúng", correct: true },
-          { text: "Các phương pháp nghiên cứu lý thuyết", correct: false },
-          { text: "Các phương pháp nghiên cứu thực tiễn", correct: false },
-          { text: "Kết hợp phương pháp dạy học lý thuyết và thực hành", correct: false }
+          { text: "Tối thứ sáu", correct: true },
+          { text: "Sáng thứ hai", correct: false },
+          { text: "Chiều thứ tư", correct: false },
+          { text: "Sáng chủ nhật", correct: false }
         ]
       },
       {
-        lesson: "Bài 1",
-        q: "Chương trình GDQP&AN cho sinh viên các cơ sở giáo dục đại học là?",
+        lesson: "Qs1: Chế độ ngày, tuần",
+        q: "Chế độ tổng vệ sinh doanh trại toàn đơn vị được quy định thực hiện vào thời gian nào trong tuần?",
         options: [
-          { text: "04 học phần với tổng số 165 tiết cả lý thuyết và thực hành", correct: true },
-          { text: "03 học phần với tổng số 120 tiết cả lý thuyết và thực hành", correct: false },
-          { text: "05 học phần với tổng số 200 tiết cả lý thuyết và thực hành", correct: false },
-          { text: "04 học phần với tổng số 145 tiết cả lý thuyết và thực hành", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 1",
-        q: "Đánh giá kết quả sinh viên sau khi học xong chương trình giáo dục quốc phòng và an ninh là?",
-        options: [
-          { text: "Sinh viên phải dự thi kết thúc tất cả các học phần theo quy định, điểm học phần phải từ 5 điểm trở lên, đạt yêu cầu điểm rèn luyện", correct: true },
-          { text: "Sử dụng thành thạo các loại vũ khí bộ binh", correct: false },
-          { text: "Hoàn thành chương trình đào tạo, hay là không hoàn thành chương trình đào tạo", correct: false },
-          { text: "Hiểu biết chung về các quân, binh chủng trong quân đội", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 1",
-        q: "Giáo dục quốc phòng và an ninh có vị trí như thế nào trong chiến lược xây dựng và bảo vệ Tổ quốc?",
-        options: [
-          { text: "Có vị trí quan trọng hàng đầu trong chiến lược xây dựng và bảo vệ Tổ quốc Việt Nam xã hội chủ nghĩa.", correct: true },
-          { text: "Có vị trí hỗ trợ trong chiến lược xây dựng và bảo vệ Tổ quốc, chủ yếu phục vụ rèn luyện kỹ năng quân sự.", correct: false },
-          { text: "Có vị trí quan trọng trong huấn luyện lực lượng vũ trang và được thực hiện chủ yếu đối với quân nhân.", correct: false },
-          { text: "Có vị trí bổ trợ trong chiến lược phát triển giáo dục, chủ yếu gắn với giáo dục thể chất và hoạt động ngoại khóa.", correct: false }
+          { text: "Chiều thứ sáu hoặc sáng thứ bảy", correct: true },
+          { text: "Sáng thứ hai", correct: false },
+          { text: "Tối thứ năm", correct: false },
+          { text: "Chiều chủ nhật", correct: false }
         ]
       },
 
-      // ==================== BÀI 2 (40 câu) ====================
+      // ==================== Qs2: NỀN NẾP CHÍNH QUY, TRẬT TỰ NỘI VỤ DOANH TRẠI ====================
       {
-        lesson: "Bài 2",
-        q: "Chiến tranh là một hiện tượng:",
+        lesson: "Qs2: Trật tự nội vụ",
+        q: "Mục đích cơ bản và quan trọng nhất của việc xây dựng nền nếp chính quy trong quân đội là gì?",
         options: [
-          { text: "Hiện tượng cạnh tranh sinh tồn", correct: false },
-          { text: "Hiện tượng chính trị-xã hội có tính lịch sử", correct: true },
-          { text: "Hiện tượng đấu tranh bạo lực giữa hai hay nhiều bên", correct: false },
-          { text: "Hiện tượng tự nhiên.", correct: false }
+          { text: "Thống nhất ý chí, hành động, bảo đảm tính kỷ luật, sức mạnh chiến đấu của quân đội", correct: true },
+          { text: "Chỉ để làm đẹp cảnh quan môi trường doanh trại quân đội", correct: false },
+          { text: "Nhằm giảm bớt thời gian huấn luyện dã ngoại ngoài thao trường", correct: false },
+          { text: "Chủ yếu phục vụ công tác thanh tra, kiểm tra của cấp trên", correct: false }
         ]
       },
       {
-        lesson: "Bài 2",
-        q: "Theo quan điểm chủ nghĩa Mác-Lênin, chiến tranh bắt nguồn từ:",
+        lesson: "Qs2: Trật tự nội vụ",
+        q: "Quy định trật tự nội vụ đối với giường ngủ của quân nhân trong phòng ở yêu cầu như thế nào?",
         options: [
-          { text: "Bản năng sinh tồn của động vật.", correct: false },
-          { text: "Quy luật tự nhiên của xã hội loài người.", correct: false },
-          { text: "Chế độ tư hữu và đối kháng giai cấp.", correct: true },
-          { text: "Mâu thuẫn trong quá trình phân công lao động xã hội.", correct: false }
+          { text: "Gọn gàng, thống nhất, chăn màn gấp vuông vức theo quy định chuẩn của đơn vị", correct: true },
+          { text: "Tùy ý sắp xếp theo thói quen sinh hoạt cá nhân của từng chiến sĩ", correct: false },
+          { text: "Chỉ cần gấp chăn màn gọn gàng vào các ngày kiểm tra cuối tuần", correct: false },
+          { text: "Buông màn liên tục cả ngày lẫn đêm để chống côn trùng", correct: false }
         ]
       },
       {
-        lesson: "Bài 2",
-        q: "Theo quan điểm của Lênin, trong thời đại ngày nay, muốn xóa bỏ chiến tranh phải:",
+        lesson: "Qs2: Trật tự nội vụ",
+        q: "Vũ khí bộ binh cá nhân (súng tiểu liên AK) khi không sử dụng huấn luyện, tác chiến phải được bảo quản ở đâu?",
         options: [
-          { text: "Giải tán QĐ tư sản.", correct: false },
-          { text: "Thỏa hiệp với giai cấp tư sản và chủ nghĩa đế quốc.", correct: false },
-          { text: "Tiêu diệt chủ nghĩa đế quốc.", correct: false },
-          { text: "Xóa bỏ chế độ tư hữu và giai cấp trong xã hội.", correct: true }
+          { text: "Xếp đặt ngay ngắn, khóa cẩn thận trong giá súng của đơn vị và do trực ban quản lý", correct: true },
+          { text: "Để tại đầu giường ngủ của từng quân nhân để tiện cơ động", correct: false },
+          { text: "Treo tự do tại góc phòng ở của tiểu đội", correct: false },
+          { text: "Cất vào ba lô cá nhân của từng chiến sĩ", correct: false }
         ]
       },
       {
-        lesson: "Bài 2",
-        q: "Chủ nghĩa Mác Lênin khẳng định: Bản chất của chiến tranh là sự tiếp tục của chính trị bằng:",
+        lesson: "Qs2: Trật tự nội vụ",
+        q: "Việc sắp đặt giày, dép, ba lô, mũ nón trong phòng ngủ của phân đội bộ binh phải tuân thủ nguyên tắc nào?",
         options: [
-          { text: "Bạo lực.", correct: true },
-          { text: "Kinh tế.", correct: false },
-          { text: "Đối ngoại.", correct: false },
-          { text: "Thương lượng, thỏa hiệp.", correct: false }
+          { text: "Thống nhất kích thước, hướng đặt, hàng lối ngay ngắn và đồng bộ theo quy cách", correct: true },
+          { text: "Ai tiện chỗ nào thì đặt chỗ đó miễn là không vứt ra ngoài sân", correct: false },
+          { text: "Cất toàn bộ giày dép vào trong tủ khóa kín", correct: false },
+          { text: "Treo toàn bộ lên tường phòng ngủ", correct: false }
         ]
       },
       {
-        lesson: "Bài 2",
-        q: "Theo quan điểm của chủ nghĩa Mác-Lênin mối quan hệ giữa chính trị với chiến tranh là?",
+        lesson: "Qs2: Trật tự nội vụ",
+        q: "Chế độ xưng hô, chào hỏi của quân nhân trong doanh trại thể hiện điều gì?",
         options: [
-          { text: "Là mối quan hệ biện chứng tác động qua lại, trong đó chính trị là quan trọng quyết định chiến tranh.", correct: true },
-          { text: "Chính trị và chiến tranh có mối quan hệ, trong đó chiến tranh quyết định chính trị.", correct: false },
-          { text: "Chính trị và chiến tranh có mối quan hệ tác động qua lại vai trò là ngang bằng nhau.", correct: false },
-          { text: "Giữa chiến tranh và chính trị không tồn tại mối quan hệ.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 2",
-        q: "Chiến tranh là một hiện tượng chính trị - xã hội có “tính lịch sử” nghĩa là gì?",
-        options: [
-          { text: "Chiến tranh xuất hiện, tồn tại và mất đi trong tiến trình lịch sử của nhân loại", correct: true },
-          { text: "Chiến tranh gắn liền với lịch sử của loài người", correct: false },
-          { text: "Chiến tranh là định mệnh của loài người", correct: false },
-          { text: "Chiến tranh sẽ không bao giờ mất đi", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 2",
-        q: "Đặc trưng nào của chiến tranh để phân biệt với các hiện tượng chính trị - xã hội khác?",
-        options: [
-          { text: "Đấu tranh vũ trang có tổ chức", correct: true },
-          { text: "Có sự can thiệp của nhà nước", correct: false },
-          { text: "Có yếu tố mục đích chính trị", correct: false },
-          { text: "Diễn ra cam go và quyết liệt", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 2",
-        q: "Mục đích suy đến cùng của chiến tranh là gì?",
-        options: [
-          { text: "Lợi ích kinh tế", correct: true },
-          { text: "Lợi ích chính trị", correct: false },
-          { text: "Lợi ích xã hội", correct: false },
-          { text: "Lợi ích đối ngoại", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 2",
-        q: "Trường hợp nào sau đây không được gọi là hiện tượng chiến tranh?",
-        options: [
-          { text: "Xung đột vũ trang giữa các bộ tộc, bộ lạc trong thời kỳ Cộng sản nguyên thủy", correct: true },
-          { text: "Sự vùng dậy của nô lệ và cuộc đàn áp của chủ nô", correct: false },
-          { text: "Sự chinh phục của đế chế La Mã với các quốc gia khác", correct: false },
-          { text: "Nhân dân Việt Nam tổng khởi nghĩa giành chính quyền năm 1945", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 2",
-        q: "Hình thái kinh tế - xã hội nào không còn hiện tượng chiến tranh?",
-        options: [
-          { text: "Hình thái kinh tế - xã hội cộng sản chủ nghĩa", correct: true },
-          { text: "Hình thái kinh tế - xã hội tư bản chủ nghĩa", correct: false },
-          { text: "Hình thái kinh tế - xã hội chủ nghĩa xã hội", correct: false },
-          { text: "Hình thái kinh tế - xã hội quá độ lên chủ nghĩa xã hội", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 2",
-        q: "V.I.Lênin nói: “Chiến tranh chẳng qua chỉ là chính trị từ đầu đến cuối” nghĩa là gì?",
-        options: [
-          { text: "Bản chất của chiến tranh là sự kế tục của chính trị", correct: true },
-          { text: "Chiến tranh quyết định chính trị", correct: false },
-          { text: "Chiến tranh không liên quan đến chính trị", correct: false },
-          { text: "Chiến tranh muốn thắng lợi thì phải bằng chính trị", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 2",
-        q: "Câu nói: “Chiến tranh là bạn đường của chủ nghĩa đế quốc” là của ai?",
-        options: [
-          { text: "V.I.Lênin", correct: true },
-          { text: "C.Mác", correct: false },
-          { text: "Ph.Ăngghen", correct: false },
-          { text: "Hồ Chí Minh", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 2",
-        q: "Hồ Chí Minh khẳng định mục đích cuộc chiến tranh của nhân dân ta chống thực dân Pháp:",
-        options: [
-          { text: "Bảo vệ nhân dân, bảo vệ chế độ, BVTQ Việt Nam xã hội chủ nghĩa.", correct: false },
-          { text: "Chỉ chiến đấu bảo vệ đất nước và chống ách đô hộ của thực dân, đế quốc.", correct: false },
-          { text: "Bảo vệ tính mạng, tài sản của nhân dân, của chế độ xã hội chủ nghĩa.", correct: false },
-          { text: "Chỉ chiến đấu cho quyền thống nhất và độc lập của Tổ quốc.", correct: true }
-        ]
-      },
-      {
-        lesson: "Bài 2",
-        q: "Lời kêu gọi toàn quốc kháng chiến chống thực dân Pháp của Chủ tịch Hồ Chí Minh vào ngày:",
-        options: [
-          { text: "Ngày 22 tháng 12 năm 1944.", correct: false },
-          { text: "Ngày 23 tháng 9 năm 1945.", correct: false },
-          { text: "Ngày 2 tháng 9 năm 1945.", correct: false },
-          { text: "Ngày 19 tháng 12 năm 1946.", correct: true }
-        ]
-      },
-      {
-        lesson: "Bài 2",
-        q: "Tư tưởng chỉ đạo trong Lời kêu gọi toàn quốc kháng chiến của Chủ tịch Hồ Chí Minh là:",
-        options: [
-          { text: "Kháng chiến toàn dân, toàn diện", correct: true },
-          { text: "Trường kỳ kháng chiến", correct: false },
-          { text: "Kết hợp sức mạnh dân tộc với sức mạnh thời đại", correct: false },
-          { text: "Vừa kháng chiến vừa kiến quốc", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 2",
-        q: "Chủ tịch Hồ Chí Minh sử dụng khái niệm nào dưới đây để chỉ cuộc chiến tranh mà ta phải đánh địch trên đủ mọi mặt quân sự, kinh tế, chính trị, tư tưởng?",
-        options: [
-          { text: "Toàn diện chiến tranh.", correct: true },
-          { text: "Lập thể chiến tranh.", correct: false },
-          { text: "Bình diện chiến tranh.", correct: false },
-          { text: "Chiến tranh tổng lực.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 2",
-        q: "Tư tưởng Hồ Chí Minh xác định phương châm tiến hành chiến tranh của nhân dân ta bao gồm những nội dung cốt lõi nào?",
-        options: [
-          { text: "Đánh lâu dài, dựa vào sức mình là chính, vừa kháng chiến vừa kiến quốc.", correct: true },
-          { text: "Đánh nhanh thắng nhanh, tranh thủ tối đa sự viện trợ của quốc tế.", correct: false },
-          { text: "Đánh lâu dài, dựa hoàn toàn vào sự giúp đỡ của các nước xã hội chủ nghĩa.", correct: false },
-          { text: "Phòng ngự chiến lược, bảo toàn lực lượng chờ thời cơ phản công.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 2",
-        q: "Trong việc chăm lo xây dựng hậu phương chiến tranh, Hồ Chí Minh quan niệm trước hết phải xây dựng hậu phương vững mạnh về mặt nào?",
-        options: [
-          { text: "Chính trị tư tưởng.", correct: true },
-          { text: "Tiềm lực kinh tế.", correct: false },
-          { text: "Công nghiệp quốc phòng.", correct: false },
-          { text: "Ngoại giao quốc tế.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 2",
-        q: "Nguồn gốc trực tiếp dẫn đến ra đời và tồn tại QĐ là:",
-        options: [
-          { text: "Đối kháng giai cấp trong xã hội.", correct: true },
-          { text: "Chiến tranh", correct: false },
-          { text: "Quy luật sinh tồn của động vật.", correct: false },
-          { text: "Nguyện vọng của nhân dân.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 2",
-        q: "Bản chất giai cấp của QĐ phụ thuộc vào:",
-        options: [
-          { text: "Bản chất của giai cấp, nhà nước đã tổ chức ra QĐ đó.", correct: true },
-          { text: "Bản chất của nhà nước đã tổ chức ra QĐ đó.", correct: false },
-          { text: "Bản chất của giai cấp nông dân và của nhà nước đã tổ chức ra QĐ đó.", correct: false },
-          { text: "Tất cả đều đúng.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 2",
-        q: "Yếu tố giữ vai trò quyết định đến sức mạnh chiến đấu của QĐ là:",
-        options: [
-          { text: "Quân số, tổ chức, cơ cấu biên chế.", correct: false },
-          { text: "Chất lượng vũ khí trang bị kỹ thuật.", correct: false },
-          { text: "Chính trị tinh thần và kỷ luật.", correct: true },
-          { text: "Trình độ huấn luyện và thể lực.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 2",
-        q: "Câu nói: “Trong mọi cuộc chiến tranh, rốt cuộc thắng lợi đều phụ thuộc vào tinh thần của quần chúng đang đổ máu trên chiến trường..” là của:",
-        options: [
-          { text: "V.I. Lênin.", correct: true },
-          { text: "Các Mác.", correct: false },
-          { text: "Ăng ghen.", correct: false },
-          { text: "Hồ Chí Minh.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 2",
-        q: "Theo quan điểm của CNMLN, QĐ là:",
-        options: [
-          { text: "Công cụ bạo lực vũ trang của một giai cấp, nhà nước nhất định", correct: true },
-          { text: "Là công cụ bạo lực để trấn áp phe đối lập", correct: false },
-          { text: "Là công cụ bạo lực để duy trì trật tự trong nước", correct: false },
-          { text: "Là công cụ bạo lực phi giai cấp", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 2",
-        q: "Tư tưởng Hồ Chí Minh khẳng định sự ra đời của QĐ nhân dân Việt Nam:",
-        options: [
-          { text: "Là một tất yếu có tính quy luật trong đấu tranh giai cấp, đấu tranh dân tộc ở Việt Nam.", correct: true },
-          { text: "Là một hiện tượng ngẫu nhiên trong quá trình đấu tranh cách mạng của dân tộc Việt Nam.", correct: false },
-          { text: "Là một sự kế thừa trong lịch sử chống giặc ngoại xâm.", correct: false },
-          { text: "Là một hiện tượng tự phát do đòi hỏi của chiến tranh cách mạng.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 2",
-        q: "Theo tư tưởng HCM, QĐ NDVN mang bản chất:",
-        options: [
-          { text: "Mang bản chất của giai cấp nông dân.", correct: false },
-          { text: "Mang bản chất giai cấp công – nông.", correct: false },
-          { text: "Mang bản chất của giai cấp công nhân.", correct: true },
-          { text: "Mang bản chất nhân dân lao động Việt Nam.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 2",
-        q: "QĐNDVN mang bản chất của giai cấp công nhân đồng thời có:",
-        options: [
-          { text: "Tính quần chúng và cách mạng sâu sắc.", correct: false },
-          { text: "Tính phong phú và đa dạng.", correct: false },
-          { text: "Tính nhân dân và tính dân tộc sâu sắc.", correct: true },
-          { text: "Tính phổ biến và rộng rãi.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 2",
-        q: "Chủ tịch Hồ Chí Minh khẳng định QĐNDVN có nhiệm vụ:",
-        options: [
-          { text: "Xây dựng QĐ ngày càng hùng mạnh và sẵn sàng chiến đấu.", correct: true },
-          { text: "Xây dựng QĐ ngày càng hùng hậu và sẵn sàng chiến đấu.", correct: false },
-          { text: "Xây dựng QĐ có số lượng đông đảo và sẵn sàng chiến đấu.", correct: false },
-          { text: "Xây dựng QĐ có chất lượng cao và sẵn sàng chiến đấu.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 2",
-        q: "Yếu tố nào đóng vai trò quyết định tạo nên sức mạnh chiến đấu của QĐ ta?",
-        options: [
-          { text: "Vũ khí trang bị.", correct: false },
-          { text: "Nghệ thuật quân sự.", correct: false },
-          { text: "Điều kiện kinh tế.", correct: false },
-          { text: "Chính trị, tinh thần.", correct: true }
-        ]
-      },
-      {
-        lesson: "Bài 2",
-        q: "Chủ tịch HCM, một trong hai nhiệm vụ chính của QĐ ta là:",
-        options: [
-          { text: "Tiến hành phổ biến chính sách của Đảng, Nhà nước cho nhân dân.", correct: false },
-          { text: "Giúp nhân dân cải thiện đời sống vật chất tinh thần.", correct: false },
-          { text: "Thiết thực tham gia lao động sản xuất góp phần xây dựng chủ nghĩa xã hội.", correct: true },
-          { text: "Làm nòng cốt phát triển kinh tế tại nơi đóng quân.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 2",
-        q: "3 chức năng cơ bản của QĐ nhân dân Việt Nam gồm:",
-        options: [
-          { text: "Chiến đấu, sẵn sàng chiến đấu và làm nhiệm vụ quốc tế.", correct: false },
-          { text: "Chiến đấu, lao động sản xuất và phát triển kinh tế.", correct: false },
-          { text: "Chiến đấu và tham gia giữ gìn hòa bình trong khu vực.", correct: false },
-          { text: "Chiến đấu; công tác; lao động sản xuất.", correct: true }
-        ]
-      },
-      {
-        lesson: "Bài 2",
-        q: "Ai là người ra Chỉ thị thành lập “Đội Việt Nam tuyên truyền giải phóng quân”?",
-        options: [
-          { text: "Chủ tịch Hồ Chí Minh", correct: true },
-          { text: "Đại tướng Võ Nguyên Giáp", correct: false },
-          { text: "Đảng Cộng sản Việt Nam", correct: false },
-          { text: "Mặt trận Việt Minh", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 2",
-        q: "Hồ Chí Minh thêm cụm từ “tuyên truyền” vào tên gọi “Đội Việt Nam tuyên truyền giải phóng quân” nghĩa là gì?",
-        options: [
-          { text: "Nghĩa là “chính trị trọng hơn quân sự; quân sự phải phục tùng chính trị”", correct: true },
-          { text: "Nghĩa là tuyên truyền trước, giải phóng sau", correct: false },
-          { text: "Nghĩa là “người trước, súng sau”", correct: false },
-          { text: "Nghĩa là tuyên truyền là chính", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 2",
-        q: "Tại sao QĐNDVN mang bản chất của giai cấp công nhân?",
-        options: [
-          { text: "QĐ ta do ĐCSVN tổ chức, lãnh đạo và rèn luyện", correct: true },
-          { text: "QĐ ta từ nhân dân mà ra, vì nhân dân mà chiến đấu", correct: false },
-          { text: "QĐ ta do Chủ tịch Hồ Chí Minh sáng lập, giáo dục và rèn luyện", correct: false },
-          { text: "Vì thành phần chủ yếu của QĐ là giai cấp công nhân", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 2",
-        q: "Ai được gọi là người “Anh Cả” của QĐNDVN?",
-        options: [
-          { text: "Đại tướng Võ Nguyên Giáp", correct: true },
-          { text: "Chủ tịch Hồ Chí Minh", correct: false },
-          { text: "Đảng Cộng sản Việt Nam", correct: false },
-          { text: "Đại tướng Nguyễn Chí Thanh", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 2",
-        q: "QĐNDVN được gọi bằng danh xưng trìu mến nào?",
-        options: [
-          { text: "“Bộ đội Cụ Hồ”", correct: true },
-          { text: "“Bộ đội nhà Phật”", correct: false },
-          { text: "“Bộ đội Bác Hồ”", correct: false },
-          { text: "“Bộ đội Ông Cụ”", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 2",
-        q: "Một trong những truyền thống vẻ vang của QĐ ta?",
-        options: [
-          { text: "Trung thành vô hạn với sự nghiệp cách mạng của Đảng", correct: true },
-          { text: "Vì nước quên thân, vì dân phục vụ", correct: false },
-          { text: "Kiên quyết, khôn khéo", correct: false },
-          { text: "Mưu trí, sáng tạo", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 2",
-        q: "Một trong những quan điểm của CN MLN về BVTQXHCN:",
-        options: [
-          { text: "BVTQ xã hội chủ nghĩa là nhiệm vụ thường xuyên, liên tục.", correct: false },
-          { text: "BVTQ xã hội chủ nghĩa là một tất yếu khách quan.", correct: true },
-          { text: "BVTQ xã hội chủ nghĩa là nhiệm vụ cấp thiết trước mắt.", correct: false },
-          { text: "BVTQ xã hội chủ nghĩa là nhiệm vụ trọng yếu của toàn dân.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 2",
-        q: "Một trong những quan điểm CN Mác Lênin về BVTQXHCN:",
-        options: [
-          { text: "Tăng cường quân thường trực gắn với phát triển kinh tế xã hội", correct: false },
-          { text: "Tăng cường thế trận gắn với thực hiện chính sách đãi ngộ", correct: false },
-          { text: "Tăng cường tiềm lực quốc phòng gắn với phát triển kinh tế xã hội", correct: true },
-          { text: "Tăng cường tiềm lực an ninh gắn với hợp tác quốc tế", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 2",
-        q: "Bác Hồ nói với Đại đoàn Quân tiên phong trong lần về thăm Đền Hùng năm 1954:",
-        options: [
-          { text: "Các vua Hùng đã có công dựng nước, Bác cháu ta phải cùng nhau giữ lấy nước.", correct: true },
-          { text: "Các vua Hùng đã có công dựng nước, Bác cháu ta phải cùng nhau bảo vệ đất nước.", correct: false },
-          { text: "Các vua Hùng đã có công dựng nước, Bác cháu ta phải cùng nhau xây dựng đất nước.", correct: false },
-          { text: "Các vua Hùng đã có công dựng nước, Bác cháu ta phải cùng nhau BVTQ.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 2",
-        q: "Tư tưởng Hồ Chí Minh về sức mạnh BVTQ:",
-        options: [
-          { text: "Là sức mạnh của từng dân tộc, kết hợp với sức mạnh của nền QPTD.", correct: false },
-          { text: "Là sức mạnh tổng hợp của cả dân tộc, cả nước kết hợp với sức mạnh thời đại.", correct: true },
-          { text: "Là sức mạnh của toàn dân, lấy lực lượng vũ trang làm nòng cốt.", correct: false },
-          { text: "Là sức mạnh của lực lượng vũ trang nhân dân, sức mạnh QPTD.", correct: false }
+          { text: "Nếp sống văn hóa quân sự, sự tôn trọng điều lệnh và tinh thần đoàn kết nội bộ", correct: true },
+          { text: "Sự phân biệt giai cấp khắt khe giữa cấp trên và cấp dưới", correct: false },
+          { text: "Hình thức nghi lễ xã giao thông thường không bắt buộc thực hiện", correct: false },
+          { text: "Chỉ áp dụng bắt buộc khi ra ngoài tiếp xúc với nhân dân", correct: false }
         ]
       },
 
-      // ==================== BÀI 3 (34 câu) ====================
+      // ==================== Qs3: CÁC QUÂN, BINH CHỦNG TRONG QUÂN ĐỘI NHÂN DÂN VIỆT NAM ====================
       {
-        lesson: "Bài 3",
-        q: "Theo Luật Quốc phòng năm 2018, quốc phòng được hiểu là gì?",
+        lesson: "Qs3: Quân, binh chủng",
+        q: "Quân đội nhân dân Việt Nam hiện nay có bao nhiêu Quân chủng?",
         options: [
-          { text: "Công cuộc giữ nước bằng sức mạnh tổng hợp của toàn dân tộc, trong đó sức mạnh quân sự là đặc trưng, lực lượng vũ trang nhân dân làm nòng cốt.", correct: true },
-          { text: "Hoạt động quân sự riêng của QĐ nhân dân.", correct: false },
-          { text: "Việc bảo vệ an ninh chính trị trong nội địa.", correct: false },
-          { text: "Hoạt động đối ngoại nhằm giữ môi trường hòa bình.", correct: false }
+          { text: "3 Quân chủng: Lục quân, Hải quân, Phòng không - Không quân", correct: true },
+          { text: "2 Quân chủng: Lục quân và Không quân", correct: false },
+          { text: "4 Quân chủng: Lục quân, Hải quân, Không quân, Tác chiến không gian mạng", correct: false },
+          { text: "5 Quân chủng: Hải quân, Lục quân, Không quân, Biên phòng, Cảnh sát biển", correct: false }
         ]
       },
       {
-        lesson: "Bài 3",
-        q: "Theo Luật Quốc phòng năm 2018, QPTD là gì?",
+        lesson: "Qs3: Quân, binh chủng",
+        q: "Quân chủng Hải quân nhân dân Việt Nam giữ vai trò nòng cốt trong việc bảo vệ nhiệm vụ nào?",
         options: [
-          { text: "Công cuộc giữ nước mang tính chất nhân dân, phát triển theo hướng toàn dân, toàn diện, độc lập tự chủ, tự cường và ngày càng hiện đại.", correct: true },
-          { text: "Công cuộc giữ nước mang tính toàn dân, tập trung vào sức mạnh quân sự và lực lượng vũ trang hiện đại.", correct: false },
-          { text: "Công cuộc giữ nước do Nhà nước tổ chức, dựa chủ yếu vào lực lượng chuyên trách và tiềm lực kinh tế.", correct: false },
-          { text: "Công cuộc giữ nước mang tính nhân dân, ưu tiên hợp tác quốc tế và sự hỗ trợ từ bên ngoài.", correct: false }
+          { text: "Bảo vệ chủ quyền biển, đảo, thềm lục địa và lợi ích quốc gia trên biển của Tổ quốc", correct: true },
+          { text: "Chuyên trách quản lý và bảo vệ biên giới trên đất liền", correct: false },
+          { text: "Bảo vệ bầu trời và không phận quốc gia", correct: false },
+          { text: "Bảo vệ an ninh trật tự tại các khu đô thị nội địa", correct: false }
         ]
       },
       {
-        lesson: "Bài 3",
-        q: "Theo Luật An ninh quốc gia năm 2004, nền ANND là gì?",
+        lesson: "Qs3: Quân, binh chủng",
+        q: "Binh chủng nào được mệnh danh là “Hỏa lực mặt đất chủ yếu” của Quân đội nhân dân Việt Nam?",
         options: [
-          { text: "Sức mạnh tinh thần, vật chất, sự đoàn kết và truyền thống dựng nước, giữ nước của toàn dân tộc được huy động vào sự nghiệp bảo vệ an ninh quốc gia, trong đó lực lượng chuyên trách bảo vệ an ninh quốc gia làm nòng cốt.", correct: true },
-          { text: "Sức mạnh riêng của lực lượng chuyên trách bảo vệ an ninh quốc gia.", correct: false },
-          { text: "Hệ thống cơ sở vật chất phục vụ nhiệm vụ quản lý nhà nước.", correct: false },
-          { text: "Hoạt động bảo đảm trật tự, an toàn xã hội ở địa phương.", correct: false }
+          { text: "Binh chủng Pháo binh", correct: true },
+          { text: "Binh chủng Công binh", correct: false },
+          { text: "Binh chủng Thông tin liên lạc", correct: false },
+          { text: "Binh chủng Hóa học", correct: false }
         ]
       },
       {
-        lesson: "Bài 3",
-        q: "Xây dựng nền QPTD, ANND có vị trí gì trong nhiệm vụ BVTQ?",
+        lesson: "Qs3: Quân, binh chủng",
+        q: "Bác Hồ đã trao tặng 16 chữ vàng: “Đặc biệt tinh nhuệ, Anh dũng tuyệt vời, Mưu trí táo bạo, Đánh hiểm thắng lớn” cho lực lượng nào?",
         options: [
-          { text: "Có vị trí chiến lược trong nhiệm vụ BVTQ.", correct: true },
-          { text: "Có vị trí nền tảng trong xây dựng lực lượng vũ trang, chủ yếu bảo đảm sức mạnh quân sự.", correct: false },
-          { text: "Có vị trí thường xuyên trong bảo đảm an ninh, tập trung vào phòng, chống tội phạm và giữ gìn trật tự.", correct: false },
-          { text: "Có vị trí hỗ trợ trong phát triển kinh tế - xã hội, chủ yếu tạo nguồn lực vật chất cho quốc phòng, an ninh.", correct: false }
+          { text: "Binh chủng Đặc công", correct: true },
+          { text: "Binh chủng Tăng - Thiết giáp", correct: false },
+          { text: "Binh chủng Thông tin liên lạc", correct: false },
+          { text: "Binh chủng Công binh", correct: false }
         ]
       },
       {
-        lesson: "Bài 3",
-        q: "Mục đích duy nhất của nền QPTD, ANND là gì?",
+        lesson: "Qs3: Quân, binh chủng",
+        q: "Binh chủng nào giữ vai trò bảo đảm thông tin thông suốt, kịp thời, vững chắc cho lãnh đạo, chỉ huy tác chiến?",
         options: [
-          { text: "Tự vệ chính đáng.", correct: true },
-          { text: "Mở rộng ảnh hưởng quân sự.", correct: false },
-          { text: "Tăng cường cạnh tranh chiến lược.", correct: false },
-          { text: "Thể hiện ưu thế vũ khí hiện đại.", correct: false }
+          { text: "Binh chủng Thông tin liên lạc", correct: true },
+          { text: "Binh chủng Hóa học", correct: false },
+          { text: "Binh chủng Công binh", correct: false },
+          { text: "Binh chủng Pháo binh", correct: false }
         ]
       },
       {
-        lesson: "Bài 3",
-        q: "Đặc trưng nào thể hiện tính nhân dân của nền QPTD, ANND?",
+        lesson: "Qs3: Quân, binh chủng",
+        q: "Lực lượng chuyên trách nòng cốt thực thi pháp luật và bảo vệ an ninh trật tự, an toàn trên các vùng biển của Việt Nam là lực lượng nào?",
         options: [
-          { text: "Vì dân, của dân và do toàn thể nhân dân tiến hành.", correct: true },
-          { text: "Do lực lượng vũ trang nhân dân làm nòng cốt và trực tiếp tiến hành trên phạm vi cả nước.", correct: false },
-          { text: "Do hệ thống chính trị tổ chức, điều hành và các lực lượng chuyên trách thực hiện.", correct: false },
-          { text: "Do Nhà nước đầu tư, xây dựng và quản lý thống nhất, nhân dân tham gia theo từng nhiệm vụ cụ thể.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 3",
-        q: "Sức mạnh tổng hợp của nền QPTD, ANND do những yếu tố nào tạo thành?",
-        options: [
-          { text: "Chính trị, kinh tế, văn hóa, tư tưởng, khoa học, quân sự, an ninh và các yếu tố khác; trong đó yếu tố bên trong của dân tộc giữ vai trò quyết định.", correct: true },
-          { text: "Chính trị, quân sự, an ninh và đối ngoại; trong đó sức mạnh quân sự giữ vai trò quyết định.", correct: false },
-          { text: "Kinh tế, khoa học, công nghệ và tài chính; trong đó tiềm lực kinh tế giữ vai trò quyết định.", correct: false },
-          { text: "VH, XH, tư tưởng và truyền thông; trong đó yếu tố tinh thần giữ vai trò quyết định.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 3",
-        q: "Yêu cầu xây dựng nền QPTD, ANND toàn diện và hiện đại là gì?",
-        options: [
-          { text: "Huy động sức mạnh của toàn dân về mọi mặt, đồng thời xây dựng quốc phòng, an ninh hiện đại là tất yếu khách quan", correct: true },
-          { text: "Ưu tiên hiện đại hóa lực lượng vũ trang trước, sau đó từng bước mở rộng sang các lĩnh vực khác.", correct: false },
-          { text: "Xây dựng toàn diện các tiềm lực, còn hiện đại hóa tập trung chủ yếu vào vũ khí và trang bị kỹ thuật.", correct: false },
-          { text: "Lấy phát triển kinh tế - xã hội làm trọng tâm, QP - AN hiện đại hóa theo khả năng ngân sách từng thời kỳ.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 3",
-        q: "Mối quan hệ giữa nền QPTD và nền ANND được xác định như thế nào?",
-        options: [
-          { text: "Nền QPTD gắn chặt với nền ANND.", correct: true },
-          { text: "Hai nền tảng tách biệt, không liên quan đến nhau.", correct: false },
-          { text: "Nền ANND thay thế nền QPTD.", correct: false },
-          { text: "Nền QPTD thiên về gắn với đối ngoại.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 3",
-        q: "Một mục đích xây dựng nền QPTD, ANND vững mạnh hiện nay là gì?",
-        options: [
-          { text: "Tạo sức mạnh tổng hợp, tạo thế chủ động cho sự nghiệp xây dựng và BVTQ Việt Nam XHCN", correct: true },
-          { text: "Tạo tiềm lực quân sự đủ mạnh để giành ưu thế trong các tranh chấp và xung đột khu vực.", correct: false },
-          { text: "Tạo nguồn lực kinh tế phục vụ hiện đại hóa lực lượng vũ trang và công nghiệp quốc phòng.", correct: false },
-          { text: "Tạo hệ thống lực lượng chuyên trách đủ sức xử lý các nguy cơ quốc phòng, an ninh trong mọi tình huống.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 3",
-        q: "Nội dung xây dựng nền QPTD, ANND vững mạnh hiện nay gồm những nội dung nào?",
-        options: [
-          { text: "Xây dựng tiềm lực quốc phòng an ninh; lực lượng quốc phòng an ninh; thế trận QPTD, ANND.", correct: true },
-          { text: "Xây dựng kinh tế, văn hóa và hệ thống giáo dục quốc dân.", correct: false },
-          { text: "Xây dựng QĐ thường trực, công nghiệp quốc phòng và hậu cần.", correct: false },
-          { text: "Xây dựng đối ngoại, thương mại và hợp tác khu vực.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 3",
-        q: "Tiềm lực QP - AN là gì?",
-        options: [
-          { text: "Khả năng về nhân lực, vật lực, tài chính, tinh thần ở trong nước và ngoài nước có thể huy động để thực hiện nhiệm vụ quốc phòng, an ninh.", correct: true },
-          { text: "Khả năng về con người, vũ khí và trang bị có thể huy động trực tiếp cho nhiệm vụ quân sự.", correct: false },
-          { text: "Khả năng về kinh tế, khoa học và công nghệ có thể khai thác để phát triển đất nước.", correct: false },
-          { text: "Khả năng tổ chức, triển khai và bố trí lực lượng, tiềm lực trên toàn lãnh thổ theo ý định chiến lược.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 3",
-        q: "Tiềm lực chính trị trong xây dựng nền QPTD, ANND là gì?",
-        options: [
-          { text: "Khả năng tiềm tàng về chính trị có thể huy động tạo sức mạnh thực hiện nhiệm vụ quốc phòng, an ninh.", correct: true },
-          { text: "Khả năng tài chính có thể huy động phục vụ quốc phòng, an ninh.", correct: false },
-          { text: "Khả năng khoa học, công nghệ phục vụ nghiên cứu quốc phòng.", correct: false },
-          { text: "Khả năng tác chiến của lực lượng vũ trang nhân dân.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 3",
-        q: "Tiềm lực chính trị biểu hiện chủ yếu ở nội dung nào?",
-        options: [
-          { text: "Nhận thức, ý chí, niềm tin, tâm lý, tình cảm, trách nhiệm của nhân dân và lực lượng vũ trang đối với nhiệm vụ QP-AN", correct: true },
-          { text: "Quy mô dự trữ tài chính và năng lực cơ động của nền kinh tế.", correct: false },
-          { text: "Trình độ nghiên cứu, ứng dụng khoa học và công nghệ.", correct: false },
-          { text: "Số lượng vũ khí, trang bị và phương tiện kỹ thuật.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 3",
-        q: "Tiềm lực kinh tế của nền QPTD, ANND là gì?",
-        options: [
-          { text: "Khả năng kinh tế của đất nước có thể khai thác, huy động phục vụ quốc phòng, an ninh.", correct: true },
-          { text: "Khả năng tác chiến và sẵn sàng chiến đấu của lực lượng vũ trang.", correct: false },
-          { text: "Khả năng về tư tưởng, ý chí và trách nhiệm chính trị.", correct: false },
-          { text: "Khả năng giữ gìn bản sắc văn hóa dân tộc.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 3",
-        q: "Tiềm lực VH, XH được hiểu là gì?",
-        options: [
-          { text: "Các yếu tố tinh thần, tư tưởng, văn hóa, ý chí, tình cảm trong mỗi con người và toàn xã hội.", correct: true },
-          { text: "Khả năng sản xuất vật chất phục vụ phát triển kinh tế.", correct: false },
-          { text: "Khả năng tác chiến của lực lượng vũ trang nhân dân.", correct: false },
-          { text: "Khả năng nghiên cứu và ứng dụng công nghệ hiện đại.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 3",
-        q: "Việt Nam chủ trương xây dựng tiềm lực VH, XH theo hướng nào?",
-        options: [
-          { text: "Xây dựng nền văn hóa tiên tiến, đậm đà bản sắc dân tộc, con người phát triển toàn diện; giữ gìn thuần phong, mỹ tục và ngăn chặn sự xâm lăng văn hóa.", correct: true },
-          { text: "Xây dựng nền văn hóa hiện đại, thống nhất, giảm bớt khác biệt vùng miền và ưu tiên tiếp thu tinh hoa từ bên ngoài.", correct: false },
-          { text: "Xây dựng đời sống văn hóa gắn với phát triển kinh tế, lấy hệ thống truyền thông đại chúng làm lực lượng nòng cốt.", correct: false },
-          { text: "Xây dựng con người có trình độ chuyên môn cao, lấy khoa học - công nghệ làm nội dung trung tâm của tiềm lực VH, XH.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 3",
-        q: "Tiềm lực khoa học, công nghệ của nền QPTD, ANND là gì?",
-        options: [
-          { text: "Khả năng về khoa học và công nghệ của quốc gia có thể khai thác, huy động phục vụ quốc phòng, an ninh.", correct: true },
-          { text: "Khả năng tài chính để mua sắm vũ khí, trang bị kỹ thuật.", correct: false },
-          { text: "Khả năng tuyên truyền, giáo dục truyền thống yêu nước.", correct: false },
-          { text: "Khả năng tổ chức lực lượng toàn dân ở địa phương.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 3",
-        q: "Những yếu tố cơ bản của tiềm lực khoa học, công nghệ là gì?",
-        options: [
-          { text: "Nguồn nhân lực và cơ sở vật chất phục vụ nghiên cứu, phát triển, ứng dụng khoa học, công nghệ.", correct: true },
-          { text: "Nguồn tài chính, thương mại, thị trường và dịch vụ.", correct: false },
-          { text: "Lực lượng thường trực, lực lượng dự bị và dân quân tự vệ.", correct: false },
-          { text: "Phương tiện truyền thông, văn hóa và giáo dục phổ thông.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 3",
-        q: "Tiềm lực quân sự trong xây dựng nền QPTD chủ yếu phản ánh nội dung nào?",
-        options: [
-          { text: "Khả năng về sức mạnh chiến đấu của QĐ nhân dân và khả năng huy động nhân lực, vật lực phục vụ nhiệm vụ quân sự, quốc phòng.", correct: true },
-          { text: "Khả năng về tinh thần, ý chí, niềm tin và trách nhiệm chính trị của nhân dân, lực lượng vũ trang.", correct: false },
-          { text: "Khả năng về kinh tế của đất nước có thể khai thác, huy động làm cơ sở vật chất cho quốc phòng.", correct: false },
-          { text: "Khả năng về khoa học và công nghệ của quốc gia có thể huy động phục vụ quốc phòng, an ninh.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 3",
-        q: "Hai yếu tố cơ bản của tiềm lực quân sự là gì?",
-        options: [
-          { text: "Con người và vũ khí, trang bị; trong đó con người là nhân tố quyết định.", correct: true },
-          { text: "Tài chính và thị trường; trong đó thị trường là nhân tố quyết định.", correct: false },
-          { text: "Văn hóa và truyền thông; trong đó truyền thông là nhân tố quyết định.", correct: false },
-          { text: "Địa bàn và dân cư; trong đó địa bàn là nhân tố quyết định.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 3",
-        q: "Lực lượng QP - AN là gì?",
-        options: [
-          { text: "Những con người, tổ chức và cơ sở vật chất, tài chính bảo đảm cho các lực lượng hoạt động, đáp ứng yêu cầu quốc phòng, an ninh.", correct: true },
-          { text: "Những con người và tổ chức trực tiếp thực hiện nhiệm vụ quân sự, an ninh trong lực lượng vũ trang nhân dân.", correct: false },
-          { text: "Hệ thống cơ sở vật chất, tài chính và trang bị bảo đảm cho QĐ nhân dân, Công an nhân dân hoạt động.", correct: false },
-          { text: "Lực lượng toàn dân và lực lượng vũ trang nhân dân được tổ chức để thực hiện nhiệm vụ BVTQ.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 3",
-        q: "Lực lượng QP - AN của nền QPTD, ANND gồm những lực lượng nào?",
-        options: [
-          { text: "Lực lượng toàn dân và lực lượng vũ trang nhân dân.", correct: true },
-          { text: "Lực lượng toàn dân, lực lượng chuyên trách và lực lượng dự bị.", correct: false },
-          { text: "QĐ nhân dân, Công an nhân dân, Dân quân tự vệ và lực lượng DBĐV.", correct: false },
-          { text: "Hệ thống chính trị, các tổ chức quần chúng và lực lượng tham gia bảo vệ an ninh, trật tự ở cơ sở.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 3",
-        q: "Lực lượng toàn dân trong xây dựng nền QPTD, ANND gồm những thành phần nào?",
-        options: [
-          { text: "Các ngành, các cấp và quần chúng nhân dân.", correct: true },
-          { text: "Hệ thống chính trị, lực lượng vũ trang và các tổ chức kinh tế.", correct: false },
-          { text: "Cán bộ, công chức, viên chức và người lao động trong cơ quan, tổ chức.", correct: false },
-          { text: "Các tổ chức quần chúng, Dân quân tự vệ và lực lượng DBĐV.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 3",
-        q: "Thế trận QP - AN là gì?",
-        options: [
-          { text: "Tổ chức, triển khai, bố trí lực lượng và tiềm lực quốc phòng, an ninh trên toàn lãnh thổ theo ý định chiến lược thống nhất.", correct: true },
-          { text: "Tập hợp riêng các đơn vị QĐ thường trực ở khu vực trọng điểm.", correct: false },
-          { text: "Tổ chức riêng lực lượng công an để bảo đảm trật tự, an toàn xã hội.", correct: false },
-          { text: "Sắp xếp cơ sở kinh tế nhằm phục vụ phát triển sản xuất.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 3",
-        q: "Nội dung nào được xác định là nền tảng của nền QPTD và nền ANND?",
-        options: [
-          { text: "Xây dựng “thế trận lòng dân” vững chắc.", correct: true },
-          { text: "Xây dựng quân khu vững mạnh toàn diện, hợp thành hệ thống phòng thủ đất nước.", correct: false },
-          { text: "Xây dựng tỉnh, thành phố thành khu vực phòng thủ vững chắc.", correct: false },
-          { text: "Xây dựng thế trận QPTD gắn với thế trận ANND.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 3",
-        q: "Phòng thủ quân khu là bộ phận hợp thành của nội dung nào?",
-        options: [
-          { text: "Phòng thủ đất nước.", correct: true },
-          { text: "Hoạt động đối ngoại quốc phòng.", correct: false },
-          { text: "Phát triển kinh tế vùng đô thị.", correct: false },
-          { text: "Quản lý hành chính cấp cơ sở.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 3",
-        q: "Xây dựng tỉnh, thành phố thành khu vực phòng thủ vững chắc phải toàn diện trên những mặt nào?",
-        options: [
-          { text: "Chính trị, tư tưởng, kinh tế, VH, XH, quốc phòng, an ninh và đối ngoại.", correct: true },
-          { text: "Quân sự, hậu cần, kỹ thuật và tổ chức nghi lễ.", correct: false },
-          { text: "Kinh tế, thương mại, du lịch và dịch vụ đô thị.", correct: false },
-          { text: "Giáo dục, y tế, thể thao và truyền thông cộng đồng.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 3",
-        q: "Mục tiêu trọng yếu của xây dựng nền QP - AN hiện nay là gì?",
-        options: [
-          { text: "Bảo đảm, bảo vệ cao nhất lợi ích quốc gia - dân tộc; kiên quyết, kiên trì bảo vệ độc lập, chủ quyền, thống nhất, toàn vẹn lãnh thổ; bảo vệ Đảng, Nhà nước, Nhân dân và chế độ xã hội chủ nghĩa.", correct: true },
-          { text: "Tập trung bảo vệ an ninh quốc gia, an ninh con người và giữ ổn định chính trị trong nước.", correct: false },
-          { text: "Tăng cường tiềm lực quân sự, hiện đại hóa lực lượng vũ trang và nâng cao vị thế quốc tế của đất nước.", correct: false },
-          { text: "Bảo vệ thành quả đổi mới, phát triển kinh tế - xã hội và mở rộng quan hệ đối ngoại.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 3",
-        q: "Một quan điểm quan trọng trong xây dựng nền quốc phòng, an ninh hiện nay là gì?",
-        options: [
-          { text: "Kết hợp chặt chẽ, hiệu quả kinh tế, văn hóa, xã hội, đối ngoại với quốc phòng, an ninh và ngược lại.", correct: true },
-          { text: "Kết hợp quốc phòng, an ninh với kinh tế và đối ngoại, ưu tiên các vùng, địa bàn chiến lược.", correct: false },
-          { text: "Kết hợp kinh tế, VH, XH với quốc phòng, còn an ninh được tổ chức theo hệ thống chuyên trách.", correct: false },
-          { text: "Kết hợp quốc phòng với phát triển kinh tế - xã hội, lấy đối ngoại làm lĩnh vực hỗ trợ chủ yếu.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 3",
-        q: "Biện pháp hàng đầu trong xây dựng nền QPTD, ANND hiện nay là gì?",
-        options: [
-          { text: "Giữ vững, tăng cường sự lãnh đạo tuyệt đối, trực tiếp về mọi mặt của Đảng và sự quản lý tập trung, thống nhất của Nhà nước.", correct: true },
-          { text: "Xây dựng QĐ nhân dân, Công an nhân dân cách mạng, chính quy, tinh nhuệ, hiện đại.", correct: false },
-          { text: "Xây dựng, phát triển công nghiệp quốc phòng, công nghiệp an ninh hiện đại, lưỡng dụng.", correct: false },
-          { text: "Tiếp tục triển khai đồng bộ các chiến lược quốc phòng, an ninh và hoàn thiện pháp luật liên quan.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 3",
-        q: "Biện pháp xây dựng QĐ nhân dân, Công an nhân dân trong tình hình mới là gì?",
-        options: [
-          { text: "Xây dựng cách mạng, chính quy, tinh nhuệ, hiện đại; ưu tiên hiện đại hóa một số quân chủng, binh chủng, lực lượng.", correct: true },
-          { text: "Xây dựng tinh gọn, cơ động, ưu tiên tăng quy mô lực lượng thường trực trên các địa bàn trọng điểm.", correct: false },
-          { text: "Xây dựng QĐ nhân dân hiện đại toàn diện trước, Công an nhân dân từng bước hiện đại theo điều kiện.", correct: false },
-          { text: "Xây dựng lực lượng vũ trang rộng khắp, lấy Dân quân tự vệ và DBĐV làm lực lượng chủ yếu.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 3",
-        q: "Công nghiệp quốc phòng, công nghiệp an ninh cần được xây dựng theo hướng nào?",
-        options: [
-          { text: "Hiện đại, lưỡng dụng, vừa đáp ứng yêu cầu BVTQ, vừa góp phần phát triển kinh tế - xã hội.", correct: true },
-          { text: "Hiện đại, chuyên dụng, tập trung đáp ứng nhu cầu vũ khí, trang bị của lực lượng vũ trang.", correct: false },
-          { text: "Lưỡng dụng, tự chủ, ưu tiên sản xuất dân dụng và xuất khẩu công nghệ quốc phòng.", correct: false },
-          { text: "Hiện đại, đồng bộ, gắn chủ yếu với xây dựng các tuyến phòng thủ biên giới, biển, đảo.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 3",
-        q: "Để thực hiện mục tiêu xây dựng nền quốc phòng, an ninh hiện nay, cần phát huy sức mạnh nào?",
-        options: [
-          { text: "Sức mạnh tổng hợp của toàn dân tộc, của cả hệ thống chính trị kết hợp với sức mạnh thời đại.", correct: true },
-          { text: "Sức mạnh riêng của công nghiệp quốc phòng.", correct: false },
-          { text: "Sức mạnh riêng của lực lượng thường trực.", correct: false },
-          { text: "Sức mạnh riêng của hợp tác kinh tế quốc tế.", correct: false }
+          { text: "Cảnh sát biển Việt Nam", correct: true },
+          { text: "Bộ đội Biên phòng", correct: false },
+          { text: "Hải đoàn Dân quân tự vệ biển", correct: false },
+          { text: "Kiểm lâm vùng biển", correct: false }
         ]
       },
 
-      // ==================== BÀI 4 (40 câu) ====================
+      // ==================== Qs4: ĐIỀU LỆNH ĐỘI NGŨ TỪNG NGƯỜI CÓ SÚNG ====================
       {
-        lesson: "Bài 4",
-        q: "Mục đích của CTNDBVTQ Việt Nam XHCN là gì?",
+        lesson: "Qs4: Đội ngũ có súng",
+        q: "Khi đứng ở tư thế Nghiêm có mang súng tiểu liên AK (mang súng), nòng súng hướng về phía nào?",
         options: [
-          { text: "Bảo đảm và bảo vệ cao nhất lợi ích quốc gia - dân tộc, kiên quyết, kiên trì bảo vệ vững chắc độc lập, chủ quyền, thống nhất, toàn vẹn lãnh thổ của Tổ quốc; bảo vệ Đảng, Nhà nước, Nhân dân, chế độ XHCN", correct: false },
-          { text: "Bảo vệ vững chắc an ninh quốc gia, an ninh con người, an ninh chế độ, an ninh văn hoá - tư tưởng, an ninh kinh tế - tài chính, an ninh mạng - dữ liệu, an ninh lương thực, an ninh năng lượng, an ninh nguồn nước", correct: false },
-          { text: "Bảo vệ thành quả cách mạng, sự nghiệp đổi mới, công nghiệp hoá, hiện đại hoá; giữ gìn, phát huy giá trị truyền thống văn hoá dân tộc, nâng cao vị thế quốc tế của đất nước", correct: false },
-          { text: "Tất cả đều đúng.", correct: true }
+          { text: "Hướng chếch lên trên, áp sát vào vai phải", correct: true },
+          { text: "Hướng cắm thẳng xuống đất", correct: false },
+          { text: "Hướng ngang sang phía bên trái", correct: false },
+          { text: "Chĩa thẳng về phía trước mặt", correct: false }
         ]
       },
       {
-        lesson: "Bài 4",
-        q: "Tiêu chí nào để phân biệt chiến tranh tự vệ và chiến tranh xâm lược?",
+        lesson: "Qs4: Đội ngũ có súng",
+        q: "Trong động tác khám súng tiểu liên AK, khẩu lệnh gồm những phần nào?",
         options: [
-          { text: "Mục đích của cuộc chiến tranh", correct: true },
-          { text: "Trình độ hiện đại của vũ khí trang bị", correct: false },
-          { text: "Phương thức tiến hành chiến tranh", correct: false },
-          { text: "Lực lượng tiến hành chiến tranh", correct: false }
+          { text: "Có dự lệnh “Khám súng” và động lệnh “Khám”", correct: false },
+          { text: "Khẩu lệnh chỉ có động lệnh: “Khám súng”", correct: true },
+          { text: "Khẩu lệnh gồm dự lệnh: “Chuẩn bị khám súng” và động lệnh: “Khám”", correct: false },
+          { text: "Không có khẩu lệnh, chỉ dùng ám hiệu tay", correct: false }
         ]
       },
       {
-        lesson: "Bài 4",
-        q: "Ưu thế vượt trội của địch khi tiến hành chiến tranh xâm lược nước ta là gì?",
+        lesson: "Qs4: Đội ngũ có súng",
+        q: "Khi thực hiện động tác khám súng tiểu liên AK, mục đích cơ bản nhất là gì?",
         options: [
-          { text: "Tiềm lực quân sự, kinh tế, khoa học công nghệ", correct: true },
-          { text: "Quân số đông, có sự phối hợp của các tổ chức phản động trong nước", correct: false },
-          { text: "Lôi kéo tập hợp được các nước đồng minh, lợi dụng Liên hiệp quốc để tiến hành chiến tranh xâm lược", correct: false },
-          { text: "Vũ khí hiện đại, thiết lập nhiều căn cứ quân sự bao vây đất nước ta", correct: false }
+          { text: "Kiểm tra tình trạng an toàn của súng, bảo đảm trong buồng đạn không còn đạn", correct: true },
+          { text: "Lau chùi bụi bẩn bám trên thân súng", correct: false },
+          { text: "Kiểm tra số hiệu ghi trên thân súng", correct: false },
+          { text: "Để chuẩn bị lắp hộp tiếp đạn vào súng", correct: false }
         ]
       },
       {
-        lesson: "Bài 4",
-        q: "Tính chất của CTNDBVTQ Việt Nam XHCN là gì?",
+        lesson: "Qs4: Đội ngũ có súng",
+        q: "Ở tư thế đeo súng tiểu liên AK, vị trí quai súng vắt qua đâu trên cơ thể người chiến sĩ?",
         options: [
-          { text: "Là cuộc chiến tranh toàn dân, toàn diện, nòng cốt là sức mạnh chiến đấu của LLVT nhân dân", correct: true },
-          { text: "Là cuộc chiến tranh của giai cấp công nhân nhằm bảo vệ độc lập chủ quyền và lãnh thổ", correct: false },
-          { text: "Là cuộc chiến tranh cách mạng nhằm để bảo vệ biên giới quốc gia", correct: false },
-          { text: "Là cuộc chiến tranh tự vệ chống lại thực dân và đế quốc xâm lược", correct: false }
+          { text: "Vắt chéo qua ngực từ vai trái xuống hông phải hoặc qua vai phải", correct: true },
+          { text: "Vắt ngang qua cổ chiến sĩ", correct: false },
+          { text: "Buộc chặt quanh thắt lưng", correct: false },
+          { text: "Cầm hoàn toàn bằng hai tay không qua vai", correct: false }
         ]
       },
       {
-        lesson: "Bài 4",
-        q: "Tính chất hiện đại của CTNDBVTQ Việt Nam XHCN được hiểu như thế nào?",
+        lesson: "Qs4: Đội ngũ có súng",
+        q: "Khi làm động tác giá súng tiểu liên AK ở phân đội bộ binh, chân súng hoặc báng súng đặt ở vị trí nào?",
         options: [
-          { text: "Kế thừa và phát huy nghệ thuật quân sự Việt Nam và tri thức khoa học quân sự tiên tiến; sử dụng các loại vũ khí, phương tiện hiện có và hiện đại.", correct: true },
-          { text: "Sử dụng QĐ nhân dân chính qui, tinh nhuệ, tác chiến hợp đồng quân binh chủng để tiến hành chiến tranh.", correct: false },
-          { text: "Sử dụng vũ khí trang bị hiện đại để đánh bại kẻ thù có vũ khí hiện đại hơn.", correct: false },
-          { text: "Tất cả đều đúng.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 4",
-        q: "Nội dung nào sau đây phản ánh đặc điểm của cuộc CTND Việt Nam BVTQ Việt Nam XHCN?",
-        options: [
-          { text: "Là cuộc chiến tranh dựa vào sức mình là chính và luôn nhận được sự ủng hộ của nhân loại yêu chuộng hòa bình trên thế giới", correct: true },
-          { text: "Thiết lập liên minh quân sự với các nước để tiến hành chiến tranh", correct: false },
-          { text: "Có sự hỗ trợ vũ khí trang bị hiện đại của các cường quốc quân sự trên thế giới", correct: false },
-          { text: "Tất cả đều đúng", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 4",
-        q: "Quan điểm cơ bản xuyên suốt nào là điều kiện để phát huy cao nhất sức mạnh tổng hợp trong CTNDBVTQ Việt Nam XHCN?",
-        options: [
-          { text: "Toàn dân đánh giặc, lấy lực lượng vũ trang nhân dân làm nòng cốt, kết hợp tác chiến của các binh đoàn chủ lực với tác chiến của lực lượng vũ trang địa phương", correct: true },
-          { text: "Chiến tranh toàn diện, kết hợp chặt chẽ giữa đấu tranh quân sự, chính trị, ngoại giao, kinh tế và tư tưởng, văn hoá; lấy đấu tranh quân sự là chủ yếu, lấy thắng lợi trên chiến trường là yếu tố quyết định để giành thắng lợi trong chiến tranh", correct: false },
-          { text: "Ra sức tạo thời cơ, nắm vững thời cơ, giành thắng lợi trong thời gian ngắn, đồng thời chuẩn bị sẵn sàng để có thể giành thắng lợi trong trường hợp chiến tranh kéo dài", correct: false },
-          { text: "Kết hợp tác chiến với xây dựng, vừa tác chiến vừa ra sức sản xuất, thực hành tiết kiệm, giữ gìn và bồi dưỡng lực lượng ta, càng đánh càng mạnh", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 4",
-        q: "Biện pháp thực hiện quan điểm \"toàn dân đánh giặc\" trong CTNDBVTQ Việt Nam XHCN là gì?",
-        options: [
-          { text: "Tất cả đều đúng", correct: true },
-          { text: "Chăm lo, bồi dưỡng sức dân, xây dựng và phát huy mạnh mẽ thế trận lòng dân từ thời bình.", correct: false },
-          { text: "Giáo dục trách nhiệm xây dựng và BVTQ cho toàn dân, đặc biệt là thế hệ trẻ.", correct: false },
-          { text: "Thường xuyên xây dựng LLVT nhân dân vững mạnh toàn diện, đặc biệt là chất lượng chính trị.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 4",
-        q: "Quan điểm thực hiện toàn dân đánh giặc có vị trí, ý nghĩa như thế nào trong CTNDBVTQ?",
-        options: [
-          { text: "Là điều kiện để phát huy cao nhất sức mạnh tổng hợp, sức mạnh của toàn dân tộc trong chiến tranh chống xâm lược", correct: true },
-          { text: "Là điều kiện để mỗi người dân được tham gia đánh giặc, giữ nước", correct: false },
-          { text: "Là điều kiện để phát huy cao nhất yếu tố con người trong chiến tranh", correct: false },
-          { text: "Là điều kiện để thực hiện đánh giặc rộng khắp.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 4",
-        q: "Trong tiến hành chiến tranh toàn diện, mặt trận đấu tranh nào là chủ yếu:",
-        options: [
-          { text: "Mặt trận quân sự.", correct: true },
-          { text: "Mặt trận kinh tế.", correct: false },
-          { text: "Mặt trận ngoại giao.", correct: false },
-          { text: "Mặt trận chính trị.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 4",
-        q: "Theo quan điểm chỉ đạo của Đảng, cần phải chuẩn bị như thế nào để có thể giành thắng lợi trong trường hợp chiến tranh kéo dài?",
-        options: [
-          { text: "Chuẩn bị mọi mặt trên cả nước và từng khu vực phòng thủ để đủ sức đánh địch lâu dài.", correct: true },
-          { text: "Chuẩn bị đầy đủ mọi mặt trên các vùng chiến lược của đất nước.", correct: false },
-          { text: "Chuẩn bị con người, vũ khí trang bị cho chiến tranh.", correct: false },
-          { text: "Chuẩn bị đầy đủ tiềm lực kinh tế, quân sự trên cả nước cũng như từng khu vực.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 4",
-        q: "Kết hợp sức mạnh dân tộc với sức mạnh thời đại trong tiến hành CTND nhằm mục đích gì?",
-        options: [
-          { text: "Nhằm phát huy tính chính nghĩa của ta và khoét sâu tính phi nghĩa của địch trong chiến tranh", correct: true },
-          { text: "Nhằm nêu cao tinh thần đoàn kết quốc tế", correct: false },
-          { text: "Nhằm tạo ra phong trào phản đối chiến tranh trên toàn thế giới", correct: false },
-          { text: "Nhằm tranh thủ sự ủng hộ của các nước XHCN trên thế giới", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 4",
-        q: "Một trong những biện pháp để thực hiện quan điểm toàn dân đánh giặc trong CTNDBVTQ Việt Nam XHCN là gì?",
-        options: [
-          { text: "Giáo dục trách nhiệm xây dựng và BVTQ cho toàn dân, đặc biệt là thế hệ trẻ.", correct: true },
-          { text: "Giáo dục và phát huy nghệ thuật quân sự Việt Nam phù hợp với tình hình mới", correct: false },
-          { text: "Đổi mới, nội dung, chương trình Giáo dục QP - AN cho học sinh, sinh viên", correct: false },
-          { text: "Tăng cường đấu tranh phản bác các quan điểm sai trái, thù địch trên không gian mạng", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 4",
-        q: "Theo khái niệm CTNDBVTQ Việt Nam xã hội chủ nghĩa, yếu tố nào quyết định bản chất chính trị của cuộc chiến tranh?",
-        options: [
-          { text: "Là cuộc chiến tranh chính nghĩa dưới sự lãnh đạo của Đảng, sự quản lý thống nhất của Nhà nước.", correct: true },
-          { text: "Lấy lực lượng vũ trang nhân dân làm nòng cốt.", correct: false },
-          { text: "Kết hợp sức mạnh dân tộc với sức mạnh thời đại.", correct: false },
-          { text: "Tiến hành đấu tranh toàn dân, toàn diện.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 4",
-        q: "Việc kẻ thù sử dụng các biện pháp tuyên truyền, ngoại giao, kinh tế trước khi tiến hành chiến tranh chủ yếu nhằm mục đích nào?",
-        options: [
-          { text: "Tạo ưu thế về dư luận, cô lập đối phương và chuẩn bị điều kiện thuận lợi cho can thiệp quân sự.", correct: true },
-          { text: "Thay thế hoàn toàn hoạt động quân sự.", correct: false },
-          { text: "Tạo sức ép buộc phải thay đổi chế độ chính trị - xã hội.", correct: false },
-          { text: "Làm cho lượng vũ trang nhân dân mất niềm tin không còn khả năng chiến đấu.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 4",
-        q: "Trong các biện pháp dưới đây, biện pháp nào có ý nghĩa nền tảng và lâu dài nhất để thực hiện quan điểm \"toàn dân đánh giặc\"?",
-        options: [
-          { text: "Chăm lo bồi dưỡng sức dân, xây dựng \"thế trận lòng dân\" vững chắc ngay từ thời bình.", correct: true },
-          { text: "Xây dựng lực lượng dân quân tự vệ vững mạnh rộng khắp để tổ chức hướng dẫn toàn dân đánh giặc.", correct: false },
-          { text: "Xây dựng các tỉnh, thành phố thành khu vực phòng thủ vững chắc.", correct: false },
-          { text: "Xây dựng lực lượng DBĐV hùng hậu, sẵn sàng bổ sung cho lực lượng thường trực.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 4",
-        q: "Theo quan điểm của Đảng, vì sao phải đồng thời ra sức tạo thời cơ, nắm vững thời cơ để kết thúc chiến tranh trong thời gian ngắn nhưng vẫn chuẩn bị sẵn sàng cho chiến tranh kéo dài?",
-        options: [
-          { text: "Vì hai yêu cầu này phản ánh sự kết hợp giữa mục tiêu kết thúc chiến tranh có lợi nhất với việc chủ động đối phó khi chiến tranh phát triển ngoài dự kiến.", correct: true },
-          { text: "Vì chiến tranh hiện đại luôn diễn ra trong thời gian dài nên phải chuẩn bị trước mọi tình huống.", correct: false },
-          { text: "Vì ưu thế vũ khí của đối phương khiến việc kết thúc chiến tranh nhanh là không thể.", correct: false },
-          { text: "Vì chỉ cần chuẩn bị chiến tranh kéo dài sẽ tự tạo ra thời cơ kết thúc chiến tranh.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 4",
-        q: "Đâu là biểu hiện đúng nhất của việc vận dụng quan điểm \"Kết hợp sức mạnh dân tộc với sức mạnh thời đại...\" trong tiến hành CTNDBVTQ?",
-        options: [
-          { text: "Chủ động hội nhập và hợp tác quốc tế trên cơ sở giữ vững độc lập, tự chủ, đồng thời thực hiện chủ trương \"thêm bạn, bớt thù\".", correct: true },
-          { text: "Chủ động mở rộng quan hệ quốc tế nhằm tranh thủ nguồn lực bên ngoài, đồng thời ưu tiên lợi ích đối ngoại trong từng giai đoạn.", correct: false },
-          { text: "Đẩy mạnh hợp tác QP - AN để nâng cao năng lực BVTQ, đồng thời tăng cường khả năng răn đe chiến lược.", correct: false },
-          { text: "Mở rộng quan hệ hợp tác với các đối tác chiến lược nhằm nâng cao vị thế và tăng cường tiềm lực quốc phòng của đất nước.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 4",
-        q: "Trong CTND, lực lượng vũ trang giữ vai trò gì?",
-        options: [
-          { text: "Làm nòng cốt cho quần chúng nhân dân đánh giặc.", correct: true },
-          { text: "Giữ vai trò chủ yếu, trực tiếp thay thế quần chúng nhân dân trong mọi hoạt động chiến đấu.", correct: false },
-          { text: "Là lực lượng phối hợp, chỉ tham gia khi quần chúng nhân dân không đủ khả năng tác chiến.", correct: false },
-          { text: "Chủ yếu bảo đảm hậu cần, kỹ thuật cho các lực lượng khác tiến hành chiến tranh.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 4",
-        q: "Phương án nào phản ánh đầy đủ nhất nội dung cốt lõi của mục tiêu BVTQ trong tình hình mới?",
-        options: [
-          { text: "Bảo đảm và bảo vệ cao nhất lợi ích quốc gia - dân tộc; kiên quyết, kiên trì bảo vệ vững chắc độc lập, chủ quyền, thống nhất, toàn vẹn lãnh thổ; bảo vệ Đảng, Nhà nước, Nhân dân và chế độ xã hội chủ nghĩa.", correct: true },
-          { text: "Bảo vệ độc lập, chủ quyền, thống nhất, toàn vẹn lãnh thổ và giữ vững môi trường hòa bình để phát triển đất nước.", correct: false },
-          { text: "Bảo vệ Đảng, Nhà nước, Nhân dân và chế độ xã hội chủ nghĩa, trọng tâm là giữ vững ổn định chính trị và trật tự xã hội.", correct: false },
-          { text: "Bảo vệ an ninh quốc gia, an ninh con người và các lĩnh vực an ninh thiết yếu trong tình hình mới.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 4",
-        q: "Hiện nay, các thế lực thù địch thường kết hợp chiến lược nào để chống phá cách mạng Việt Nam?",
-        options: [
-          { text: "“Diễn biến hòa bình” kết hợp với gây bạo loạn lật đổ.", correct: true },
-          { text: "Bạo loạn lật đổ kết hợp với can thiệp quân sự trực tiếp.", correct: false },
-          { text: "Phá hoại kinh tế kết hợp với gây sức ép ngoại giao và cô lập quốc tế.", correct: false },
-          { text: "Chiến tranh thông tin kết hợp với kích động chia rẽ nội bộ và gây rối an ninh.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 4",
-        q: "Khi xâm lược nước ta, kẻ thù thường thực hiện phương châm chiến tranh nào?",
-        options: [
-          { text: "Đánh nhanh, thắng nhanh.", correct: true },
-          { text: "Đánh chắc, tiến chắc.", correct: false },
-          { text: "Đánh lâu dài, từng bước làm thay đổi tương quan lực lượng.", correct: false },
-          { text: "Bao vây, phong tỏa, kết hợp tiến công từng khu vực.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 4",
-        q: "Phương án nào phản ánh đầy đủ nhất những điểm yếu cơ bản của kẻ thù khi tiến hành chiến tranh xâm lược nước ta?",
-        options: [
-          { text: "Chiến tranh phi nghĩa; chi phí lớn; sợ tổn thất nhân lực; phát sinh mâu thuẫn; phải phân tán lực lượng, khó thích nghi với địa hình, thời tiết Việt Nam và khó thực hiện đánh nhanh, thắng nhanh.", correct: true },
-          { text: "Khó duy trì bảo đảm hậu cần, kỹ thuật và hoạt động tác chiến dài ngày trên địa bàn xa.", correct: false },
-          { text: "Vũ khí công nghệ cao phụ thuộc hệ thống điện tử, thông tin và không gian mạng nên có thể bị chế áp.", correct: false },
-          { text: "Phải phân tán lực lượng trên nhiều địa bàn, khó tập trung ưu thế để kết thúc chiến tranh nhanh.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 4",
-        q: "Phương án nào nêu đầy đủ nhất các vấn đề kẻ thù thường lợi dụng để tạo cớ gây hấn, phát động chiến tranh?",
-        options: [
-          { text: "“Dân tộc”, “dân chủ”, “nhân quyền”, “tôn giáo”, tranh chấp biên giới và biển, đảo.", correct: true },
-          { text: "Chủ quyền biển, đảo, tranh chấp tài nguyên và an ninh hàng hải.", correct: false },
-          { text: "Dân tộc, tôn giáo, bất bình đẳng xã hội và những hạn chế trong quản lý nhà nước.", correct: false },
-          { text: "Dân chủ, nhân quyền, phát triển kinh tế và hội nhập quốc tế.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 4",
-        q: "Thế trận QPTD, ANND vững chắc có ý nghĩa gì?",
-        options: [
-          { text: "Tạo sức mạnh đánh bại mọi hình thái chiến tranh; là kế sách giữ nước từ sớm, từ xa, giúp ta không bị động, bất ngờ và có đủ tiềm lực sẵn sàng chiến đấu lâu dài.", correct: true },
-          { text: "Tạo điều kiện triển khai lực lượng vũ trang trên các địa bàn chiến lược và bảo vệ các trung tâm trọng yếu.", correct: false },
-          { text: "Bảo đảm khả năng huy động tiềm lực kinh tế, khoa học, công nghệ và nhân lực phục vụ chiến tranh.", correct: false },
-          { text: "Tăng khả năng phối hợp giữa lực lượng chủ lực và lực lượng địa phương trong tác chiến.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 4",
-        q: "Xu thế lớn của thế giới hiện nay là gì?",
-        options: [
-          { text: "Hòa bình, độc lập dân tộc, dân chủ, hợp tác và phát triển.", correct: true },
-          { text: "Đối đầu quân sự toàn diện giữa tất cả các quốc gia.", correct: false },
-          { text: "Chiến tranh thế giới là xu thế chủ đạo, lâu dài.", correct: false },
-          { text: "Cô lập quốc tế và đóng cửa về kinh tế.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 4",
-        q: "Tình hình thế giới hiện nay đặt ra thách thức nào đối với BVTQ?",
-        options: [
-          { text: "Chiến tranh cục bộ, xung đột, can thiệp lật đổ, tranh chấp chủ quyền diễn biến phức tạp.", correct: true },
-          { text: "Các nguy cơ chiến tranh, xung đột đã hoàn toàn bị loại bỏ.", correct: false },
-          { text: "Các nước lớn không còn điều chỉnh chiến lược theo lợi ích quốc gia.", correct: false },
-          { text: "An ninh truyền thống và phi truyền thống không còn ảnh hưởng đến quốc gia.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 4",
-        q: "Toàn cầu hóa tác động đến các quốc gia theo hướng nào?",
-        options: [
-          { text: "Các nước phụ thuộc lẫn nhau, vừa hợp tác, vừa cạnh tranh gay gắt.", correct: true },
-          { text: "Các nước hoàn toàn độc lập, không chịu tác động của nhau.", correct: false },
-          { text: "Các nước nhỏ không còn chịu sức ép từ cạnh tranh quốc tế.", correct: false },
-          { text: "Mọi quan hệ quốc tế chỉ còn hợp tác, không còn cạnh tranh.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 4",
-        q: "Khu vực châu Á - Thái Bình Dương, trong đó có Đông Nam Á, có vị trí như thế nào?",
-        options: [
-          { text: "Là trung tâm năng động, có vị trí địa chiến lược quan trọng.", correct: true },
-          { text: "Là khu vực biệt lập, ít tác động đến an ninh Việt Nam.", correct: false },
-          { text: "Là khu vực không có cạnh tranh chiến lược giữa các nước lớn.", correct: false },
-          { text: "Là khu vực chỉ có ý nghĩa kinh tế, không liên quan quốc phòng.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 4",
-        q: "Xây dựng và BVTQ có mối quan hệ như thế nào?",
-        options: [
-          { text: "Là hai nhiệm vụ chiến lược có quan hệ chặt chẽ với nhau.", correct: true },
-          { text: "Là hai nhiệm vụ chiến lược được thực hiện nối tiếp, hoàn thành xây dựng trước rồi mới bảo vệ.", correct: false },
-          { text: "Xây dựng đất nước là nhiệm vụ quyết định, BVTQ chỉ tạo môi trường hỗ trợ.", correct: false },
-          { text: "BVTQ là nhiệm vụ quyết định, xây dựng đất nước chủ yếu tạo nguồn lực vật chất.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 4",
-        q: "Sự phát triển khoa học công nghệ đặt ra yêu cầu gì đối với quốc phòng, an ninh?",
-        options: [
-          { text: "Xây dựng nền QPTD, ANND vững mạnh và hiện đại hóa QĐ.", correct: true },
-          { text: "Phát triển công nghiệp quốc phòng, giảm quy mô lực lượng thường trực và tăng cường hợp tác quốc tế.", correct: false },
-          { text: "Hiện đại hóa vũ khí, trang bị, ưu tiên QĐ chủ lực, chưa đặt trọng tâm vào nền QPTD, ANND.", correct: false },
-          { text: "Nâng cao năng lực tác chiến công nghệ cao, tập trung vào hạ tầng số và an ninh mạng.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 4",
-        q: "Tư tưởng toàn dân đánh giặc được Chủ tịch Hồ Chí Minh khái quát trong lời kêu gọi nào?",
-        options: [
-          { text: "“Hễ là người Việt Nam thì phải đứng lên đánh thực dân Pháp để cứu Tổ quốc.”", correct: true },
-          { text: "“Không có gì quý hơn độc lập, tự do.”", correct: false },
-          { text: "“Các vua Hùng đã có công dựng nước.”", correct: false },
-          { text: "“Thi đua là yêu nước, yêu nước thì phải thi đua.”", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 4",
-        q: "Trong toàn dân đánh giặc, mỗi làng, xã được ví như gì?",
-        options: [
-          { text: "Một pháo đài.", correct: true },
-          { text: "Một căn cứ kinh tế đối ngoại.", correct: false },
-          { text: "Một cơ sở ngoại giao quốc tế.", correct: false },
-          { text: "Một trung tâm viện trợ hậu cần từ bên ngoài.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 4",
-        q: "Đấu tranh quân sự giữ vai trò gì trong chiến tranh toàn diện?",
-        options: [
-          { text: "Là hình thức đấu tranh cơ bản, trực tiếp tiêu diệt, tiêu hao lực lượng của địch.", correct: true },
-          { text: "Tiêu diệt các mục tiêu chiến lược, phá hủy tiềm lực chiến tranh và giành quyền chủ động.", correct: false },
-          { text: "Bảo vệ lực lượng, giữ vững địa bàn và tạo điều kiện cho các mặt trận khác phát huy tác dụng.", correct: false },
-          { text: "Kết hợp tiến công và phòng ngự để làm thay đổi tương quan lực lượng có lợi cho ta.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 4",
-        q: "Phương án nào phản ánh đầy đủ nhất nhiệm vụ của đấu tranh tư tưởng, văn hóa trong chiến tranh?",
-        options: [
-          { text: "Bảo vệ chủ nghĩa Marx - Lenin, tư tưởng Hồ Chí Minh, nền văn hóa dân tộc, đường lối, quan điểm của Đảng, chính sách, pháp luật của Nhà nước; làm thất bại âm mưu, thủ đoạn phá hoại của địch trên mặt trận tư tưởng, văn hóa.", correct: true },
-          { text: "Bảo vệ nền tảng tư tưởng, duy trì hoạt động văn hóa và động viên tinh thần chiến đấu của nhân dân.", correct: false },
-          { text: "Tuyên truyền tính chính nghĩa, tranh thủ dư luận quốc tế và đấu tranh chống chiến tranh tâm lý.", correct: false },
-          { text: "Giữ gìn bản sắc văn hóa, chống thông tin sai lệch và củng cố đoàn kết nội bộ.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 4",
-        q: "Phương án nào phản ánh đầy đủ nhất mục đích của đấu tranh kinh tế trong CTND?",
-        options: [
-          { text: "Bảo đảm nhu cầu vật chất cho chiến tranh, đồng thời kiềm chế và làm suy yếu tiềm lực kinh tế của địch.", correct: true },
-          { text: "Duy trì sản xuất, bảo vệ cơ sở kinh tế và bảo đảm hậu cần cho lực lượng vũ trang.", correct: false },
-          { text: "Huy động, phân phối nguồn lực trong nước, kết hợp sử dụng hiệu quả nguồn viện trợ quốc tế.", correct: false },
-          { text: "Phá hoại cơ sở kinh tế, cắt đứt nguồn tiếp tế và làm giảm khả năng duy trì chiến tranh của địch.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 4",
-        q: "Muốn kết thúc chiến tranh có lợi cho ta, điều kiện quyết định là gì?",
-        options: [
-          { text: "Phải thắng địch trên chiến trường bằng sức mạnh quân sự.", correct: true },
-          { text: "Giành ưu thế chính trị, ngoại giao và buộc địch chấp nhận đàm phán.", correct: false },
-          { text: "Làm suy yếu tiềm lực kinh tế, hậu cần và khả năng tiếp tục chiến tranh của địch.", correct: false },
-          { text: "Tạo chuyển biến căn bản trong tương quan lực lượng và tranh thủ được sự ủng hộ quốc tế.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 4",
-        q: "Vì sao phải chuẩn bị đánh địch lâu dài trong CTND?",
-        options: [
-          { text: "Vì lúc đầu địch có ưu thế về kinh tế, quân sự, vũ khí, trang bị; ta cần thời gian củng cố lực lượng, làm địch sa lầy, suy yếu và chuyển hóa tương quan có lợi cho ta.", correct: true },
-          { text: "Vì chiến tranh kéo dài luôn có lợi cho ta và không làm tăng tổn thất về người, vật chất.", correct: false },
-          { text: "Vì ta không có khả năng tạo thời cơ và giành thắng lợi trong thời gian ngắn.", correct: false },
-          { text: "Vì sự giúp đỡ quốc tế chỉ có thể phát huy khi chiến tranh diễn ra lâu dài.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 4",
-        q: "Quan điểm chiến tranh toàn diện yêu cầu kết hợp những mặt trận đấu tranh nào?",
-        options: [
-          { text: "Quân sự, chính trị, ngoại giao, kinh tế, tư tưởng và văn hóa.", correct: true },
-          { text: "Quân sự, thể thao, du lịch, thương mại và dịch vụ.", correct: false },
-          { text: "Kinh tế, tài chính, giáo dục, y tế và thể thao.", correct: false },
-          { text: "Ngoại giao, văn nghệ, truyền thông và du lịch.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 4",
-        q: "Trong chiến tranh toàn diện, mặt trận nào là chủ yếu?",
-        options: [
-          { text: "Đấu tranh quân sự.", correct: true },
-          { text: "Đấu tranh kinh tế.", correct: false },
-          { text: "Đấu tranh ngoại giao.", correct: false },
-          { text: "Đấu tranh tư tưởng và văn hóa.", correct: false }
+          { text: "Đặt chắc chắn trên mặt đất, các khẩu súng liên kết chụm đầu nòng súng vào nhau thành giá", correct: true },
+          { text: "Nằm ngang phẳng trên mặt đất", correct: false },
+          { text: "Treo trên cành cây cạnh vị trí nghỉ", correct: false },
+          { text: "Xếp chồng lên ba lô quân trang", correct: false }
         ]
       },
 
-      // ==================== BÀI 5 (40 câu) ====================
+      // ==================== Qs5: ĐIỀU LỆNH ĐỘI NGŨ ĐƠN VỊ ====================
       {
-        lesson: "Bài 5",
-        q: "Lực lượng vũ trang nhân dân Việt Nam là gì?",
+        lesson: "Qs5: Đội ngũ đơn vị",
+        q: "Đội hình đội ngũ cơ bản của tiểu đội bộ binh gồm những dạng hình thức nào?",
         options: [
-          { text: "Các tổ chức vũ trang và bán vũ trang của nhân dân Việt Nam do Đảng Cộng sản Việt Nam lãnh đạo, Nhà nước Cộng hòa xã hội chủ nghĩa Việt Nam quản lý; thực hiện nhiệm vụ chiến đấu, bảo vệ Tổ quốc, nhân dân, chế độ và làm nòng cốt của quốc phòng toàn dân, an ninh nhân dân, chiến tranh nhân dân.", correct: true },
-          { text: "Các tổ chức vũ trang chuyên nghiệp do Nhà nước quản lý, chủ yếu thực hiện nhiệm vụ bảo vệ biên giới và các mục tiêu quốc phòng trọng yếu.", correct: false },
-          { text: "Các lực lượng quân sự, công an và dự bị do Chính phủ tổ chức, hoạt động độc lập với các tổ chức chính trị và quần chúng nhân dân.", correct: false },
-          { text: "Các tổ chức vũ trang quần chúng ở địa phương, chủ yếu giữ gìn trật tự, an toàn xã hội và thực hiện nhiệm vụ phòng thủ dân sự.", correct: false }
+          { text: "Đội hình hàng dọc và đội hình hàng ngang", correct: true },
+          { text: "Đội hình hình tròn và hình vuông", correct: false },
+          { text: "Đội hình chữ V và bậc thang", correct: false },
+          { text: "Đội hình bán nguyệt và quả trám", correct: false }
         ]
       },
       {
-        lesson: "Bài 5",
-        q: "Lực lượng vũ trang nhân dân Việt Nam gồm những thành phần nào?",
+        lesson: "Qs5: Đội ngũ đơn vị",
+        q: "Trình tự các bước tập hợp đội hình của phân đội (tiểu đội, trung đội) diễn ra theo thứ tự nào?",
         options: [
-          { text: "Quân đội nhân dân, Công an nhân dân, Dân quân tự vệ.", correct: true },
-          { text: "Quân đội nhân dân, dự bị động viên, Công an nhân dân.", correct: false },
-          { text: "Công an nhân dân, thanh niên xung phong, Dân quân tự vệ.", correct: false },
-          { text: "Quân đội nhân dân, Cảnh sát biển, bảo vệ dân phố.", correct: false }
+          { text: "Tập hợp; Điểm số; Chỉnh đốn hàng ngũ; Giải tán", correct: true },
+          { text: "Điểm số; Tập hợp; Chỉnh đốn hàng ngũ; Giải tán", correct: false },
+          { text: "Chỉnh đốn hàng ngũ; Tập hợp; Điểm số; Giải tán", correct: false },
+          { text: "Tập hợp; Chỉnh đốn hàng ngũ; Điểm số; Báo cáo", correct: false }
         ]
       },
       {
-        lesson: "Bài 5",
-        q: "Nhiệm vụ chiến đấu hàng đầu của lực lượng vũ trang nhân dân Việt Nam là gì?",
+        lesson: "Qs5: Đội ngũ đơn vị",
+        q: "Trong đội hình hàng ngang của tiểu đội, khi tiểu đội trưởng hô: “Điểm số!”, chiến sĩ điểm số theo thứ tự nào?",
         options: [
-          { text: "Chiến đấu giành và giữ vững độc lập, chủ quyền, thống nhất và toàn vẹn lãnh thổ.", correct: true },
-          { text: "Bảo vệ an ninh quốc gia, trật tự, an toàn xã hội, nhân dân và chế độ xã hội chủ nghĩa.", correct: false },
-          { text: "Làm lực lượng xung kích trong khởi nghĩa toàn dân giành chính quyền.", correct: false },
-          { text: "Làm lực lượng nòng cốt của quốc phòng toàn dân, an ninh nhân dân và chiến tranh nhân dân.", correct: false }
+          { text: "Từ phải sang trái, quay mặt sang trái 45 độ để hô số của mình", correct: true },
+          { text: "Từ trái sang phải, không cần quay mặt", correct: false },
+          { text: "Người đứng cuối hàng điểm số trước", correct: false },
+          { text: "Tất cả đồng thanh hô to số thứ tự của mình", correct: false }
         ]
       },
       {
-        lesson: "Bài 5",
-        q: "Lực lượng vũ trang nhân dân Việt Nam có nhiệm vụ bảo vệ những nội dung nào?",
+        lesson: "Qs5: Đội ngũ đơn vị",
+        q: "Khoảng cách cự ly tiêu chuẩn giữa 2 quân nhân đứng liền kề nhau trong đội hình hàng ngang khi không dãn cách là bao nhiêu?",
         options: [
-          { text: "An ninh quốc gia, trật tự, an toàn xã hội, nhân dân, chế độ xã hội chủ nghĩa và những thành quả cách mạng.", correct: true },
-          { text: "Độc lập, chủ quyền, thống nhất, toàn vẹn lãnh thổ và các mục tiêu quốc phòng trọng yếu.", correct: false },
-          { text: "Tài sản của Nhà nước, cơ sở hạ tầng quốc gia và hoạt động kinh tế đối ngoại.", correct: false },
-          { text: "Chính quyền địa phương, địa bàn phòng thủ và các công trình quân sự, quốc phòng.", correct: false }
+          { text: "Khoảng 0,20 m (tính từ mép khuỷu tay người này đến mép khuỷu tay người kia khi chống tay)", correct: true },
+          { text: "Khoảng 1,00 m", correct: false },
+          { text: "Khoảng 0,50 m", correct: false },
+          { text: "Áp sát vai vào nhau không có khoảng trống", correct: false }
         ]
       },
       {
-        lesson: "Bài 5",
-        q: "Lực lượng vũ trang nhân dân giữ vai trò nào trong nền quốc phòng toàn dân, nền an ninh nhân dân và chiến tranh nhân dân?",
+        lesson: "Qs5: Đội ngũ đơn vị",
+        q: "Khi muốn giải tán đội hình phân đội đang đứng tập trung, người chỉ huy dùng khẩu lệnh nào?",
         options: [
-          { text: "Lực lượng nòng cốt.", correct: true },
-          { text: "Lực lượng phối hợp thứ yếu.", correct: false },
-          { text: "Lực lượng dự phòng không thường xuyên.", correct: false },
-          { text: "Lực lượng thay thế vai trò toàn dân.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 5",
-        q: "Trong khởi nghĩa toàn dân giành chính quyền, lực lượng vũ trang nhân dân giữ vai trò nào?",
-        options: [
-          { text: "Là lực lượng xung kích.", correct: true },
-          { text: "Là lực lượng bảo đảm hậu cần, kỹ thuật.", correct: false },
-          { text: "Là lực lượng dự bị chiến lược.", correct: false },
-          { text: "Là lực lượng quản lý hành chính nhà nước.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 5",
-        q: "Những yếu tố nào đang đe dọa hòa bình, hợp tác và phát triển?",
-        options: [
-          { text: "Chủ nghĩa dân tộc cực đoan, cạnh tranh chiến lược, cạnh tranh kinh tế và chiến tranh thương mại.", correct: true },
-          { text: "Toàn cầu hóa, hội nhập quốc tế, hợp tác đa phương và liên kết khu vực.", correct: false },
-          { text: "Điều chỉnh chính sách đối ngoại, mở rộng giao lưu văn hóa và hợp tác khoa học.", correct: false },
-          { text: "Phát triển kinh tế số, chuyển đổi xanh, tăng cường trao đổi thương mại và đầu tư.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 5",
-        q: "Khu vực Đông Nam Á tiềm ẩn mất ổn định chủ yếu do yếu tố nào?",
-        options: [
-          { text: "Cạnh tranh ảnh hưởng của các nước lớn và tranh chấp chủ quyền trên Biển Đông.", correct: true },
-          { text: "Chênh lệch trình độ phát triển và cạnh tranh kinh tế giữa các nước thành viên ASEAN.", correct: false },
-          { text: "Gia tăng các thách thức an ninh phi truyền thống, di cư và biến đổi khí hậu trong khu vực.", correct: false },
-          { text: "Khác biệt về thể chế chính trị, văn hóa và mô hình quản lý biên giới giữa các quốc gia.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 5",
-        q: "Nước ta thực hiện hai nhiệm vụ chiến lược nào?",
-        options: [
-          { text: "Xây dựng và bảo vệ Tổ quốc.", correct: true },
-          { text: "Phát triển kinh tế và hội nhập quốc tế.", correct: false },
-          { text: "Củng cố quốc phòng và mở rộng đối ngoại.", correct: false },
-          { text: "Giữ vững an ninh và phát triển văn hóa.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 5",
-        q: "Quốc phòng, an ninh vững mạnh có ý nghĩa gì đối với phát triển đất nước?",
-        options: [
-          { text: "Góp phần tạo môi trường hòa bình, ổn định, hợp tác để phát triển kinh tế - xã hội.", correct: true },
-          { text: "Tạo điều kiện ưu tiên toàn bộ nguồn lực quốc gia cho hiện đại hóa lực lượng vũ trang.", correct: false },
-          { text: "Giảm yêu cầu kết hợp phát triển kinh tế - xã hội với củng cố quốc phòng, an ninh.", correct: false },
-          { text: "Chuyển trọng tâm phát triển đất nước từ kinh tế - xã hội sang nhiệm vụ quân sự, an ninh.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 5",
-        q: "Nhóm yếu tố nào phản ánh đúng những thuận lợi cơ bản của nước ta trong xây dựng lực lượng vũ trang nhân dân hiện nay?",
-        options: [
-          { text: "Tiềm lực, vị thế đất nước được tăng cường; nhân dân tin vào sự lãnh đạo của Đảng; lực lượng vũ trang tuyệt đối trung thành với Đảng, Tổ quốc và nhân dân.", correct: true },
-          { text: "Tiềm lực kinh tế đã đáp ứng đầy đủ mọi nhu cầu; lực lượng vũ trang có thể giảm yêu cầu tự lực, tự cường.", correct: false },
-          { text: "Vị thế quốc tế được nâng cao; nguồn viện trợ bên ngoài trở thành yếu tố quyết định sức mạnh lực lượng vũ trang.", correct: false },
-          { text: "Hội nhập quốc tế ngày càng sâu rộng; các nguy cơ, thách thức quốc phòng, an ninh cơ bản không còn.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 5",
-        q: "Nguyên tắc cơ bản nhất trong xây dựng lực lượng vũ trang nhân dân là gì?",
-        options: [
-          { text: "Giữ vững và tăng cường sự lãnh đạo của Đảng Cộng sản Việt Nam.", correct: true },
-          { text: "Đề cao sự trung lập chính trị của lực lượng vũ trang.", correct: false },
-          { text: "Chia sẻ quyền lãnh đạo lực lượng vũ trang cho nhiều tổ chức.", correct: false },
-          { text: "Tách lực lượng vũ trang khỏi sự quản lý của Nhà nước.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 5",
-        q: "Sự lãnh đạo của Đảng quyết định những nội dung nào của lực lượng vũ trang nhân dân?",
-        options: [
-          { text: "Bản chất cách mạng, mục tiêu, phương hướng chiến đấu, đường lối tổ chức và cơ chế hoạt động.", correct: true },
-          { text: "Mục tiêu chiến đấu, quy mô quân số, cơ chế tài chính và chế độ bảo đảm hậu cần.", correct: false },
-          { text: "Phương hướng tác chiến, kế hoạch phát triển kinh tế và quan hệ đối ngoại của từng đơn vị.", correct: false },
-          { text: "Tổ chức biên chế, trang bị kỹ thuật, hoạt động hành chính và chính sách xã hội.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 5",
-        q: "Đảng lãnh đạo lực lượng vũ trang nhân dân theo nguyên tắc nào?",
-        options: [
-          { text: "Tuyệt đối, trực tiếp về mọi mặt.", correct: true },
-          { text: "Tuyệt đối, gián tiếp về một số mặt.", correct: false },
-          { text: "Trực tiếp nhưng chỉ về chính trị tư tưởng.", correct: false },
-          { text: "Thông qua nhiều tổ chức trung gian.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 5",
-        q: "“Tuyệt đối” trong lãnh đạo lực lượng vũ trang nhân dân được hiểu như thế nào?",
-        options: [
-          { text: "Đảng không nhường hoặc chia sẻ quyền lãnh đạo lực lượng vũ trang nhân dân cho bất cứ tổ chức, đảng phái, cá nhân nào.", correct: true },
-          { text: "Đảng giữ quyền lãnh đạo chung, còn quyền quyết định tổ chức và hoạt động do các lực lượng tự thực hiện.", correct: false },
-          { text: "Đảng lãnh đạo lực lượng vũ trang cùng với Nhà nước và các tổ chức chính trị - xã hội theo cơ chế phối hợp ngang nhau.", correct: false },
-          { text: "Đảng trực tiếp lãnh đạo quân đội, còn công an và dân quân tự vệ do chính quyền các cấp độc lập lãnh đạo.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 5",
-        q: "“Trực tiếp về mọi mặt” trong lãnh đạo lực lượng vũ trang nhân dân nghĩa là gì?",
-        options: [
-          { text: "Đảng lãnh đạo không thông qua khâu trung gian và lãnh đạo trên tất cả các lĩnh vực hoạt động của lực lượng vũ trang.", correct: true },
-          { text: "Đảng lãnh đạo trực tiếp về chính trị, tư tưởng; các lĩnh vực tổ chức, chuyên môn do từng lực lượng tự quyết định.", correct: false },
-          { text: "Đảng lãnh đạo toàn diện thông qua các tổ chức chính trị - xã hội làm khâu trung gian ở mỗi cấp.", correct: false },
-          { text: "Đảng lãnh đạo trực tiếp trong xây dựng lực lượng, còn hoạt động chiến đấu do cơ quan nhà nước điều hành độc lập.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 5",
-        q: "Xây dựng lực lượng vũ trang nhân dân phải lấy yếu tố nào là chính?",
-        options: [
-          { text: "Chất lượng là chính, xây dựng về chính trị làm cơ sở.", correct: true },
-          { text: "Số lượng là chính, xây dựng trang bị làm cơ sở.", correct: false },
-          { text: "Kỹ thuật là chính, xây dựng hậu cần làm cơ sở.", correct: false },
-          { text: "Quân số là chính, xây dựng hình thức làm cơ sở.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 5",
-        q: "Vì sao xây dựng lực lượng vũ trang nhân dân phải coi trọng yếu tố chính trị - tinh thần?",
-        options: [
-          { text: "Vì chính trị - tinh thần là yếu tố quan trọng tạo nên sức mạnh chiến đấu của lực lượng vũ trang cách mạng.", correct: true },
-          { text: "Vì ưu thế vũ khí, trang bị kỹ thuật là yếu tố duy nhất quyết định thắng lợi trong chiến tranh.", correct: false },
-          { text: "Vì quy mô quân số lớn có thể bù đắp mọi hạn chế về tổ chức, huấn luyện và bản lĩnh chiến đấu.", correct: false },
-          { text: "Vì sự hỗ trợ từ bên ngoài quyết định khả năng duy trì ý chí và sức mạnh của lực lượng vũ trang.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 5",
-        q: "Quán triệt nguyên tắc lấy chất lượng là chính cần giải quyết tốt mối quan hệ nào?",
-        options: [
-          { text: "Mối quan hệ giữa số lượng và chất lượng.", correct: true },
-          { text: "Mối quan hệ giữa lực lượng thường trực và lực lượng dự bị động viên.", correct: false },
-          { text: "Mối quan hệ giữa con người và vũ khí, trang bị kỹ thuật.", correct: false },
-          { text: "Mối quan hệ giữa phát huy nội lực và tranh thủ điều kiện bên ngoài.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 5",
-        q: "Tự lực, tự cường xây dựng lực lượng vũ trang nhân dân nghĩa là gì?",
-        options: [
-          { text: "Dựa vào sức mình để xây dựng, giữ vững tính độc lập, tự chủ, chủ động, không bị chi phối, ràng buộc.", correct: true },
-          { text: "Chỉ sử dụng nguồn lực trong nước, không tiếp nhận thành tựu khoa học - công nghệ và sự hợp tác quốc tế.", correct: false },
-          { text: "Tranh thủ tối đa nguồn lực bên ngoài, coi hỗ trợ quốc tế là điều kiện chủ yếu để xây dựng lực lượng.", correct: false },
-          { text: "Tự bảo đảm toàn bộ vũ khí, trang bị trong nước trước khi triển khai các nhiệm vụ xây dựng lực lượng khác.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 5",
-        q: "Quan điểm tự lực, tự cường trong xây dựng lực lượng vũ trang nhân dân đòi hỏi tinh thần nào?",
-        options: [
-          { text: "Phát huy nội lực, khắc phục khó khăn, chủ động sáng tạo và không ỷ lại vào bên ngoài.", correct: true },
-          { text: "Phụ thuộc vào các nguồn viện trợ quốc tế để hiện đại hóa vũ khí nhanh chóng.", correct: false },
-          { text: "Hạn chế mở rộng quan hệ đối ngoại quân sự và hợp tác quốc phòng.", correct: false },
-          { text: "Đóng cửa khép kín, tuyệt đối không tiếp thu tri thức quân sự thế giới.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 5",
-        q: "Nguyên tắc bảo đảm lực lượng vũ trang nhân dân luôn ở trạng thái nào?",
-        options: [
-          { text: "Luôn sẵn sàng chiến đấu và chiến đấu thắng lợi.", correct: true },
-          { text: "Duy trì sẵn sàng chiến đấu khi tình hình an ninh, chính trị khu vực xuất hiện căng thẳng rõ rệt.", correct: false },
-          { text: "Tập trung huấn luyện trong thời bình và chuyển sang sẵn sàng chiến đấu sau khi có lệnh động viên.", correct: false },
-          { text: "Ưu tiên nhiệm vụ lao động, sản xuất trong thời bình, chỉ duy trì lực lượng trực ở các địa bàn trọng điểm.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 5",
-        q: "Để bảo đảm sẵn sàng chiến đấu, lực lượng vũ trang nhân dân phải thường xuyên làm gì?",
-        options: [
-          { text: "Nêu cao cảnh giác cách mạng; duy trì tư thế sẵn sàng chiến đấu; chấp hành nghiêm chế độ trực ban, trực chiến, trực chỉ huy.", correct: true },
-          { text: "Tập trung huấn luyện định kỳ; chỉ tổ chức trực chiến khi có tình huống quốc phòng, an ninh cụ thể.", correct: false },
-          { text: "Duy trì trực ban và diễn tập; giao chế độ trực chỉ huy cho lực lượng địa phương khi đơn vị làm nhiệm vụ khác.", correct: false },
-          { text: "Tổ chức hội thi, hội thao thường xuyên; thay chế độ trực hằng ngày bằng kiểm tra sẵn sàng chiến đấu theo đợt.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 5",
-        q: "Phương hướng chung xây dựng Quân đội nhân dân, Công an nhân dân hiện nay là gì?",
-        options: [
-          { text: "Cách mạng, chính quy, tinh nhuệ, hiện đại.", correct: true },
-          { text: "Cách mạng, chính quy, chuyên nghiệp, tự vệ.", correct: false },
-          { text: "Chính quy, tinh nhuệ, từng bước hiện đại.", correct: false },
-          { text: "Tinh gọn, chính quy, khu vực, hiện đại.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 5",
-        q: "Xây dựng lực lượng vũ trang nhân dân vững mạnh toàn diện phải lấy nội dung nào làm cơ sở?",
-        options: [
-          { text: "Xây dựng vững mạnh về chính trị.", correct: true },
-          { text: "Hoàn thiện tổ chức, biên chế và cơ cấu lực lượng.", correct: false },
-          { text: "Hiện đại hóa vũ khí, trang bị kỹ thuật.", correct: false },
-          { text: "Nâng cao trình độ huấn luyện và khả năng tác chiến.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 5",
-        q: "Xây dựng Quân đội nhân dân, Công an nhân dân cách mạng nhằm mục tiêu gì?",
-        options: [
-          { text: "Làm cho quân đội, công an thực sự là lực lượng chính trị trung thành, công cụ chiến đấu sắc bén của Đảng, Nhà nước và nhân dân.", correct: true },
-          { text: "Thống nhất tổ chức, biên chế, trang bị và đưa mọi hoạt động vào nền nếp theo chế độ, điều lệnh.", correct: false },
-          { text: "Xây dựng tổ chức gọn nhẹ, hợp lý, nâng cao trình độ tác chiến và khả năng sử dụng vũ khí hiện đại.", correct: false },
-          { text: "Đẩy mạnh hiện đại hóa trang bị, phát triển khoa học quân sự và công nghiệp quốc phòng.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 5",
-        q: "Nội dung trọng tâm khi xây dựng Quân đội nhân dân, Công an nhân dân cách mạng là gì?",
-        options: [
-          { text: "Xây dựng bản chất giai cấp công nhân và lòng trung thành tuyệt đối với Đảng, Tổ quốc và nhân dân.", correct: true },
-          { text: "Xây dựng nền nếp chính quy, thống nhất tổ chức, biên chế, trang bị và chế độ hoạt động.", correct: false },
-          { text: "Xây dựng tổ chức gọn nhẹ, hợp lý và nâng cao trình độ tác chiến của từng lực lượng.", correct: false },
-          { text: "Hiện đại hóa vũ khí, trang bị kỹ thuật, phát triển khoa học quân sự và công nghiệp quốc phòng.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 5",
-        q: "Mục đích của xây dựng Quân đội nhân dân, Công an nhân dân chính quy là gì?",
-        options: [
-          { text: "Thống nhất ý chí và hành động, tăng cường sức mạnh tổng hợp, bảo đảm hoàn thành tốt chức năng, nhiệm vụ.", correct: true },
-          { text: "Củng cố bản chất giai cấp công nhân và lòng trung thành tuyệt đối của quân đội, công an.", correct: false },
-          { text: "Xây dựng tổ chức gọn nhẹ, hợp lý và nâng cao trình độ tác chiến của các lực lượng.", correct: false },
-          { text: "Hiện đại hóa vũ khí, trang bị, khoa học quân sự và công nghiệp quốc phòng.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 5",
-        q: "Xây dựng Quân đội nhân dân, Công an nhân dân tinh nhuệ xuất phát từ yêu cầu nào?",
-        options: [
-          { text: "Chức năng, nhiệm vụ của quân đội, công an và yêu cầu bảo vệ Tổ quốc, giữ gìn an ninh chính trị, trật tự, an toàn xã hội trong tình hình mới.", correct: true },
-          { text: "Yêu cầu tăng quy mô quân số thường trực và mở rộng tổ chức lực lượng ở tất cả các địa bàn.", correct: false },
-          { text: "Yêu cầu đẩy mạnh hội nhập quốc tế và chuyển trọng tâm sang hoạt động đối ngoại quốc phòng, an ninh.", correct: false },
-          { text: "Yêu cầu kết hợp lao động sản xuất với xây dựng các đơn vị kinh tế độc lập trong lực lượng vũ trang.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 5",
-        q: "Sự tinh nhuệ của Quân đội nhân dân, Công an nhân dân được cấu thành bởi những yếu tố nào?",
-        options: [
-          { text: "Chính trị, tổ chức và trình độ tác chiến.", correct: true },
-          { text: "Chính trị, hậu cần và đối ngoại.", correct: false },
-          { text: "Tổ chức, quân số và kỹ thuật.", correct: false },
-          { text: "Trang bị, huấn luyện và doanh trại.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 5",
-        q: "Tinh nhuệ về chính trị biểu hiện tập trung ở nội dung nào?",
-        options: [
-          { text: "Trung thành tuyệt đối với Tổ quốc, Đảng, Nhà nước và nhân dân; kiên định lý tưởng cách mạng; sẵn sàng hoàn thành nhiệm vụ.", correct: true },
-          { text: "Tổ chức gọn nhẹ, hợp lý nhưng vẫn đáp ứng yêu cầu nhiệm vụ được giao.", correct: false },
-          { text: "Phát huy nghệ thuật quân sự, giỏi sử dụng vũ khí hiện có và hiện đại, vận dụng sáng tạo hình thức chiến thuật.", correct: false },
-          { text: "Thống nhất tổ chức, biên chế, trang bị và đưa mọi hoạt động vào nền nếp theo chế độ, điều lệnh.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 5",
-        q: "Tinh nhuệ về tổ chức của Quân đội nhân dân, Công an nhân dân thể hiện ở nội dung nào?",
-        options: [
-          { text: "Tổ chức gọn nhẹ, hợp lý nhưng vẫn đáp ứng yêu cầu nhiệm vụ được giao.", correct: true },
-          { text: "Tổ chức đủ quân số, biên chế ổn định và bố trí lực lượng đồng đều ở mọi địa bàn.", correct: false },
-          { text: "Tổ chức chuyên sâu theo từng nhiệm vụ, giảm khả năng cơ động và phối hợp giữa các lực lượng.", correct: false },
-          { text: "Tổ chức phân cấp rộng, tăng tính độc lập của từng đơn vị và giảm các đầu mối chỉ huy chung.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 5",
-        q: "Tinh nhuệ về trình độ tác chiến thể hiện ở năng lực nào?",
-        options: [
-          { text: "Phát huy nghệ thuật quân sự của chiến tranh nhân dân, thế trận quốc phòng toàn dân và an ninh nhân dân; giỏi sử dụng vũ khí hiện có và hiện đại; giỏi các cách đánh, vận dụng mưu trí, sáng tạo các hình thức chiến thuật.", correct: true },
-          { text: "Sử dụng thành thạo vũ khí hiện đại, thực hiện thống nhất một hình thức chiến thuật và dựa chủ yếu vào ưu thế hỏa lực.", correct: false },
-          { text: "Tổ chức lực lượng đông, duy trì thế trận phòng ngự cố định và hạn chế thay đổi cách đánh trong tác chiến.", correct: false },
-          { text: "Phát huy kinh nghiệm cá nhân, ưu tiên tác chiến độc lập và giảm yêu cầu hiệp đồng giữa các lực lượng.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 5",
-        q: "Xây dựng Quân đội nhân dân, Công an nhân dân hiện đại nhằm mục đích gì?",
-        options: [
-          { text: "Nâng cao sức mạnh chiến đấu, xử lý kịp thời, hiệu quả các tình huống quốc phòng, an ninh, bảo vệ vững chắc Tổ quốc.", correct: true },
-          { text: "Thống nhất ý chí, hành động và đưa mọi hoạt động của quân đội, công an vào nền nếp chính quy.", correct: false },
-          { text: "Củng cố bản chất giai cấp công nhân, lòng trung thành và bản lĩnh chính trị của cán bộ, chiến sĩ.", correct: false },
-          { text: "Hoàn thiện tổ chức gọn nhẹ, hợp lý, nâng cao khả năng cơ động và phối hợp lực lượng.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 5",
-        q: "Lực lượng dự bị động viên là thành phần của lực lượng nào?",
-        options: [
-          { text: "Quân đội nhân dân Việt Nam.", correct: true },
-          { text: "Công an nhân dân Việt Nam.", correct: false },
-          { text: "Dân quân tự vệ cơ sở.", correct: false },
-          { text: "Lực lượng bảo vệ dân phố.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 5",
-        q: "Ngày truyền thống của Quân đội, Công an và Dân quân tự vệ theo thứ tự là:",
-        options: [
-          { text: "22/12/1944, 19/8/1945, 28/3/1935", correct: true },
-          { text: "22/12/1945, 19/8/1945, 28/3/1935", correct: false },
-          { text: "22/12/1944, 19/12/1946, 28/3/1935", correct: false },
-          { text: "22/12/1944, 19/8/1945, 28/3/1945", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 5",
-        q: "Xây dựng lực lượng vũ trang nhân dân là trách nhiệm của ai?",
-        options: [
-          { text: "Của toàn Đảng, toàn dân, toàn quân và cả hệ thống chính trị.", correct: true },
-          { text: "Chính quyền địa phương; Cả hệ thống chính trị; Và toàn dân.", correct: false },
-          { text: "Cả hệ thống chính trị; Quân đội nhân dân Việt Nam.", correct: false },
-          { text: "Của toàn Đảng; toàn dân và toàn quân.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 5",
-        q: "Khi các thế lực thù địch đẩy mạnh âm mưu \"phi chính trị hóa\" quân đội và công an, biện pháp quan trọng nhất là:",
-        options: [
-          { text: "Giữ vững sự lãnh đạo tuyệt đối, trực tiếp về mọi mặt của Đảng đối với LLVT", correct: true },
-          { text: "Tăng nhanh số lượng và chất lượng quân số", correct: false },
-          { text: "Tăng thời gian huấn luyện, rèn luyện thể lực", correct: false },
-          { text: "Tăng cường mua sắm các loại vũ khí hiện đại", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 5",
-        q: "Lực lượng vũ trang 3 thứ quân gồm:",
-        options: [
-          { text: "Bộ đội chủ lực; Bộ đội địa phương; Dân quân tự vệ.", correct: true },
-          { text: "Lục quân, Phòng không - không quân và Hải quân", correct: false },
-          { text: "Phòng không, Không quân và Hải quân", correct: false },
-          { text: "Quân chủ lực, Quân địa phương và Quân biên phòng.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 5",
-        q: "Điểm mạnh của LLVTND trong thời gian vừa qua:",
-        options: [
-          { text: "Cả ba đáp án A, B, C đều đúng", correct: true },
-          { text: "Có bước trưởng thành lớn mạnh cả về bản lĩnh chính trị, chất lượng tổng hợp, trình độ chính quy, sức mạnh chiến đấu.", correct: false },
-          { text: "Luôn hoàn thành ba chức năng, và là lực lượng nòng cốt đi đầu giải quyết hiệu quả những nhiệm vụ khó khăn, phức tạp.", correct: false },
-          { text: "Tuyệt đối trung thành với Đảng, Tổ quốc và nhân dân", correct: false }
+          { text: "Khẩu lệnh: “Giải tán!” (chỉ có động lệnh)", correct: true },
+          { text: "Dự lệnh “Chuẩn bị giải tán”, động lệnh “Nghỉ”", correct: false },
+          { text: "Khẩu lệnh: “Về vị trí!”", correct: false },
+          { text: "Khẩu lệnh: “Thôi!”", correct: false }
         ]
       },
 
-      // ==================== BÀI 6 (37 câu) ====================
+      // ==================== Qs6: BẢN ĐỒ ĐỊA HÌNH QUÂN SỰ ====================
       {
-        lesson: "Bài 6",
-        q: "Theo quan điểm của Chủ nghĩa Marx-Lenin: Mối quan hệ giữa quốc phòng, an ninh và kinh tế?",
+        lesson: "Qs6: Bản đồ địa hình",
+        q: "Bản đồ địa hình quân sự là loại bản đồ chuyên dụng thể hiện nội dung gì?",
         options: [
-          { text: "Kinh tế quyết định quốc phòng, an ninh và quốc phòng, an ninh có sự tác động trở lại đối với kinh tế.", correct: true },
-          { text: "Kinh tế quyết định quốc phòng, an ninh.", correct: false },
-          { text: "Quốc phòng, an ninh quyết định kinh tế.", correct: false },
-          { text: "Quốc phòng, an ninh và kinh tế không có mối quan hệ với nhau.", correct: false }
+          { text: "Hình ảnh bề mặt đất đá, dáng đất và các vật thể tự nhiên, nhân tạo trên mặt đất theo tỷ lệ nhất định", correct: true },
+          { text: "Bản đồ chỉ thể hiện mật độ dân cư và phân bố hành chính", correct: false },
+          { text: "Bản đồ chỉ vẽ hệ thống sông ngòi và luồng hàng hải", correct: false },
+          { text: "Sơ đồ mặt phẳng không đo đạc tỉ lệ", correct: false }
         ]
       },
       {
-        lesson: "Bài 6",
-        q: "Ai đã khẳng định: “Không có gì phụ thuộc vào kinh tế tiên quyết hơn là chính quân đội và hạm đội”?",
+        lesson: "Qs6: Bản đồ địa hình",
+        q: "Trên bản đồ địa hình tỷ lệ 1:25.000, độ dài 1 cm đo được trên bản đồ tương ứng với bao nhiêu mét ngoài thực địa?",
         options: [
-          { text: "Friedrich Engels", correct: true },
-          { text: "Carl von Clausewitz", correct: false },
-          { text: "Vladimir Ilyich Lenin", correct: false },
-          { text: "Karl Marx", correct: false }
+          { text: "250 mét", correct: true },
+          { text: "25 mét", correct: false },
+          { text: "2.500 mét", correct: false },
+          { text: "25.000 mét", correct: false }
         ]
       },
       {
-        lesson: "Bài 6",
-        q: "Tư tưởng Hồ Chí Minh về kết hợp kinh tế với quốc phòng, an ninh?",
+        lesson: "Qs6: Bản đồ địa hình",
+        q: "Phương pháp biểu thị độ cao và dáng đất lồi lõm nhấp nhô phổ biến nhất trên bản đồ địa hình quân sự là dùng gì?",
         options: [
-          { text: "Kinh tế và quốc phòng là hai lĩnh vực khác nhau nhưng đều có cái chung, cái thống nhất.", correct: true },
-          { text: "Kinh tế và quốc phòng là hai lĩnh vực khác nhau vì vậy không có mối quan hệ với nhau.", correct: false },
-          { text: "Kinh tế và quốc phòng là cùng một lĩnh vực nên có cái chung, cái thống nhất.", correct: false },
-          { text: "Kinh tế và quốc phòng cùng chung một lĩnh vực nhưng không có mối quan hệ với nhau.", correct: false }
+          { text: "Đường bình độ", correct: true },
+          { text: "Các chấm màu độ cao", correct: false },
+          { text: "Tô các mảng màu khác nhau", correct: false },
+          { text: "Ký hiệu hình học", correct: false }
         ]
       },
       {
-        lesson: "Bài 6",
-        q: "Chủ trương “đi đôi với phát triển kinh tế, văn hóa phải chú trọng củng cố quốc phòng” được xác định tại Đại hội Đảng nào?",
+        lesson: "Qs6: Bản đồ địa hình",
+        q: "Đặc điểm cơ bản của hệ thống các đường bình độ trên bản đồ địa hình là gì?",
         options: [
-          { text: "Đại hội Đảng toàn quốc lần thứ III năm 1960.", correct: true },
-          { text: "Đại hội Đảng toàn quốc lần thứ I năm 1935.", correct: false },
-          { text: "Đại hội Đảng toàn quốc lần thứ II năm 1951.", correct: false },
-          { text: "Đại hội Đảng toàn quốc lần thứ IV năm 1976.", correct: false }
+          { text: "Nơi nào các đường bình độ nằm càng mau (dày sít nhau) thì nơi đó sườn dốc càng lớn", correct: true },
+          { text: "Các đường bình độ có thể cắt chéo qua nhau", correct: false },
+          { text: "Đường bình độ không bao giờ khép kín", correct: false },
+          { text: "Nơi đường bình độ thưa thì địa hình càng dốc đứng", correct: false }
         ]
       },
       {
-        lesson: "Bài 6",
-        q: "Kết hợp kinh tế với quốc phòng, an ninh được bắt nguồn từ truyền thống nào của dân tộc ta?",
+        lesson: "Qs6: Bản đồ địa hình",
+        q: "Để định hướng bản đồ ngoài thực địa bằng la bàn, ta phải điều chỉnh sao cho đường kinh tuyến của bản đồ trùng với hướng nào?",
         options: [
-          { text: "Truyền thống “dựng nước phải đi đôi với giữ nước”.", correct: true },
-          { text: "Truyền thống “yêu nước”.", correct: false },
-          { text: "Truyền thống “đoàn kết toàn dân tộc”.", correct: false },
-          { text: "Truyền thống “lá lành đùm lá rách”.", correct: false }
+          { text: "Trùng với hướng Bắc - Nam của kim la bàn", correct: true },
+          { text: "Trùng với hướng mặt trời mọc", correct: false },
+          { text: "Vuông góc với hướng Bắc của kim la bàn", correct: false },
+          { text: "Tùy thuộc vào vị trí đứng của người chỉ huy", correct: false }
+        ]
+      },
+
+      // ==================== Qs7: PHÒNG TRÁNH ĐỊCH TIẾN CÔNG BẰNG VŨ KHÍ CÔNG NGHỆ CAO ====================
+      {
+        lesson: "Qs7: Vũ khí công nghệ cao",
+        q: "Vũ khí công nghệ cao (VKCNC) được hiểu là loại vũ khí có đặc điểm nổi bật nào?",
+        options: [
+          { text: "Được nghiên cứu chế tạo dựa trên thành tựu KH-CN hiện đại, có độ chính xác cao, uy lực sát thương lớn và tầm hoạt động xa", correct: true },
+          { text: "Chỉ đơn thuần là các loại súng bộ binh thông thường được trang bị thêm ống ngắm quang học", correct: false },
+          { text: "Là các loại bom mìn tự chế sử dụng nguyên liệu hóa chất mới", correct: false },
+          { text: "Vũ khí chỉ có thể hoạt động dưới mặt đất", correct: false }
         ]
       },
       {
-        lesson: "Bài 6",
-        q: "Theo chủ nghĩa Marx - Lenin, kinh tế có vai trò thế nào đối với quốc phòng, an ninh?",
+        lesson: "Qs7: Vũ khí công nghệ cao",
+        q: "Đâu là một trong những điểm yếu cơ bản của vũ khí công nghệ cao mà ta có thể triệt để khai thác để phòng tránh, đánh trả?",
         options: [
-          { text: "Kinh tế là yếu tố quyết định đến quốc phòng, an ninh.", correct: true },
-          { text: "Kinh tế chỉ hỗ trợ một phần nhỏ cho quốc phòng, an ninh.", correct: false },
-          { text: "Quốc phòng, an ninh quyết định tuyệt đối mọi hoạt động kinh tế.", correct: false },
-          { text: "Kinh tế và quốc phòng, an ninh không có quan hệ với nhau.", correct: false }
+          { text: "Rất dễ bị đánh lừa bởi mục tiêu giả; dễ bị nhiễu do điều kiện thời tiết, địa hình và chiến tranh điện tử", correct: true },
+          { text: "Tầm bắn quá ngắn không thể phóng từ xa", correct: false },
+          { text: "Không có khả năng tự động tìm mục tiêu", correct: false },
+          { text: "Chi phí chế tạo quá rẻ nên uy lực nổ không lớn", correct: false }
         ]
       },
       {
-        lesson: "Bài 6",
-        q: "Theo tư tưởng Hồ Chí Minh, xây dựng kinh tế giữ vai trò nào trong quan hệ với quốc phòng, an ninh?",
+        lesson: "Qs7: Vũ khí công nghệ cao",
+        q: "Biện pháp phòng chống trinh sát quang học và trinh sát hồng ngoại của địch hiệu quả trong dã ngoại là gì?",
         options: [
-          { text: "Giữ vai trò quyết định trong mối quan hệ biện chứng với quốc phòng, an ninh.", correct: true },
-          { text: "Giữ vai trò hỗ trợ, chỉ được ưu tiên sau khi hoàn thành nhiệm vụ quốc phòng, an ninh.", correct: false },
-          { text: "Có vị trí ngang bằng với quốc phòng, an ninh và không lĩnh vực nào giữ vai trò quyết định.", correct: false },
-          { text: "Phụ thuộc chủ yếu vào yêu cầu quốc phòng, an ninh trong từng giai đoạn cách mạng.", correct: false }
+          { text: "Tận dụng khéo léo địa hình, địa vật, dùng màn khói và ngụy trang xóa bỏ triệt để bức xạ nhiệt", correct: true },
+          { text: "Đốt nhiều lửa sáng xung quanh công sự để phân tán sự chú ý", correct: false },
+          { text: "Dựng toàn bộ lều bạt trên đỉnh đồi cao thoáng đãng", correct: false },
+          { text: "Chỉ tập trung ngụy trang vào ban ngày, ban đêm không cần", correct: false }
         ]
       },
       {
-        lesson: "Bài 6",
-        q: "Đại hội XIV của Đảng nhấn mạnh hướng xây dựng công nghiệp quốc phòng, công nghiệp an ninh như thế nào?",
+        lesson: "Qs7: Vũ khí công nghệ cao",
+        q: "Một trong những biện pháp phòng tránh tích cực nhất khi địch tiến công hỏa lực đường không bằng vũ khí công nghệ cao là gì?",
         options: [
-          { text: "Theo hướng lưỡng dụng, ngày càng hiện đại, có trình độ khoa học và công nghệ cao.", correct: true },
-          { text: "Theo hướng chuyên biệt, khép kín, ưu tiên tuyệt đối cho sản xuất các sản phẩm quân sự.", correct: false },
-          { text: "Theo hướng lưỡng dụng nhưng chủ yếu sử dụng công nghệ trung bình, phù hợp năng lực hiện có.", correct: false },
-          { text: "Theo hướng hiện đại hóa bằng nhập khẩu, hạn chế liên kết với công nghiệp quốc gia.", correct: false }
+          { text: "Triệt để phân tán, sơ tán lực lượng và xây dựng hệ thống công sự trận địa ngầm kiên cố", correct: true },
+          { text: "Tập trung toàn bộ lực lượng và xe pháo cơ giới tại các trung tâm đô thị lớn", correct: false },
+          { text: "Tổ chức đóng quân dày đặc tại các đầu mối giao thông huyết mạch", correct: false },
+          { text: "Chỉ trông chờ hoàn toàn vào lưới lửa phòng không tầm cao", correct: false }
         ]
       },
       {
-        lesson: "Bài 6",
-        q: "Kết hợp kinh tế với quốc phòng được các nước trên thế giới nhìn nhận là vấn đề có tính gì?",
+        lesson: "Qs7: Vũ khí công nghệ cao",
+        q: "Nghi binh lừa địch bằng cách bố trí các trận địa giả, mục tiêu giả nhằm mục đích gì trong phòng tránh hỏa lực công nghệ cao?",
         options: [
-          { text: "Mang Tính quy luật chung cho mọi quốc gia, dân tộc.", correct: true },
-          { text: "Tính đặc thù chỉ xuất hiện ở các quốc gia đang xảy ra chiến tranh.", correct: false },
-          { text: "Tính tạm thời trong những giai đoạn kinh tế gặp khủng hoảng nghiêm trọng.", correct: false },
-          { text: "Tính tự phát phụ thuộc vào khả năng huy động nguồn lực của từng nhà nước.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 6",
-        q: "Kết hợp theo vùng lãnh thổ nhằm tạo ra điều gì?",
-        options: [
-          { text: "Thế bố trí chiến lược mới cả về kinh tế và quốc phòng, an ninh trên từng vùng, địa bàn.", correct: true },
-          { text: "Hệ thống trung tâm kinh tế có khả năng hỗ trợ ngân sách cho nhiệm vụ quốc phòng, an ninh.", correct: false },
-          { text: "Mạng lưới khu vực phòng thủ độc lập với quy hoạch phát triển kinh tế - xã hội của địa phương.", correct: false },
-          { text: "Cơ chế phân cấp quản lý thống nhất giữa Trung ương với các tỉnh, thành phố trong vùng.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 6",
-        q: "Ở vùng kinh tế trọng điểm, quy hoạch thành phố và khu công nghiệp cần chú ý yêu cầu nào?",
-        options: [
-          { text: "Chọn quy mô trung bình, bố trí phân tán, trải đều trên diện rộng.", correct: true },
-          { text: "Xây dựng quy mô lớn, tập trung thành các cụm đô thị - công nghiệp liên hoàn.", correct: false },
-          { text: "Chọn quy mô nhỏ, bố trí phân tán theo địa giới hành chính của từng địa phương.", correct: false },
-          { text: "Chọn quy mô trung bình nhưng tập trung chủ yếu quanh các đô thị trung tâm của vùng.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 6",
-        q: "Ở vùng núi biên giới, cần quan tâm đầu tư phát triển kinh tế, xã hội gắn với địa bàn nào?",
-        options: [
-          { text: "Vùng cửa khẩu và vùng giáp biên giới với các nước.", correct: true },
-          { text: "Các trung tâm đô thị và khu công nghiệp nằm sâu trong nội địa.", correct: false },
-          { text: "Các khu kinh tế ven biển và đầu mối giao thông quốc tế đã phát triển.", correct: false },
-          { text: "Các vùng chuyên canh nông nghiệp tập trung ở khu vực đồng bằng.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 6",
-        q: "Ở địa bàn chiến lược sát biên giới, lực lượng nào cần làm nòng cốt xây dựng khu kinh tế - quốc phòng?",
-        options: [
-          { text: "Lực lượng vũ trang.", correct: true },
-          { text: "Các doanh nghiệp nhà nước hoạt động trên địa bàn biên giới.", correct: false },
-          { text: "Chính quyền cấp xã và các tổ chức chính trị - xã hội ở cơ sở.", correct: false },
-          { text: "Các đơn vị kinh tế địa phương có khả năng đầu tư hạ tầng và dịch vụ.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 6",
-        q: "Ở vùng biển, đảo, nội dung nào giúp dân bám trụ, sinh sống, làm ăn lâu dài?",
-        options: [
-          { text: "Có cơ chế hỗ trợ, khuyến khích dân ra đảo và phát triển các loại hình dịch vụ biển, đảo.", correct: true },
-          { text: "Tập trung ưu đãi các doanh nghiệp khai thác tài nguyên và chế biến hải sản trên đảo.", correct: false },
-          { text: "Đầu tư hệ thống cảng biển, kho tàng và trung tâm hậu cần nghề cá quy mô lớn.", correct: false },
-          { text: "Mở rộng du lịch biển, đảo theo mùa gắn với dịch vụ vận tải hành khách.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 6",
-        q: "Lực lượng nào cần được chú trọng xây dựng để bảo vệ biển, đảo?",
-        options: [
-          { text: "Dân quân biển, hải đoàn tự vệ ngành Hàng hải, Cảnh sát biển và lực lượng Hải quân.", correct: true },
-          { text: "Hải quân và Cảnh sát biển, không tổ chức lực lượng vũ trang quần chúng trên biển.", correct: false },
-          { text: "Bộ đội Biên phòng, Kiểm ngư, lực lượng cứu hộ và các doanh nghiệp khai thác biển.", correct: false },
-          { text: "Dân quân tự vệ ven bờ, lực lượng hậu cần nghề cá và các đơn vị kinh tế - quốc phòng.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 6",
-        q: "Tính lưỡng dụng trong phát triển công nghiệp được thể hiện ở yêu cầu nào?",
-        options: [
-          { text: "Mỗi nhà máy, xí nghiệp vừa có thể sản xuất hàng dân dụng, vừa có thể sản xuất hàng quân sự.", correct: true },
-          { text: "Mỗi nhà máy bố trí hai dây chuyền độc lập và chỉ sản xuất một loại sản phẩm trong từng thời kỳ.", correct: false },
-          { text: "Nhà máy dân dụng chỉ chuyển sang sản xuất hàng quân sự khi có lệnh động viên thời chiến.", correct: false },
-          { text: "Nhà máy công nghiệp quốc phòng chỉ sản xuất hàng quân sự để bảo đảm tính chuyên môn hóa.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 6",
-        q: "Trong thời bình, nhà máy công nghiệp quốc phòng có nhiệm vụ nào ngoài sản xuất hàng quân sự?",
-        options: [
-          { text: "Sản xuất hàng dân sự chất lượng cao phục vụ tiêu dùng trong nước và xuất khẩu.", correct: true },
-          { text: "Duy trì năng lực sửa chữa, bảo quản vũ khí, trang bị và dự trữ vật tư kỹ thuật.", correct: false },
-          { text: "Tổ chức đào tạo công nhân kỹ thuật và chuyển giao công nghệ cho doanh nghiệp dân dụng.", correct: false },
-          { text: "Tham gia xây dựng các công trình hậu cần, kỹ thuật phục vụ khu vực phòng thủ.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 6",
-        q: "Kết hợp trong nông, lâm, ngư nghiệp nhằm khai thác hiệu quả những tiềm năng nào?",
-        options: [
-          { text: "Đất, rừng, biển, đảo và lực lượng lao động.", correct: true },
-          { text: "Đất, rừng, nguồn nước nội địa và nguồn vốn đầu tư của địa phương.", correct: false },
-          { text: "Biển, đảo, khoáng sản, khoa học và công nghệ trong sản xuất nông nghiệp.", correct: false },
-          { text: "Lực lượng lao động, thị trường, hạ tầng giao thông và hệ thống dịch vụ nông thôn.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 6",
-        q: "Kết hợp trong nông, lâm, ngư nghiệp góp phần xây dựng những thế trận nào?",
-        options: [
-          { text: "Thế trận phòng thủ và “thế trận lòng dân” vững chắc.", correct: true },
-          { text: "Thế trận quốc phòng toàn dân và thế trận an ninh nhân dân trên phạm vi cả nước.", correct: false },
-          { text: "Khu vực phòng thủ và hệ thống căn cứ hậu phương của từng vùng kinh tế trọng điểm.", correct: false },
-          { text: "Thế trận kinh tế và thế trận xã hội gắn với xây dựng nông thôn mới.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 6",
-        q: "Trong giao thông vận tải, thiết kế, thi công công trình phải tính đến những nhu cầu nào?",
-        options: [
-          { text: "Nhu cầu thời bình, thời chiến; nhu cầu kinh tế, xã hội và quốc phòng, an ninh.", correct: true },
-          { text: "Nhu cầu dân sinh, thương mại, bảo vệ môi trường và phát triển đô thị.", correct: false },
-          { text: "Nhu cầu vận tải hàng hóa, du lịch, giao lưu quốc tế và kết nối vùng.", correct: false },
-          { text: "Nhu cầu quốc phòng, an ninh và cơ động lực lượng trong các tình huống chiến tranh.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 6",
-        q: "Mạng lưới bưu chính viễn thông cần đáp ứng yêu cầu nào về quốc phòng, an ninh?",
-        options: [
-          { text: "Làm chỗ dựa cho mạng lưới thông tin của lực lượng vũ trang, bảo đảm lãnh đạo, chỉ đạo, chỉ huy thông suốt.", correct: true },
-          { text: "Phục vụ thông tin dân sinh rộng khắp và có khả năng dự phòng khi xảy ra thiên tai, sự cố.", correct: false },
-          { text: "Kết nối mạng thông tin quốc gia với mạng quốc tế, bảo đảm tốc độ và chất lượng dịch vụ.", correct: false },
-          { text: "Hỗ trợ quản lý hành chính địa phương và cung cấp thông tin khẩn cấp cho người dân.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 6",
-        q: "Trong xây dựng cơ bản, mọi công trình phải tính đến yếu tố nào?",
-        options: [
-          { text: "Tự bảo vệ và có thể chuyển hóa phục vụ quốc phòng, an ninh, phòng thủ tác chiến và phòng thủ dân sự.", correct: true },
-          { text: "An toàn trong thi công, thuận lợi trong khai thác và giảm chi phí bảo trì công trình.", correct: false },
-          { text: "Hiệu quả kinh tế, phù hợp kiến trúc cảnh quan và khả năng mở rộng trong tương lai.", correct: false },
-          { text: "Khả năng phòng, chống thiên tai và thích ứng với biến đổi khí hậu tại địa phương.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 6",
-        q: "Trong khoa học, công nghệ và giáo dục, cần đào tạo con người theo yêu cầu nào?",
-        options: [
-          { text: "Vừa hồng, vừa chuyên.", correct: true },
-          { text: "Giỏi chuyên môn, thành thạo công nghệ và có khả năng hội nhập quốc tế.", correct: false },
-          { text: "Có phẩm chất chính trị tốt, nắm vững kiến thức quốc phòng và an ninh.", correct: false },
-          { text: "Có năng lực đổi mới sáng tạo, khởi nghiệp và đáp ứng nhu cầu thị trường lao động.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 6",
-        q: "Trong lĩnh vực y tế, cần xây dựng mô hình nào ở miền núi, biên giới, hải đảo?",
-        options: [
-          { text: "Mô hình quân, dân, y kết hợp.", correct: true },
-          { text: "Mô hình dân y kết hợp với mạng lưới y tế cơ sở của địa phương.", correct: false },
-          { text: "Mô hình quân y độc lập, cơ động hỗ trợ các địa bàn chiến lược khi cần thiết.", correct: false },
-          { text: "Mô hình y tế liên vùng kết hợp bệnh viện tuyến trên với các đội cấp cứu lưu động.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 6",
-        q: "Trong thực hiện nhiệm vụ bảo vệ Tổ quốc, tổ chức biên chế lực lượng vũ trang phải phù hợp với điều gì?",
-        options: [
-          { text: "Điều kiện kinh tế và nhu cầu phòng thủ đất nước.", correct: true },
-          { text: "Quy mô dân số và tổ chức hành chính của từng địa phương, khu vực.", correct: false },
-          { text: "Khả năng ngân sách và yêu cầu huấn luyện, quản lý lực lượng trong thời bình.", correct: false },
-          { text: "Mức độ đe dọa an ninh và các cam kết hợp tác quốc phòng quốc tế.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 6",
-        q: "Trong nhiệm vụ bảo vệ Tổ quốc, cần hoàn thiện chiến lược tổng thể nào?",
-        options: [
-          { text: "Kết hợp phát triển kinh tế, văn hóa, xã hội với tăng cường quốc phòng, an ninh, đối ngoại trong thời kỳ mới.", correct: true },
-          { text: "Kết hợp phát triển kinh tế, văn hóa, xã hội với mở rộng đối ngoại, không gắn với quốc phòng, an ninh.", correct: false },
-          { text: "Kết hợp quốc phòng, an ninh với đối ngoại, tách khỏi chiến lược phát triển kinh tế - xã hội.", correct: false },
-          { text: "Kết hợp phát triển vùng kinh tế trọng điểm với xây dựng khu vực phòng thủ ở từng địa phương.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 6",
-        q: "Trong nhiệm vụ bảo vệ Tổ quốc, xây dựng “thế trận lòng dân” gắn với những thế trận nào?",
-        options: [
-          { text: "Thế trận quốc phòng toàn dân và thế trận an ninh nhân dân.", correct: true },
-          { text: "Thế trận quốc phòng toàn dân và hệ thống khu vực phòng thủ địa phương.", correct: false },
-          { text: "Thế trận an ninh nhân dân và thế bố trí lực lượng ở vùng biên giới, biển, đảo.", correct: false },
-          { text: "Thế trận quân sự và thế trận kinh tế trong các vùng chiến lược.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 6",
-        q: "Hoạt động đối ngoại phải giữ vững nguyên tắc nào?",
-        options: [
-          { text: "Tôn trọng độc lập, chủ quyền, thống nhất, toàn vẹn lãnh thổ; không can thiệp vào công việc nội bộ; không dùng vũ lực hoặc đe dọa dùng vũ lực.", correct: true },
-          { text: "Tôn trọng chủ quyền và lợi ích của nhau, ưu tiên giải quyết bất đồng thông qua thương lượng song phương.", correct: false },
-          { text: "Không can thiệp vào công việc nội bộ, đồng thời cho phép áp dụng biện pháp cưỡng chế khi lợi ích bị xâm phạm.", correct: false },
-          { text: "Bình đẳng, cùng có lợi và hạn chế sử dụng vũ lực trong các tranh chấp liên quan đến kinh tế, thương mại.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 6",
-        q: "Trong kinh tế đối ngoại, cần kết hợp ngay từ những khâu nào?",
-        options: [
-          { text: "Lựa chọn đối tác, phân bổ đầu tư, xây dựng và quản lý các khu chế xuất, đặc khu kinh tế liên doanh, liên kết với nước ngoài.", correct: true },
-          { text: "Tiếp cận thị trường, xúc tiến xuất khẩu, bảo hộ thương mại và hỗ trợ doanh nghiệp trong nước.", correct: false },
-          { text: "Lựa chọn đối tác, đàm phán thuế quan, quản lý dòng vốn và giám sát chuyển giao công nghệ.", correct: false },
-          { text: "Phân bổ lao động, xây dựng hạ tầng, quản lý chuyên gia và người lao động nước ngoài.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 6",
-        q: "Biện pháp đầu tiên để thực hiện kết hợp là gì?",
-        options: [
-          { text: "Tăng cường sự lãnh đạo của Đảng, hiệu lực quản lý của Nhà nước và hoàn thiện cơ chế, chính sách.", correct: true },
-          { text: "Giảm vai trò lãnh đạo của Đảng trong lĩnh vực kinh tế.", correct: false },
-          { text: "Giao toàn bộ nhiệm vụ cho từng địa phương tự quyết.", correct: false },
-          { text: "Thiên về dựa vào hoạt động tự phát của doanh nghiệp.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 6",
-        q: "Công nghiệp quốc phòng và công nghiệp an ninh có vị trí như thế nào trong công nghiệp quốc gia?",
-        options: [
-          { text: "Là bộ phận của công nghiệp quốc gia, phần quan trọng của thực lực và tiềm lực quốc phòng, an ninh.", correct: true },
-          { text: "Là lĩnh vực chuyên biệt của quốc phòng, an ninh, hoạt động độc lập với công nghiệp quốc gia.", correct: false },
-          { text: "Là ngành công nghiệp lưỡng dụng, chủ yếu sản xuất hàng dân dụng phục vụ phát triển kinh tế.", correct: false },
-          { text: "Là bộ phận dự trữ của nền kinh tế, chỉ được huy động để sản xuất quân sự khi có chiến tranh.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 6",
-        q: "Trong quan hệ quốc tế, Việt Nam xác định mình là gì?",
-        options: [
-          { text: "Là bạn, là đối tác tin cậy và thành viên có trách nhiệm của cộng đồng quốc tế.", correct: true },
-          { text: "Là quốc gia biệt lập, không tham gia hợp tác quốc tế.", correct: false },
-          { text: "Là quốc gia chỉ hợp tác khi có lợi ích kinh tế trước mắt.", correct: false },
-          { text: "Là quốc gia từ chối mọi cơ chế đa phương.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 6",
-        q: "Trong giải quyết vấn đề đối ngoại, mục tiêu cao nhất là gì?",
-        options: [
-          { text: "Lợi ích quốc gia - dân tộc.", correct: true },
-          { text: "Lợi ích của từng địa phương riêng lẻ.", correct: false },
-          { text: "Lợi ích kinh tế trước mắt bằng mọi giá.", correct: false },
-          { text: "Lợi ích của đối tác bên ngoài.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 6",
-        q: "Biện pháp về tinh thần yêu nước và đại đoàn kết toàn dân tộc hướng tới mục tiêu nào?",
-        options: [
-          { text: "“Dân giàu, nước mạnh, dân chủ, công bằng, văn minh”.", correct: true },
-          { text: "Củng cố liên minh giai cấp công nhân với giai cấp nông dân và đội ngũ trí thức.", correct: false },
-          { text: "Bảo đảm lợi ích chung của quốc gia - dân tộc và quyền lợi cơ bản của nhân dân.", correct: false },
-          { text: "Huy động mọi tầng lớp nhân dân tích cực tham gia xây dựng và bảo vệ Tổ quốc.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 6",
-        q: "Hiện nay nước ta được tổ chức thành mấy vùng kinh tế chính và mấy vùng kinh tế trọng điểm?",
-        options: [
-          { text: "Gồm 6 vùng kinh tế chính và 4 vùng kinh tế trọng điểm.", correct: true },
-          { text: "Gồm 7 vùng kinh tế chính và 5 vùng kinh tế trọng điểm.", correct: false },
-          { text: "Gồm 5 vùng kinh tế chính và 3 vùng kinh tế trọng điểm.", correct: false },
-          { text: "Gồm 8 vùng kinh tế chính và 6 vùng kinh tế trọng điểm.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 6",
-        q: "Một trong những nội dung kết hợp phát triển kinh tế - xã hội với tăng cường, củng cố quốc phòng, an ninh trong lĩnh vực công nghiệp?",
-        options: [
-          { text: "Tăng cường liên kết, phối hợp nghiên cứu, chế tạo các mặt hàng công nghiệp mang tính lưỡng dụng.", correct: true },
-          { text: "Kết hợp ngay từ khâu qui hoạch, xây dựng các khu công nghiệp, khu chế xuất.", correct: false },
-          { text: "Kết hợp ngay chiến lược đào tạo nhân lực của ngành công nghiệp.", correct: false },
-          { text: "Kết hợp ngay trong ý đồ bố trí mạng lưới công nghiệp quốc phòng.", correct: false }
-        ]
-      },
-      {
-        lesson: "Bài 6",
-        q: "Đối tượng tập trung bồi dưỡng nâng cao kiến thức, kinh nghiệm kết hợp phát triển kinh tế - xã hội với tăng cường, củng cố quốc phòng, an ninh và đối ngoại?",
-        options: [
-          { text: "Đội ngũ cán bộ chủ trì các cấp, các bộ, ngành, đoàn thể từ Trung ương đến địa phương, cơ sở.", correct: true },
-          { text: "Học sinh, sinh viên các trường cao đẳng, đại học.", correct: false },
-          { text: "Đội ngũ cán bộ chủ trì cấp xã.", correct: false },
-          { text: "Đội ngũ cán bộ của các Bộ, các ngành, từ trung ương đến cơ sở.", correct: false }
+          { text: "Làm tiêu hao đạn dược đắt tiền của địch và giữ bí mật, bảo toàn lực lượng thực sự của ta", correct: true },
+          { text: "Chỉ để phục vụ việc quay phim chụp ảnh tư liệu", correct: false },
+          { text: "Làm cản trở hoạt động cơ động tác chiến của bộ đội ta", correct: false },
+          { text: "Để thay thế hoàn toàn trận địa thật mà không cần chiến đấu", correct: false }
         ]
       }
     ];
@@ -2153,7 +534,7 @@
       if (mode === 'all') {
         pool = [...rawQuestionsData];
       } else {
-        // Mặc định: random20 (lấy 20 câu ngẫu nhiên từ toàn bộ ngân hàng)
+        // Mặc định: random20 (lấy 20 câu ngẫu nhiên từ ngân hàng câu hỏi HP3)
         const allShuffled = shuffleArray(rawQuestionsData);
         pool = allShuffled.slice(0, 20);
       }
@@ -2190,21 +571,12 @@
         card.className = 'bg-white p-5 md:p-6 rounded-xl shadow-sm border border-slate-200 transition duration-200';
         card.id = `card-q-${qIdx}`;
 
-        // Badge phân loại bài học
-        let lessonBadgeColor = 'bg-slate-100 text-slate-800';
-        if (item.lesson === 'Bài 1') lessonBadgeColor = 'bg-emerald-100 text-emerald-800';
-        if (item.lesson === 'Bài 2') lessonBadgeColor = 'bg-red-100 text-red-800';
-        if (item.lesson === 'Bài 3') lessonBadgeColor = 'bg-blue-100 text-blue-800';
-        if (item.lesson === 'Bài 4') lessonBadgeColor = 'bg-amber-100 text-amber-800';
-        if (item.lesson === 'Bài 5') lessonBadgeColor = 'bg-purple-100 text-purple-800';
-        if (item.lesson === 'Bài 6') lessonBadgeColor = 'bg-teal-100 text-teal-800';
-
         const title = document.createElement('h3');
         title.className = 'font-bold text-slate-800 text-base md:text-lg mb-4 flex items-start gap-2';
         title.innerHTML = `
           <div class="flex items-center gap-1.5 shrink-0 mt-0.5">
             <span class="bg-slate-200 text-slate-700 text-xs font-semibold px-2 py-0.5 rounded">Câu ${qIdx + 1}</span>
-            <span class="${lessonBadgeColor} text-xs font-semibold px-2 py-0.5 rounded whitespace-nowrap">${item.lesson}</span>
+            <span class="bg-emerald-100 text-emerald-800 text-xs font-semibold px-2 py-0.5 rounded whitespace-nowrap">${item.lesson}</span>
           </div>
           <span>${item.question}</span>
         `;
@@ -2222,7 +594,7 @@
           radio.type = 'radio';
           radio.name = `question-${qIdx}`;
           radio.value = optIdx;
-          radio.className = 'mt-1 text-red-700 focus:ring-red-600';
+          radio.className = 'mt-1 text-emerald-700 focus:ring-emerald-600';
 
           radio.addEventListener('change', () => {
             if (!isGraded) {
@@ -2257,9 +629,9 @@
       const labels = card.querySelectorAll('.option-label');
       labels.forEach((lbl, idx) => {
         if (idx === userAnswers[qIdx]) {
-          lbl.classList.add('bg-red-50', 'border-red-300', 'text-red-900');
+          lbl.classList.add('bg-emerald-50', 'border-emerald-300', 'text-emerald-900');
         } else {
-          lbl.classList.remove('bg-red-50', 'border-red-300', 'text-red-900');
+          lbl.classList.remove('bg-emerald-50', 'border-emerald-300', 'text-emerald-900');
         }
       });
     }
@@ -2304,8 +676,8 @@
 
         // Đổi màu đáp án chính xác
         const correctLabel = document.getElementById(`opt-label-${qIdx}-${correctOptIdx}`);
-        correctLabel.classList.remove('border-slate-200', 'bg-red-50', 'border-red-300');
-        correctLabel.classList.add('bg-emerald-50', 'border-emerald-500', 'text-emerald-900', 'font-medium');
+        correctLabel.classList.remove('border-slate-200', 'bg-emerald-50', 'border-emerald-300');
+        correctLabel.classList.add('bg-emerald-100', 'border-emerald-500', 'text-emerald-950', 'font-medium');
 
         if (selectedOptIdx === correctOptIdx) {
           correctAnswersCount++;
@@ -2317,7 +689,7 @@
           feedback.classList.add('bg-rose-100', 'text-rose-800');
           if (selectedOptIdx !== undefined) {
             const wrongLabel = document.getElementById(`opt-label-${qIdx}-${selectedOptIdx}`);
-            wrongLabel.classList.remove('bg-red-50', 'border-red-300');
+            wrongLabel.classList.remove('bg-emerald-50', 'border-emerald-300');
             wrongLabel.classList.add('bg-rose-50', 'border-rose-400', 'text-rose-900', 'line-through');
             feedback.innerHTML = `<i class="fa-solid fa-circle-xmark mr-1.5"></i> Chưa chính xác. Đáp án đúng là đáp án màu xanh.`;
           } else {
@@ -2342,7 +714,7 @@
         badge.className = 'w-20 h-20 mx-auto mb-4 rounded-full flex items-center justify-center text-3xl font-bold bg-emerald-100 text-emerald-600';
         badge.innerHTML = '<i class="fa-solid fa-trophy"></i>';
         title.textContent = "Xuất sắc!";
-        feedback.textContent = "Bạn đã nắm rất vững kiến thức các bài học!";
+        feedback.textContent = "Bạn đã nắm rất vững kiến thức Quân sự chung HP3!";
       } else if (score10 >= 6.5) {
         badge.className = 'w-20 h-20 mx-auto mb-4 rounded-full flex items-center justify-center text-3xl font-bold bg-blue-100 text-blue-800';
         badge.innerHTML = '<i class="fa-solid fa-star"></i>';
