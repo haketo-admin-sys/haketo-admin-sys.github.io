@@ -22,7 +22,7 @@
         <i class="fa-solid fa-shield-halved text-2xl text-yellow-400"></i>
         <div>
           <h1 class="text-base md:text-lg font-bold uppercase tracking-wide">GDQP&AN HP1 - Ôn Tập Tổng Hợp</h1>
-          <p class="text-xs text-red-200">Ngân hàng câu hỏi Bài 1, 2, 3, 4 và 5</p>
+          <p class="text-xs text-red-200">Ngân hàng câu hỏi Bài 1 đến Bài 6 (201 câu)</p>
         </div>
       </div>
       <button onclick="initQuiz()" class="bg-red-800 hover:bg-red-700 active:scale-95 text-xs md:text-sm font-semibold px-3 py-2 rounded-lg transition duration-200 flex items-center gap-1.5 shadow">
@@ -34,20 +34,15 @@
   <!-- Main Container -->
   <main class="max-w-4xl mx-auto px-4 py-6 flex-grow w-full">
     
-    <!-- Control & Filter Bar -->
+    <!-- Control Bar -->
     <div class="bg-white rounded-xl shadow-sm p-4 mb-6 border border-slate-200 flex flex-col md:flex-row md:items-center justify-between gap-4">
       <div class="flex flex-col sm:flex-row sm:items-center gap-3 w-full md:w-auto">
         <label for="mode-select" class="text-xs md:text-sm font-bold text-slate-700 whitespace-nowrap flex items-center gap-1.5">
-          <i class="fa-solid fa-filter text-red-800"></i> Chế độ làm bài:
+          <i class="fa-solid fa-sliders text-red-800"></i> Chế độ làm bài:
         </label>
         <select id="mode-select" onchange="initQuiz()" class="bg-slate-50 border border-slate-300 text-slate-800 text-xs md:text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block p-2 font-medium outline-none">
           <option value="random20">Thi thử ngẫu nhiên (20 câu)</option>
-          <option value="all">Tất cả bài (164 câu ngẫu nhiên)</option>
-          <option value="bai1">Chỉ Bài 1 (10 câu)</option>
-          <option value="bai2">Chỉ Bài 2 (40 câu)</option>
-          <option value="bai3">Chỉ Bài 3 (34 câu)</option>
-          <option value="bai4">Chỉ Bài 4 (40 câu)</option>
-          <option value="bai5">Chỉ Bài 5 (Xây dựng LLVTND - 40 câu)</option>
+          <option value="all">Tất cả bài (201 câu ngẫu nhiên)</option>
         </select>
       </div>
 
@@ -107,11 +102,11 @@
 
   <!-- Footer -->
   <footer class="bg-slate-800 text-slate-400 text-center py-4 text-xs">
-    Ngân hàng trắc nghiệm GDQP&AN Học phần 1 (Bài 1 -> 5) - Tự động trộn câu hỏi và đáp án ngẫu nhiên.
+    Ngân hàng trắc nghiệm GDQP&AN Học phần 1 (Bài 1 -> 6) - Tự động trộn câu hỏi và đáp án ngẫu nhiên.
   </footer>
 
   <script>
-    // Dữ liệu hợp nhất 164 câu hỏi từ cả 5 bài
+    // Dữ liệu hợp nhất 201 câu hỏi từ Bài 1 đến Bài 6
     const rawQuestionsData = [
       // ==================== BÀI 1 (10 câu) ====================
       {
@@ -1761,6 +1756,378 @@
           { text: "Luôn hoàn thành ba chức năng, và là lực lượng nòng cốt đi đầu giải quyết hiệu quả những nhiệm vụ khó khăn, phức tạp.", correct: false },
           { text: "Tuyệt đối trung thành với Đảng, Tổ quốc và nhân dân", correct: false }
         ]
+      },
+
+      // ==================== BÀI 6 (37 câu) ====================
+      {
+        lesson: "Bài 6",
+        q: "Theo quan điểm của Chủ nghĩa Marx-Lenin: Mối quan hệ giữa quốc phòng, an ninh và kinh tế?",
+        options: [
+          { text: "Kinh tế quyết định quốc phòng, an ninh và quốc phòng, an ninh có sự tác động trở lại đối với kinh tế.", correct: true },
+          { text: "Kinh tế quyết định quốc phòng, an ninh.", correct: false },
+          { text: "Quốc phòng, an ninh quyết định kinh tế.", correct: false },
+          { text: "Quốc phòng, an ninh và kinh tế không có mối quan hệ với nhau.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Ai đã khẳng định: “Không có gì phụ thuộc vào kinh tế tiên quyết hơn là chính quân đội và hạm đội”?",
+        options: [
+          { text: "Friedrich Engels", correct: true },
+          { text: "Carl von Clausewitz", correct: false },
+          { text: "Vladimir Ilyich Lenin", correct: false },
+          { text: "Karl Marx", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Tư tưởng Hồ Chí Minh về kết hợp kinh tế với quốc phòng, an ninh?",
+        options: [
+          { text: "Kinh tế và quốc phòng là hai lĩnh vực khác nhau nhưng đều có cái chung, cái thống nhất.", correct: true },
+          { text: "Kinh tế và quốc phòng là hai lĩnh vực khác nhau vì vậy không có mối quan hệ với nhau.", correct: false },
+          { text: "Kinh tế và quốc phòng là cùng một lĩnh vực nên có cái chung, cái thống nhất.", correct: false },
+          { text: "Kinh tế và quốc phòng cùng chung một lĩnh vực nhưng không có mối quan hệ với nhau.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Chủ trương “đi đôi với phát triển kinh tế, văn hóa phải chú trọng củng cố quốc phòng” được xác định tại Đại hội Đảng nào?",
+        options: [
+          { text: "Đại hội Đảng toàn quốc lần thứ III năm 1960.", correct: true },
+          { text: "Đại hội Đảng toàn quốc lần thứ I năm 1935.", correct: false },
+          { text: "Đại hội Đảng toàn quốc lần thứ II năm 1951.", correct: false },
+          { text: "Đại hội Đảng toàn quốc lần thứ IV năm 1976.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Kết hợp kinh tế với quốc phòng, an ninh được bắt nguồn từ truyền thống nào của dân tộc ta?",
+        options: [
+          { text: "Truyền thống “dựng nước phải đi đôi với giữ nước”.", correct: true },
+          { text: "Truyền thống “yêu nước”.", correct: false },
+          { text: "Truyền thống “đoàn kết toàn dân tộc”.", correct: false },
+          { text: "Truyền thống “lá lành đùm lá rách”.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Theo chủ nghĩa Marx - Lenin, kinh tế có vai trò thế nào đối với quốc phòng, an ninh?",
+        options: [
+          { text: "Kinh tế là yếu tố quyết định đến quốc phòng, an ninh.", correct: true },
+          { text: "Kinh tế chỉ hỗ trợ một phần nhỏ cho quốc phòng, an ninh.", correct: false },
+          { text: "Quốc phòng, an ninh quyết định tuyệt đối mọi hoạt động kinh tế.", correct: false },
+          { text: "Kinh tế và quốc phòng, an ninh không có quan hệ với nhau.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Theo tư tưởng Hồ Chí Minh, xây dựng kinh tế giữ vai trò nào trong quan hệ với quốc phòng, an ninh?",
+        options: [
+          { text: "Giữ vai trò quyết định trong mối quan hệ biện chứng với quốc phòng, an ninh.", correct: true },
+          { text: "Giữ vai trò hỗ trợ, chỉ được ưu tiên sau khi hoàn thành nhiệm vụ quốc phòng, an ninh.", correct: false },
+          { text: "Có vị trí ngang bằng với quốc phòng, an ninh và không lĩnh vực nào giữ vai trò quyết định.", correct: false },
+          { text: "Phụ thuộc chủ yếu vào yêu cầu quốc phòng, an ninh trong từng giai đoạn cách mạng.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Đại hội XIV của Đảng nhấn mạnh hướng xây dựng công nghiệp quốc phòng, công nghiệp an ninh như thế nào?",
+        options: [
+          { text: "Theo hướng lưỡng dụng, ngày càng hiện đại, có trình độ khoa học và công nghệ cao.", correct: true },
+          { text: "Theo hướng chuyên biệt, khép kín, ưu tiên tuyệt đối cho sản xuất các sản phẩm quân sự.", correct: false },
+          { text: "Theo hướng lưỡng dụng nhưng chủ yếu sử dụng công nghệ trung bình, phù hợp năng lực hiện có.", correct: false },
+          { text: "Theo hướng hiện đại hóa bằng nhập khẩu, hạn chế liên kết với công nghiệp quốc gia.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Kết hợp kinh tế với quốc phòng được các nước trên thế giới nhìn nhận là vấn đề có tính gì?",
+        options: [
+          { text: "Mang Tính quy luật chung cho mọi quốc gia, dân tộc.", correct: true },
+          { text: "Tính đặc thù chỉ xuất hiện ở các quốc gia đang xảy ra chiến tranh.", correct: false },
+          { text: "Tính tạm thời trong những giai đoạn kinh tế gặp khủng hoảng nghiêm trọng.", correct: false },
+          { text: "Tính tự phát phụ thuộc vào khả năng huy động nguồn lực của từng nhà nước.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Kết hợp theo vùng lãnh thổ nhằm tạo ra điều gì?",
+        options: [
+          { text: "Thế bố trí chiến lược mới cả về kinh tế và quốc phòng, an ninh trên từng vùng, địa bàn.", correct: true },
+          { text: "Hệ thống trung tâm kinh tế có khả năng hỗ trợ ngân sách cho nhiệm vụ quốc phòng, an ninh.", correct: false },
+          { text: "Mạng lưới khu vực phòng thủ độc lập với quy hoạch phát triển kinh tế - xã hội của địa phương.", correct: false },
+          { text: "Cơ chế phân cấp quản lý thống nhất giữa Trung ương với các tỉnh, thành phố trong vùng.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Ở vùng kinh tế trọng điểm, quy hoạch thành phố và khu công nghiệp cần chú ý yêu cầu nào?",
+        options: [
+          { text: "Chọn quy mô trung bình, bố trí phân tán, trải đều trên diện rộng.", correct: true },
+          { text: "Xây dựng quy mô lớn, tập trung thành các cụm đô thị - công nghiệp liên hoàn.", correct: false },
+          { text: "Chọn quy mô nhỏ, bố trí phân tán theo địa giới hành chính của từng địa phương.", correct: false },
+          { text: "Chọn quy mô trung bình nhưng tập trung chủ yếu quanh các đô thị trung tâm của vùng.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Ở vùng núi biên giới, cần quan tâm đầu tư phát triển kinh tế, xã hội gắn với địa bàn nào?",
+        options: [
+          { text: "Vùng cửa khẩu và vùng giáp biên giới với các nước.", correct: true },
+          { text: "Các trung tâm đô thị và khu công nghiệp nằm sâu trong nội địa.", correct: false },
+          { text: "Các khu kinh tế ven biển và đầu mối giao thông quốc tế đã phát triển.", correct: false },
+          { text: "Các vùng chuyên canh nông nghiệp tập trung ở khu vực đồng bằng.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Ở địa bàn chiến lược sát biên giới, lực lượng nào cần làm nòng cốt xây dựng khu kinh tế - quốc phòng?",
+        options: [
+          { text: "Lực lượng vũ trang.", correct: true },
+          { text: "Các doanh nghiệp nhà nước hoạt động trên địa bàn biên giới.", correct: false },
+          { text: "Chính quyền cấp xã và các tổ chức chính trị - xã hội ở cơ sở.", correct: false },
+          { text: "Các đơn vị kinh tế địa phương có khả năng đầu tư hạ tầng và dịch vụ.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Ở vùng biển, đảo, nội dung nào giúp dân bám trụ, sinh sống, làm ăn lâu dài?",
+        options: [
+          { text: "Có cơ chế hỗ trợ, khuyến khích dân ra đảo và phát triển các loại hình dịch vụ biển, đảo.", correct: true },
+          { text: "Tập trung ưu đãi các doanh nghiệp khai thác tài nguyên và chế biến hải sản trên đảo.", correct: false },
+          { text: "Đầu tư hệ thống cảng biển, kho tàng và trung tâm hậu cần nghề cá quy mô lớn.", correct: false },
+          { text: "Mở rộng du lịch biển, đảo theo mùa gắn với dịch vụ vận tải hành khách.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Lực lượng nào cần được chú trọng xây dựng để bảo vệ biển, đảo?",
+        options: [
+          { text: "Dân quân biển, hải đoàn tự vệ ngành Hàng hải, Cảnh sát biển và lực lượng Hải quân.", correct: true },
+          { text: "Hải quân và Cảnh sát biển, không tổ chức lực lượng vũ trang quần chúng trên biển.", correct: false },
+          { text: "Bộ đội Biên phòng, Kiểm ngư, lực lượng cứu hộ và các doanh nghiệp khai thác biển.", correct: false },
+          { text: "Dân quân tự vệ ven bờ, lực lượng hậu cần nghề cá và các đơn vị kinh tế - quốc phòng.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Tính lưỡng dụng trong phát triển công nghiệp được thể hiện ở yêu cầu nào?",
+        options: [
+          { text: "Mỗi nhà máy, xí nghiệp vừa có thể sản xuất hàng dân dụng, vừa có thể sản xuất hàng quân sự.", correct: true },
+          { text: "Mỗi nhà máy bố trí hai dây chuyền độc lập và chỉ sản xuất một loại sản phẩm trong từng thời kỳ.", correct: false },
+          { text: "Nhà máy dân dụng chỉ chuyển sang sản xuất hàng quân sự khi có lệnh động viên thời chiến.", correct: false },
+          { text: "Nhà máy công nghiệp quốc phòng chỉ sản xuất hàng quân sự để bảo đảm tính chuyên môn hóa.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Trong thời bình, nhà máy công nghiệp quốc phòng có nhiệm vụ nào ngoài sản xuất hàng quân sự?",
+        options: [
+          { text: "Sản xuất hàng dân sự chất lượng cao phục vụ tiêu dùng trong nước và xuất khẩu.", correct: true },
+          { text: "Duy trì năng lực sửa chữa, bảo quản vũ khí, trang bị và dự trữ vật tư kỹ thuật.", correct: false },
+          { text: "Tổ chức đào tạo công nhân kỹ thuật và chuyển giao công nghệ cho doanh nghiệp dân dụng.", correct: false },
+          { text: "Tham gia xây dựng các công trình hậu cần, kỹ thuật phục vụ khu vực phòng thủ.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Kết hợp trong nông, lâm, ngư nghiệp nhằm khai thác hiệu quả những tiềm năng nào?",
+        options: [
+          { text: "Đất, rừng, biển, đảo và lực lượng lao động.", correct: true },
+          { text: "Đất, rừng, nguồn nước nội địa và nguồn vốn đầu tư của địa phương.", correct: false },
+          { text: "Biển, đảo, khoáng sản, khoa học và công nghệ trong sản xuất nông nghiệp.", correct: false },
+          { text: "Lực lượng lao động, thị trường, hạ tầng giao thông và hệ thống dịch vụ nông thôn.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Kết hợp trong nông, lâm, ngư nghiệp góp phần xây dựng những thế trận nào?",
+        options: [
+          { text: "Thế trận phòng thủ và “thế trận lòng dân” vững chắc.", correct: true },
+          { text: "Thế trận quốc phòng toàn dân và thế trận an ninh nhân dân trên phạm vi cả nước.", correct: false },
+          { text: "Khu vực phòng thủ và hệ thống căn cứ hậu phương của từng vùng kinh tế trọng điểm.", correct: false },
+          { text: "Thế trận kinh tế và thế trận xã hội gắn với xây dựng nông thôn mới.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Trong giao thông vận tải, thiết kế, thi công công trình phải tính đến những nhu cầu nào?",
+        options: [
+          { text: "Nhu cầu thời bình, thời chiến; nhu cầu kinh tế, xã hội và quốc phòng, an ninh.", correct: true },
+          { text: "Nhu cầu dân sinh, thương mại, bảo vệ môi trường và phát triển đô thị.", correct: false },
+          { text: "Nhu cầu vận tải hàng hóa, du lịch, giao lưu quốc tế và kết nối vùng.", correct: false },
+          { text: "Nhu cầu quốc phòng, an ninh và cơ động lực lượng trong các tình huống chiến tranh.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Mạng lưới bưu chính viễn thông cần đáp ứng yêu cầu nào về quốc phòng, an ninh?",
+        options: [
+          { text: "Làm chỗ dựa cho mạng lưới thông tin của lực lượng vũ trang, bảo đảm lãnh đạo, chỉ đạo, chỉ huy thông suốt.", correct: true },
+          { text: "Phục vụ thông tin dân sinh rộng khắp và có khả năng dự phòng khi xảy ra thiên tai, sự cố.", correct: false },
+          { text: "Kết nối mạng thông tin quốc gia với mạng quốc tế, bảo đảm tốc độ và chất lượng dịch vụ.", correct: false },
+          { text: "Hỗ trợ quản lý hành chính địa phương và cung cấp thông tin khẩn cấp cho người dân.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Trong xây dựng cơ bản, mọi công trình phải tính đến yếu tố nào?",
+        options: [
+          { text: "Tự bảo vệ và có thể chuyển hóa phục vụ quốc phòng, an ninh, phòng thủ tác chiến và phòng thủ dân sự.", correct: true },
+          { text: "An toàn trong thi công, thuận lợi trong khai thác và giảm chi phí bảo trì công trình.", correct: false },
+          { text: "Hiệu quả kinh tế, phù hợp kiến trúc cảnh quan và khả năng mở rộng trong tương lai.", correct: false },
+          { text: "Khả năng phòng, chống thiên tai và thích ứng với biến đổi khí hậu tại địa phương.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Trong khoa học, công nghệ và giáo dục, cần đào tạo con người theo yêu cầu nào?",
+        options: [
+          { text: "Vừa hồng, vừa chuyên.", correct: true },
+          { text: "Giỏi chuyên môn, thành thạo công nghệ và có khả năng hội nhập quốc tế.", correct: false },
+          { text: "Có phẩm chất chính trị tốt, nắm vững kiến thức quốc phòng và an ninh.", correct: false },
+          { text: "Có năng lực đổi mới sáng tạo, khởi nghiệp và đáp ứng nhu cầu thị trường lao động.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Trong lĩnh vực y tế, cần xây dựng mô hình nào ở miền núi, biên giới, hải đảo?",
+        options: [
+          { text: "Mô hình quân, dân, y kết hợp.", correct: true },
+          { text: "Mô hình dân y kết hợp với mạng lưới y tế cơ sở của địa phương.", correct: false },
+          { text: "Mô hình quân y độc lập, cơ động hỗ trợ các địa bàn chiến lược khi cần thiết.", correct: false },
+          { text: "Mô hình y tế liên vùng kết hợp bệnh viện tuyến trên với các đội cấp cứu lưu động.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Trong thực hiện nhiệm vụ bảo vệ Tổ quốc, tổ chức biên chế lực lượng vũ trang phải phù hợp với điều gì?",
+        options: [
+          { text: "Điều kiện kinh tế và nhu cầu phòng thủ đất nước.", correct: true },
+          { text: "Quy mô dân số và tổ chức hành chính của từng địa phương, khu vực.", correct: false },
+          { text: "Khả năng ngân sách và yêu cầu huấn luyện, quản lý lực lượng trong thời bình.", correct: false },
+          { text: "Mức độ đe dọa an ninh và các cam kết hợp tác quốc phòng quốc tế.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Trong nhiệm vụ bảo vệ Tổ quốc, cần hoàn thiện chiến lược tổng thể nào?",
+        options: [
+          { text: "Kết hợp phát triển kinh tế, văn hóa, xã hội với tăng cường quốc phòng, an ninh, đối ngoại trong thời kỳ mới.", correct: true },
+          { text: "Kết hợp phát triển kinh tế, văn hóa, xã hội với mở rộng đối ngoại, không gắn với quốc phòng, an ninh.", correct: false },
+          { text: "Kết hợp quốc phòng, an ninh với đối ngoại, tách khỏi chiến lược phát triển kinh tế - xã hội.", correct: false },
+          { text: "Kết hợp phát triển vùng kinh tế trọng điểm với xây dựng khu vực phòng thủ ở từng địa phương.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Trong nhiệm vụ bảo vệ Tổ quốc, xây dựng “thế trận lòng dân” gắn với những thế trận nào?",
+        options: [
+          { text: "Thế trận quốc phòng toàn dân và thế trận an ninh nhân dân.", correct: true },
+          { text: "Thế trận quốc phòng toàn dân và hệ thống khu vực phòng thủ địa phương.", correct: false },
+          { text: "Thế trận an ninh nhân dân và thế bố trí lực lượng ở vùng biên giới, biển, đảo.", correct: false },
+          { text: "Thế trận quân sự và thế trận kinh tế trong các vùng chiến lược.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Hoạt động đối ngoại phải giữ vững nguyên tắc nào?",
+        options: [
+          { text: "Tôn trọng độc lập, chủ quyền, thống nhất, toàn vẹn lãnh thổ; không can thiệp vào công việc nội bộ; không dùng vũ lực hoặc đe dọa dùng vũ lực.", correct: true },
+          { text: "Tôn trọng chủ quyền và lợi ích của nhau, ưu tiên giải quyết bất đồng thông qua thương lượng song phương.", correct: false },
+          { text: "Không can thiệp vào công việc nội bộ, đồng thời cho phép áp dụng biện pháp cưỡng chế khi lợi ích bị xâm phạm.", correct: false },
+          { text: "Bình đẳng, cùng có lợi và hạn chế sử dụng vũ lực trong các tranh chấp liên quan đến kinh tế, thương mại.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Trong kinh tế đối ngoại, cần kết hợp ngay từ những khâu nào?",
+        options: [
+          { text: "Lựa chọn đối tác, phân bổ đầu tư, xây dựng và quản lý các khu chế xuất, đặc khu kinh tế liên doanh, liên kết với nước ngoài.", correct: true },
+          { text: "Tiếp cận thị trường, xúc tiến xuất khẩu, bảo hộ thương mại và hỗ trợ doanh nghiệp trong nước.", correct: false },
+          { text: "Lựa chọn đối tác, đàm phán thuế quan, quản lý dòng vốn và giám sát chuyển giao công nghệ.", correct: false },
+          { text: "Phân bổ lao động, xây dựng hạ tầng, quản lý chuyên gia và người lao động nước ngoài.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Biện pháp đầu tiên để thực hiện kết hợp là gì?",
+        options: [
+          { text: "Tăng cường sự lãnh đạo của Đảng, hiệu lực quản lý của Nhà nước và hoàn thiện cơ chế, chính sách.", correct: true },
+          { text: "Giảm vai trò lãnh đạo của Đảng trong lĩnh vực kinh tế.", correct: false },
+          { text: "Giao toàn bộ nhiệm vụ cho từng địa phương tự quyết.", correct: false },
+          { text: "Thiên về dựa vào hoạt động tự phát của doanh nghiệp.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Công nghiệp quốc phòng và công nghiệp an ninh có vị trí như thế nào trong công nghiệp quốc gia?",
+        options: [
+          { text: "Là bộ phận của công nghiệp quốc gia, phần quan trọng của thực lực và tiềm lực quốc phòng, an ninh.", correct: true },
+          { text: "Là lĩnh vực chuyên biệt của quốc phòng, an ninh, hoạt động độc lập với công nghiệp quốc gia.", correct: false },
+          { text: "Là ngành công nghiệp lưỡng dụng, chủ yếu sản xuất hàng dân dụng phục vụ phát triển kinh tế.", correct: false },
+          { text: "Là bộ phận dự trữ của nền kinh tế, chỉ được huy động để sản xuất quân sự khi có chiến tranh.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Trong quan hệ quốc tế, Việt Nam xác định mình là gì?",
+        options: [
+          { text: "Là bạn, là đối tác tin cậy và thành viên có trách nhiệm của cộng đồng quốc tế.", correct: true },
+          { text: "Là quốc gia biệt lập, không tham gia hợp tác quốc tế.", correct: false },
+          { text: "Là quốc gia chỉ hợp tác khi có lợi ích kinh tế trước mắt.", correct: false },
+          { text: "Là quốc gia từ chối mọi cơ chế đa phương.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Trong giải quyết vấn đề đối ngoại, mục tiêu cao nhất là gì?",
+        options: [
+          { text: "Lợi ích quốc gia - dân tộc.", correct: true },
+          { text: "Lợi ích của từng địa phương riêng lẻ.", correct: false },
+          { text: "Lợi ích kinh tế trước mắt bằng mọi giá.", correct: false },
+          { text: "Lợi ích của đối tác bên ngoài.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Biện pháp về tinh thần yêu nước và đại đoàn kết toàn dân tộc hướng tới mục tiêu nào?",
+        options: [
+          { text: "“Dân giàu, nước mạnh, dân chủ, công bằng, văn minh”.", correct: true },
+          { text: "Củng cố liên minh giai cấp công nhân với giai cấp nông dân và đội ngũ trí thức.", correct: false },
+          { text: "Bảo đảm lợi ích chung của quốc gia - dân tộc và quyền lợi cơ bản của nhân dân.", correct: false },
+          { text: "Huy động mọi tầng lớp nhân dân tích cực tham gia xây dựng và bảo vệ Tổ quốc.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Hiện nay nước ta được tổ chức thành mấy vùng kinh tế chính và mấy vùng kinh tế trọng điểm?",
+        options: [
+          { text: "Gồm 6 vùng kinh tế chính và 4 vùng kinh tế trọng điểm.", correct: true },
+          { text: "Gồm 7 vùng kinh tế chính và 5 vùng kinh tế trọng điểm.", correct: false },
+          { text: "Gồm 5 vùng kinh tế chính và 3 vùng kinh tế trọng điểm.", correct: false },
+          { text: "Gồm 8 vùng kinh tế chính và 6 vùng kinh tế trọng điểm.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Một trong những nội dung kết hợp phát triển kinh tế - xã hội với tăng cường, củng cố quốc phòng, an ninh trong lĩnh vực công nghiệp?",
+        options: [
+          { text: "Tăng cường liên kết, phối hợp nghiên cứu, chế tạo các mặt hàng công nghiệp mang tính lưỡng dụng.", correct: true },
+          { text: "Kết hợp ngay từ khâu qui hoạch, xây dựng các khu công nghiệp, khu chế xuất.", correct: false },
+          { text: "Kết hợp ngay chiến lược đào tạo nhân lực của ngành công nghiệp.", correct: false },
+          { text: "Kết hợp ngay trong ý đồ bố trí mạng lưới công nghiệp quốc phòng.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 6",
+        q: "Đối tượng tập trung bồi dưỡng nâng cao kiến thức, kinh nghiệm kết hợp phát triển kinh tế - xã hội với tăng cường, củng cố quốc phòng, an ninh và đối ngoại?",
+        options: [
+          { text: "Đội ngũ cán bộ chủ trì các cấp, các bộ, ngành, đoàn thể từ Trung ương đến địa phương, cơ sở.", correct: true },
+          { text: "Học sinh, sinh viên các trường cao đẳng, đại học.", correct: false },
+          { text: "Đội ngũ cán bộ chủ trì cấp xã.", correct: false },
+          { text: "Đội ngũ cán bộ của các Bộ, các ngành, từ trung ương đến cơ sở.", correct: false }
+        ]
       }
     ];
 
@@ -1783,17 +2150,7 @@
       const mode = document.getElementById('mode-select').value;
       let pool = [];
 
-      if (mode === 'bai1') {
-        pool = rawQuestionsData.filter(item => item.lesson === 'Bài 1');
-      } else if (mode === 'bai2') {
-        pool = rawQuestionsData.filter(item => item.lesson === 'Bài 2');
-      } else if (mode === 'bai3') {
-        pool = rawQuestionsData.filter(item => item.lesson === 'Bài 3');
-      } else if (mode === 'bai4') {
-        pool = rawQuestionsData.filter(item => item.lesson === 'Bài 4');
-      } else if (mode === 'bai5') {
-        pool = rawQuestionsData.filter(item => item.lesson === 'Bài 5');
-      } else if (mode === 'all') {
+      if (mode === 'all') {
         pool = [...rawQuestionsData];
       } else {
         // Mặc định: random20 (lấy 20 câu ngẫu nhiên từ toàn bộ ngân hàng)
@@ -1840,6 +2197,7 @@
         if (item.lesson === 'Bài 3') lessonBadgeColor = 'bg-blue-100 text-blue-800';
         if (item.lesson === 'Bài 4') lessonBadgeColor = 'bg-amber-100 text-amber-800';
         if (item.lesson === 'Bài 5') lessonBadgeColor = 'bg-purple-100 text-purple-800';
+        if (item.lesson === 'Bài 6') lessonBadgeColor = 'bg-teal-100 text-teal-800';
 
         const title = document.createElement('h3');
         title.className = 'font-bold text-slate-800 text-base md:text-lg mb-4 flex items-start gap-2';
