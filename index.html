@@ -22,7 +22,7 @@
         <i class="fa-solid fa-shield-halved text-2xl text-yellow-400"></i>
         <div>
           <h1 class="text-base md:text-lg font-bold uppercase tracking-wide">GDQP&AN HP1 - Ôn Tập Tổng Hợp</h1>
-          <p class="text-xs text-red-200">Ngân hàng câu hỏi Bài 2, Bài 3 và Bài 4</p>
+          <p class="text-xs text-red-200">Ngân hàng câu hỏi Bài 1, Bài 2, Bài 3 và Bài 4</p>
         </div>
       </div>
       <button onclick="initQuiz()" class="bg-red-800 hover:bg-red-700 active:scale-95 text-xs md:text-sm font-semibold px-3 py-2 rounded-lg transition duration-200 flex items-center gap-1.5 shadow">
@@ -41,8 +41,9 @@
           <i class="fa-solid fa-filter text-red-800"></i> Chế độ làm bài:
         </label>
         <select id="mode-select" onchange="initQuiz()" class="bg-slate-50 border border-slate-300 text-slate-800 text-xs md:text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block p-2 font-medium outline-none">
-          <option value="all">Tất cả bài (114 câu ngẫu nhiên)</option>
+          <option value="all">Tất cả bài (124 câu ngẫu nhiên)</option>
           <option value="random40">Thi thử ngẫu nhiên (40 câu)</option>
+          <option value="bai1">Chỉ Bài 1 (Đối tượng, phương pháp GDQP&AN - 10 câu)</option>
           <option value="bai2">Chỉ Bài 2 (Quan điểm Mác-Lênin & HCM - 40 câu)</option>
           <option value="bai3">Chỉ Bài 3 (Nền QPTD & ANND - 34 câu)</option>
           <option value="bai4">Chỉ Bài 4 (Chiến tranh nhân dân BVTQ - 40 câu)</option>
@@ -105,12 +106,114 @@
 
   <!-- Footer -->
   <footer class="bg-slate-800 text-slate-400 text-center py-4 text-xs">
-    Ngân hàng trắc nghiệm GDQP&AN Học phần 1 (Bài 2, 3, 4) - Tự động trộn câu hỏi và đáp án ngẫu nhiên.
+    Ngân hàng trắc nghiệm GDQP&AN Học phần 1 (Bài 1, 2, 3, 4) - Tự động trộn câu hỏi và đáp án ngẫu nhiên.
   </footer>
 
   <script>
-    // Dữ liệu hợp nhất 114 câu hỏi từ cả 3 bài
+    // Dữ liệu hợp nhất 124 câu hỏi từ cả 4 bài
     const rawQuestionsData = [
+      // ==================== BÀI 1 (10 câu) ====================
+      {
+        lesson: "Bài 1",
+        q: "Đối tượng nghiên cứu môn học giáo dục quốc phòng và an ninh là gì?",
+        options: [
+          { text: "Nghiên cứu về đường lối quốc phòng và an ninh của Đảng Cộng sản Việt Nam; công tác quốc phòng và an ninh; kỹ năng quân sự", correct: true },
+          { text: "Nghiên cứu về chiến lược xây dựng và bảo vệ Tổ quốc của Đảng, Nhà nước trong tình hình mới.", correct: false },
+          { text: "Nghiên cứu về chiến lược kinh tế, quốc phòng của Đảng, Nhà nước trong sự nghiệp đổi mới.", correct: false },
+          { text: "Nghiên cứu về chiến lược kinh tế, quốc phòng, an ninh và đối ngoại của Đảng, Nhà nước.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 1",
+        q: "Một trong những nội dung nghiên cứu về đường lối quốc phòng và an ninh của Đảng Cộng sản Việt Nam?",
+        options: [
+          { text: "Công tác quốc phòng và an ninh trong sự nghiệp xây dựng và bảo vệ Tổ quốc", correct: true },
+          { text: "Công tác đối ngoại và hội nhập quốc tế trong sự nghiệp bảo vệ Tổ quốc", correct: false },
+          { text: "Nghiên cứu khoa học – công nghệ phục vụ sự nghiệp quốc phòng và an ninh", correct: false },
+          { text: "Phòng chống chiến tranh xâm lược sử dụng vũ khí công nghệ cao.", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 1",
+        q: "Môn GDQP & AN nghiên cứu về lĩnh vực nào sau đây?",
+        options: [
+          { text: "Kỹ năng quân sự", correct: true },
+          { text: "Chính sách văn hóa – giáo dục của Nhà nước", correct: false },
+          { text: "Kỹ năng nghiên cứu khoa học quân sự", correct: false },
+          { text: "Quản lý tài chính trong quân đội nhân dân", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 1",
+        q: "Nhiệm vụ nghiên cứu môn GDQP&AN bao gồm những lĩnh vực nào?",
+        options: [
+          { text: "Tất cả đều đúng", correct: true },
+          { text: "Trang bị kiến thức cơ bản về quốc phòng và an ninh", correct: false },
+          { text: "Rèn luyện kỹ năng quân sự cần thiết", correct: false },
+          { text: "Nâng cao ý thức trách nhiệm, tự giác thực hiện nhiệm vụ quốc phòng và an ninh, sẵn sàng tham gia bảo vệ Tổ quốc Việt Nam xã hội chủ nghĩa", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 1",
+        q: "Nghiên cứu môn GDQP&AN dựa trên phương pháp luận nào sau đây?",
+        options: [
+          { text: "Chủ nghĩa Mác – Lênin, tư tưởng Hồ Chí Minh", correct: true },
+          { text: "Chủ nghĩa duy tâm khách quan lịch sử", correct: false },
+          { text: "Thuyết âm mưu và kinh nghiệm thực chứng", correct: false },
+          { text: "Phương pháp luận kinh tế thị trường hiện đại", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 1",
+        q: "Khi nghiên cứu môn GDQP&AN, cần vận dụng những quan điểm nào sau đây?",
+        options: [
+          { text: "Tất cả các quan điểm trên", correct: true },
+          { text: "Quan điểm hệ thống", correct: false },
+          { text: "Quan điểm lịch sử, logic", correct: false },
+          { text: "Quan điểm thực tiễn", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 1",
+        q: "Các phương pháp được sử dụng trong nghiên cứu môn GDQP&AN?",
+        options: [
+          { text: "Cả A, B đều đúng", correct: true },
+          { text: "Các phương pháp nghiên cứu lý thuyết", correct: false },
+          { text: "Các phương pháp nghiên cứu thực tiễn", correct: false },
+          { text: "Kết hợp phương pháp dạy học lý thuyết và thực hành", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 1",
+        q: "Chương trình GDQP&AN cho sinh viên các cơ sở giáo dục đại học là?",
+        options: [
+          { text: "04 học phần với tổng số 165 tiết cả lý thuyết và thực hành", correct: true },
+          { text: "03 học phần với tổng số 120 tiết cả lý thuyết và thực hành", correct: false },
+          { text: "05 học phần với tổng số 200 tiết cả lý thuyết và thực hành", correct: false },
+          { text: "04 học phần với tổng số 145 tiết cả lý thuyết và thực hành", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 1",
+        q: "Đánh giá kết quả sinh viên sau khi học xong chương trình giáo dục quốc phòng và an ninh là?",
+        options: [
+          { text: "Sinh viên phải dự thi kết thúc tất cả các học phần theo quy định, điểm học phần phải từ 5 điểm trở lên, đạt yêu cầu điểm rèn luyện", correct: true },
+          { text: "Sử dụng thành thạo các loại vũ khí bộ binh", correct: false },
+          { text: "Hoàn thành chương trình đào tạo, hay là không hoàn thành chương trình đào tạo", correct: false },
+          { text: "Hiểu biết chung về các quân, binh chủng trong quân đội", correct: false }
+        ]
+      },
+      {
+        lesson: "Bài 1",
+        q: "Giáo dục quốc phòng và an ninh có vị trí như thế nào trong chiến lược xây dựng và bảo vệ Tổ quốc?",
+        options: [
+          { text: "Có vị trí quan trọng hàng đầu trong chiến lược xây dựng và bảo vệ Tổ quốc Việt Nam xã hội chủ nghĩa.", correct: true },
+          { text: "Có vị trí hỗ trợ trong chiến lược xây dựng và bảo vệ Tổ quốc, chủ yếu phục vụ rèn luyện kỹ năng quân sự.", correct: false },
+          { text: "Có vị trí quan trọng trong huấn luyện lực lượng vũ trang và được thực hiện chủ yếu đối với quân nhân.", correct: false },
+          { text: "Có vị trí bổ trợ trong chiến lược phát triển giáo dục, chủ yếu gắn với giáo dục thể chất và hoạt động ngoại khóa.", correct: false }
+        ]
+      },
+
       // ==================== BÀI 2 (40 câu) ====================
       {
         lesson: "Bài 2",
@@ -1277,7 +1380,9 @@
       const mode = document.getElementById('mode-select').value;
       let pool = [];
 
-      if (mode === 'bai2') {
+      if (mode === 'bai1') {
+        pool = rawQuestionsData.filter(item => item.lesson === 'Bài 1');
+      } else if (mode === 'bai2') {
         pool = rawQuestionsData.filter(item => item.lesson === 'Bài 2');
       } else if (mode === 'bai3') {
         pool = rawQuestionsData.filter(item => item.lesson === 'Bài 3');
@@ -1288,7 +1393,7 @@
         const allShuffled = shuffleArray(rawQuestionsData);
         pool = allShuffled.slice(0, 40);
       } else {
-        // Mặc định: trộn tất cả 114 câu
+        // Mặc định: trộn tất cả 124 câu
         pool = [...rawQuestionsData];
       }
 
@@ -1325,7 +1430,8 @@
         card.id = `card-q-${qIdx}`;
 
         // Badge phân loại bài học
-        let lessonBadgeColor = 'bg-red-100 text-red-800';
+        let lessonBadgeColor = 'bg-emerald-100 text-emerald-800';
+        if (item.lesson === 'Bài 2') lessonBadgeColor = 'bg-red-100 text-red-800';
         if (item.lesson === 'Bài 3') lessonBadgeColor = 'bg-blue-100 text-blue-800';
         if (item.lesson === 'Bài 4') lessonBadgeColor = 'bg-amber-100 text-amber-800';
 
